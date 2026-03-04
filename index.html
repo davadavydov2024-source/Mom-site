@@ -3,187 +3,272 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>Для мамы ❤️</title>
-
-<!-- ❤️ ИКОНКА -->
-<link rel="icon" href="data:image/svg+xml,
-<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'>
-<text y='0.9em' font-size='90'>❤️</text>
-</svg>">
+<title>Для мамы 💖</title>
 
 <style>
+*{margin:0;padding:0;box-sizing:border-box}
+
 body{
-  margin:0;
-  font-family:-apple-system,BlinkMacSystemFont,"SF Pro Display",sans-serif;
-  background:linear-gradient(180deg,#ff3f8f,#ff7fbe,#ffe3f1);
-  color:white;
-  text-align:center;
+  font-family:-apple-system,BlinkMacSystemFont,"SF Pro Display","Segoe UI",sans-serif;
+  background:linear-gradient(180deg,#ff4f9a,#ff87bf,#ffd1e8);
+  overflow-x:hidden;
+  color:#4a1f33;
 }
 
-.section{
-  min-height:100vh;
-  padding:50px 22px;
+/* ===== СТРАНИЦЫ ===== */
+.pages{
+  height:100vh;
+  overflow-y:scroll;
+  scroll-snap-type:y mandatory;
+}
+
+.page{
+  height:100vh;
+  scroll-snap-align:start;
+  padding:32px;
   display:flex;
   flex-direction:column;
   justify-content:center;
   align-items:center;
+  text-align:center;
+  position:relative;
 }
 
+/* ===== ТЕКСТ ===== */
 h1{
-  font-size:52px;
-  margin-bottom:28px;
+  font-size:46px;
+  color:#fff;
+  text-shadow:0 6px 18px rgba(0,0,0,.25);
 }
 
-p{
-  font-size:26px;
+.subtitle{
+  margin-top:14px;
+  font-size:24px;
+  color:#ffe9f3;
+}
+
+.text{
+  max-width:420px;
+  font-size:20px;
   line-height:1.8;
-  max-width:380px;
-}
-
-/* 🎶 КНОПКА МУЗЫКИ */
-#musicBtn{
-  position:fixed;
-  bottom:24px;
-  left:50%;
-  transform:translateX(-50%);
-  background:#ff1f7a;
-  color:white;
-  border:none;
-  padding:18px 36px;
-  border-radius:40px;
-  font-size:22px;
-  font-weight:700;
-  box-shadow:0 12px 30px rgba(0,0,0,.35);
-  z-index:999;
-}
-
-/* 🖼 ФОТО */
-.photo{
-  width:90%;
-  max-width:380px;
+  background:rgba(255,255,255,.85);
+  padding:26px;
   border-radius:28px;
-  margin:24px 0;
-  box-shadow:0 20px 40px rgba(0,0,0,.35);
+  backdrop-filter:blur(14px);
+  box-shadow:0 25px 60px rgba(0,0,0,.18);
 }
 
-/* 🎁 ЛОТЕРЕЯ */
-.lottery{
-  margin-top:30px;
-  background:black;
-  color:white;
-  padding:26px 30px;
-  border-radius:20px;
-  font-size:22px;
-  font-weight:700;
-  cursor:pointer;
-  user-select:none;
+/* ===== ФОТО ===== */
+.photo img{
+  width:92%;
+  max-width:360px;
+  border-radius:30px;
+  box-shadow:0 30px 70px rgba(0,0,0,.35);
 }
 
-.secret{
-  margin-top:24px;
+.caption{
+  margin-top:16px;
+  font-size:18px;
+  color:#fff;
+}
+
+/* ===== ФИНАЛ ===== */
+.final{
+  background:radial-gradient(circle at top,#ff9ed2,#ff4f9a);
+  animation:shimmer 4s infinite;
+}
+
+.final h2{
   font-size:34px;
-  font-weight:800;
-  opacity:0;
-  transition:opacity 1s ease;
+  color:white;
 }
-.secret.show{
-  opacity:1;
+
+.final .from{
+  margin-top:14px;
+  font-size:20px;
+  color:#ffe9f3;
+}
+
+@keyframes shimmer{
+  0%{filter:brightness(1)}
+  50%{filter:brightness(1.15)}
+  100%{filter:brightness(1)}
+}
+
+/* ===== ПЕРВЫЙ ТАП ===== */
+.first-tap{
+  position:fixed;
+  inset:0;
+  background:radial-gradient(circle,#ff7abf,#ff3f8f);
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  font-size:28px;
+  color:white;
+  text-align:center;
+  z-index:999;
+  animation:glow 2s infinite;
+}
+
+@keyframes glow{
+  0%{opacity:.85}
+  50%{opacity:1}
+  100%{opacity:.85}
+}
+
+/* ===== ЦВЕТЫ ПО БОКАМ ===== */
+.side-flower{
+  position:fixed;
+  top:0;
+  width:120px;
+  height:100%;
+  background-size:contain;
+  background-repeat:repeat-y;
+  opacity:.35;
+  animation:floatSide 18s ease-in-out infinite;
+  pointer-events:none;
+}
+
+.left-flower{
+  left:0;
+  background-image:url("https://i.ibb.co/3FhKJkM/rose.png");
+}
+
+.right-flower{
+  right:0;
+  background-image:url("https://i.ibb.co/3WvZz6n/tulip.png");
+}
+
+@keyframes floatSide{
+  0%{transform:translateY(0)}
+  50%{transform:translateY(-80px)}
+  100%{transform:translateY(0)}
+}
+
+/* ===== МАГИЯ ===== */
+.heart{
+  position:fixed;
+  font-size:26px;
+  pointer-events:none;
+  animation:floatUp 6s linear forwards;
+}
+
+@keyframes floatUp{
+  from{transform:translateY(100vh);opacity:1}
+  to{transform:translateY(-20vh);opacity:0}
+}
+
+@keyframes secret{
+  0%{transform:translate(-50%,-50%) scale(.4);opacity:0}
+  40%{transform:translate(-50%,-60%) scale(1.2);opacity:1}
+  100%{transform:translate(-50%,-120%) scale(1.8);opacity:0}
 }
 </style>
 </head>
 
 <body>
 
-<!-- 🎶 МУЗЫКА -->
-<audio id="music" preload="auto">
-  <source src="24b0d8ed4ae4cb2.mp3" type="audio/mpeg">
+<div class="side-flower left-flower"></div>
+<div class="side-flower right-flower"></div>
+
+<div id="firstTap" class="first-tap">
+  Это от Артёма и Андрея 💖
+</div>
+
+<audio id="bgMusic" loop>
+  <source src="https://cdn.pixabay.com/audio/2022/03/15/audio_6c1b2a8c8b.mp3">
 </audio>
 
-<button id="musicBtn">▶ Включить музыку</button>
+<div class="pages">
 
-<!-- ЭКРАН 1 -->
-<div class="section">
-  <h1>Мама 💖</h1>
-  <p>
-    Этот сайт мы сделали специально для тебя.
-    Ты самая добрая, самая красивая и самая любимая мама.
-    Мы очень тебя любим и хотим,
-    чтобы ты всегда улыбалась.
-  </p>
-</div>
+<section class="page">
+  <h1>Мамочка 💖</h1>
+  <div class="subtitle">С 8 Марта тебя 🌸</div>
+</section>
 
-<!-- ЭКРАН 2 -->
-<div class="section">
-  <img class="photo" src="https://i.ibb.co/6JDxwj1v/IMG-0704.jpg" alt="Фото мамы">
-  <p>
-    Спасибо тебе за заботу,
-    за тепло, за поддержку
-    и за то, что ты всегда рядом.
-    С тобой нам спокойно и хорошо.
-  </p>
-</div>
-
-<!-- ЭКРАН 3 -->
-<div class="section">
-  <img class="photo" src="https://i.ibb.co/p69x2rzG/IMG-0705.jpg" alt="Фото мамы">
-  <p>
-    Мы гордимся тобой
-    и очень ценим всё,
-    что ты для нас делаешь.
-    Ты наше самое большое счастье.
-  </p>
-</div>
-
-<!-- ЭКРАН 4 — ЛОТЕРЕЯ -->
-<div class="section">
-  <p>
-    Здесь есть маленький секрет 🌷  
-    Нужно немного понажимать…
-  </p>
-
-  <div class="lottery" id="lottery">
-    🎁 кликай как лотерея
+<section class="page">
+  <div class="text">
+    Ты у нас самая добрая, самая красивая  
+    и самая лучшая мама на свете.  
+    Мы очень рады, что именно ты — наша мама 💕
   </div>
+</section>
 
-  <div class="secret" id="secret">
-    ЛЮБИМ 💖 ЦЕНИМ
+<section class="page">
+  <div class="text">
+    Спасибо тебе за заботу, тепло и любовь.  
+    Ты всегда рядом с нами  
+    и поддерживаешь нас ❤️
   </div>
-</div>
+</section>
 
-<!-- ЭКРАН 5 -->
-<div class="section">
-  <h1>Спасибо, что ты у нас есть ❤️</h1>
-  <p>
-    Мы всегда будем рядом
-    и будем стараться радовать тебя.
-    От твоих сыновей —
-    Артёма и Андрея.
-  </p>
+<section class="page photo">
+  <img id="photo1">
+  <div class="caption">Ты у нас самая красивая 🌷</div>
+</section>
+
+<section class="page">
+  <div class="text">
+    С тобой всегда спокойно,  
+    тепло и хорошо.  
+    Мы очень тебя любим 💞
+  </div>
+</section>
+
+<section class="page photo">
+  <img id="photo2">
+  <div class="caption">Навсегда в нашем сердце 💖</div>
+</section>
+
+<section class="page final">
+  <h2>Спасибо, что ты у нас есть 💖</h2>
+  <div class="from">Твои сыновья — Артём и Андрей</div>
+</section>
+
 </div>
 
 <script>
-/* 🎶 МУЗЫКА */
-const musicBtn = document.getElementById("musicBtn");
-const music = document.getElementById("music");
-
-musicBtn.onclick = () => {
-  music.volume = 0.6;
-  music.play();
-  musicBtn.style.display = "none";
+const photos={
+  photo1:"ССЫЛКА_НА_ФОТО_1",
+  photo2:"ССЫЛКА_НА_ФОТО_2"
 };
 
-/* 🎁 ЛОТЕРЕЯ */
-let clicks = 0;
-const lottery = document.getElementById("lottery");
-const secret = document.getElementById("secret");
+Object.keys(photos).forEach(id=>{
+  const img=document.getElementById(id);
+  if(img) img.src=photos[id];
+});
 
-lottery.onclick = () => {
-  clicks++;
-  if(clicks >= 15){
-    secret.classList.add("show");
+let started=false;
+
+document.addEventListener("click",e=>{
+  if(!started){
+    bgMusic.play();
+    firstTap.style.display="none";
+    started=true;
   }
-};
+  secretHeart(e.clientX,e.clientY);
+});
+
+function secretHeart(x,y){
+  const h=document.createElement("div");
+  h.innerHTML="💖";
+  h.style.position="fixed";
+  h.style.left=x+"px";
+  h.style.top=y+"px";
+  h.style.fontSize="40px";
+  h.style.animation="secret 1.6s ease forwards";
+  document.body.appendChild(h);
+  setTimeout(()=>h.remove(),1600);
+}
+
+setInterval(()=>{
+  const h=document.createElement("div");
+  h.className="heart";
+  h.innerHTML="💗";
+  h.style.left=Math.random()*100+"vw";
+  document.body.appendChild(h);
+  setTimeout(()=>h.remove(),6000);
+},800);
 </script>
 
 </body>
