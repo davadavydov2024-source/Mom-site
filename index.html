@@ -6,257 +6,279 @@
 <title>Для мамы 💖</title>
 
 <style>
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
+*{margin:0;padding:0;box-sizing:border-box}
+html,body{
+  height:100%;
+  overflow-x:hidden;
+  overscroll-behavior-y:contain;
+  font-family:-apple-system,BlinkMacSystemFont,"SF Pro Display",sans-serif;
 }
 
-html, body {
-  height: 100%;
-  overflow: hidden;
+/* ===== ОСНОВНОЙ ФОН ===== */
+body{
+  background:linear-gradient(180deg,#ff4fa3,#ff8fc7,#ffd6ea);
+  transition:background .6s;
 }
 
-body {
-  font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", sans-serif;
-  background: linear-gradient(180deg,#ff4fa3,#ff87c5,#ffd9ec);
-  color: #fff;
+body.night{
+  background:linear-gradient(180deg,#1b1026,#2a1638,#3b1f4f);
 }
 
-/* контейнер страниц */
-.pages {
-  height: 100vh;
-  overflow-y: scroll;
-  scroll-snap-type: y mandatory;
-  overscroll-behavior-x: none;
+/* ===== СКРОЛЛ ===== */
+.pages{
+  height:100vh;
+  overflow-y:scroll;
+  scroll-snap-type:y mandatory;
 }
 
-/* каждая страница */
-.page {
-  height: 100vh;
-  scroll-snap-align: start;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-  padding: 40px;
-  position: relative;
+.page{
+  height:100vh;
+  scroll-snap-align:start;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+  text-align:center;
+  padding:40px 24px;
+  position:relative;
 }
 
-/* запрет горизонтали */
-.pages, .page {
-  overflow-x: hidden;
+/* ===== ТЕКСТ ===== */
+h1{
+  color:#fff;
+  font-size:34px;
+  margin-bottom:20px;
+  text-shadow:0 6px 20px rgba(0,0,0,.25);
 }
 
-/* фоновые сердечки */
-.bg {
-  position: absolute;
-  inset: 0;
-  background-image:
-    radial-gradient(circle at 20% 30%,rgba(255,255,255,.15),transparent 40%),
-    radial-gradient(circle at 80% 70%,rgba(255,255,255,.12),transparent 40%);
-  z-index: 0;
+p{
+  color:#fff;
+  font-size:18px;
+  line-height:1.5;
+  max-width:320px;
 }
 
-/* текст */
-.content {
-  z-index: 2;
-  max-width: 500px;
+/* ===== АВАТАР 8 ===== */
+.avatar8{
+  width:130px;
+  height:130px;
+  border-radius:50%;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-size:70px;
+  font-weight:800;
+  color:#ff4f9a;
+  background:
+    radial-gradient(circle at top left,#fff,#ffd6ea 40%,#ff9fc9);
+  box-shadow:
+    0 20px 40px rgba(255,79,154,.35),
+    inset 0 0 20px rgba(255,255,255,.6);
+  animation:pulse 3s infinite;
+  margin-bottom:30px;
 }
 
-h1 {
-  font-size: 42px;
-  margin-bottom: 14px;
+@keyframes pulse{
+  0%,100%{transform:scale(1)}
+  50%{transform:scale(1.06)}
 }
 
-p {
-  font-size: 20px;
-  line-height: 1.6;
+/* ===== КНОПКИ ===== */
+button{
+  margin-top:26px;
+  padding:14px 28px;
+  border:none;
+  border-radius:30px;
+  font-size:16px;
+  background:#fff;
+  color:#ff4f9a;
+  box-shadow:0 12px 30px rgba(0,0,0,.25);
 }
 
-/* фото */
-.photo img {
-  width: 100%;
-  max-width: 320px;
-  border-radius: 26px;
-  box-shadow: 0 20px 60px rgba(0,0,0,.35);
+/* ===== СЕРДЕЧКИ ФОН ===== */
+.heart{
+  position:absolute;
+  font-size:18px;
+  opacity:.25;
+  animation:float 10s linear infinite;
 }
 
-/* кнопки */
-button {
-  margin-top: 20px;
-  padding: 14px 28px;
-  border-radius: 999px;
-  border: none;
-  font-size: 18px;
-  background: rgba(255,255,255,.9);
-  color: #ff3b8d;
-  cursor: pointer;
+@keyframes float{
+  from{transform:translateY(100vh)}
+  to{transform:translateY(-120vh)}
 }
 
-/* ночной режим */
-body.night {
-  background: linear-gradient(180deg,#1b1026,#3a1b4f,#2b133d);
+/* ===== НОЧНОЙ РЕЖИМ ===== */
+.night-toggle{
+  position:fixed;
+  right:16px;
+  bottom:16px;
+  background:rgba(0,0,0,.4);
+  color:#fff;
+  padding:10px 14px;
+  border-radius:20px;
+  font-size:14px;
+  z-index:10;
 }
 
-/* летающие сердечки */
-.heart {
-  position: fixed;
-  font-size: 20px;
-  animation: float 6s linear forwards;
-  pointer-events: none;
+/* ===== СЕКРЕТКА ===== */
+.hidden{display:none}
+
+/* ===== ЛАБИРИНТ ===== */
+.maze{
+  width:260px;
+  height:260px;
+  background:#fff;
+  border-radius:22px;
+  position:relative;
+  box-shadow:0 20px 40px rgba(0,0,0,.35);
+  overflow:hidden;
 }
 
-@keyframes float {
-  from { transform: translateY(100vh); opacity: 1; }
-  to { transform: translateY(-20vh); opacity: 0; }
+.wall{
+  position:absolute;
+  background:#ff9fc9;
 }
 
-/* секретка */
-#secret {
-  display: none;
-  background: linear-gradient(180deg,#111,#2b1340);
+.player{
+  width:20px;
+  height:20px;
+  background:#ff4f9a;
+  border-radius:50%;
+  position:absolute;
+  top:10px;
+  left:10px;
 }
 
-/* лабиринт */
-#maze {
-  width: 220px;
-  height: 220px;
-  background: #000;
-  margin: 20px auto;
-  display: grid;
-  grid-template-columns: repeat(11,1fr);
+.goal{
+  width:24px;
+  height:24px;
+  background:#6bffb8;
+  border-radius:50%;
+  position:absolute;
+  right:10px;
+  bottom:10px;
 }
-.cell {
-  border: 1px solid #333;
-}
-.wall { background:#333; }
-.player { background:#ff4fa3; }
-.exit { background:#6affb2; }
 
-/* призрак */
-#ghost {
-  font-size: 80px;
-  margin-top: 20px;
+/* ===== ПРИЗРАК ===== */
+#ghost{
+  font-size:60px;
+  animation:float 3s ease-in-out infinite;
 }
 </style>
 </head>
 
 <body>
 
-<audio id="music" src="music.mp3" loop></audio>
+<div class="pages">
 
-<div class="pages" id="pages">
-
-<!-- экран 1 -->
+<!-- ЭКРАН 1 -->
 <section class="page">
-  <div class="bg"></div>
-  <div class="content">
-    <h1>Это от Артёма и Андрея 💖</h1>
-    <p>Нажми на экран</p>
+  <div class="avatar8">8</div>
+  <h1>Это от Артёма и Андрея 💖</h1>
+  <p>Листай вниз ✨</p>
+</section>
+
+<!-- ЭКРАН 2 -->
+<section class="page">
+  <p>
+    Мамочка 💕  
+    Ты — самое тёплое и доброе,  
+    что есть в нашей жизни.  
+    Мы сделали этот сайт  
+    только для тебя ✨
+  </p>
+</section>
+
+<!-- ЭКРАН 3 -->
+<section class="page">
+  <h1>Секретный экран 🌸</h1>
+  <p>Если хочешь — попробуй наш мини-квест</p>
+  <button onclick="startQuest()">Мини-квест</button>
+</section>
+
+<!-- ЛАБИРИНТ -->
+<section class="page hidden" id="mazeScreen">
+  <h1>Найди выход 👌</h1>
+  <div class="maze" id="maze">
+    <div class="player" id="player"></div>
+    <div class="goal"></div>
+
+    <div class="wall" style="top:60px;left:0;width:200px;height:14px"></div>
+    <div class="wall" style="top:120px;left:60px;width:200px;height:14px"></div>
+    <div class="wall" style="top:180px;left:0;width:200px;height:14px"></div>
   </div>
 </section>
 
-<!-- экран 2 -->
-<section class="page">
-  <div class="bg"></div>
-  <div class="content photo">
-    <img src="https://i.ibb.co/6JDxwj1v/IMG-0704.jpg">
-  </div>
+<!-- ФОРМА -->
+<section class="page hidden" id="formScreen">
+  <h1>Ты справилась 💖</h1>
+  <input id="name" placeholder="Твоё имя"><br><br>
+  <input id="age" placeholder="Сколько тебе лет?"><br>
+  <button onclick="finish()">Готово</button>
 </section>
 
-<!-- экран 3 -->
-<section class="page">
-  <div class="bg"></div>
-  <div class="content photo">
-    <img src="https://i.ibb.co/p69x2rzG/IMG-0705.jpg">
-  </div>
-</section>
-
-<!-- экран 4 -->
-<section class="page">
-  <div class="bg"></div>
-  <div class="content">
-    <h1>Спасибо за заботу ❤️</h1>
-    <button onclick="finalHearts()">Любим</button>
-  </div>
-</section>
-
-<!-- СЕКРЕТНЫЙ -->
-<section class="page" id="secret">
-  <div class="content">
-    <h1>Секрет 💖</h1>
-    <p>Ты нашла пасхалку!</p>
-    <button onclick="startQuest()">Мини-квест</button>
-
-    <div id="maze"></div>
-
-    <input id="name" placeholder="Твоё имя"><br>
-    <input id="age" placeholder="Сколько тебе лет"><br>
-    <button onclick="finishQuest()">Готово</button>
-
-    <div id="ghost"></div>
-    <p id="ghostText"></p>
-  </div>
+<!-- ФИНАЛ -->
+<section class="page hidden" id="finalScreen">
+  <div id="ghost">👻</div>
+  <p id="ghostText"></p>
 </section>
 
 </div>
 
+<div class="night-toggle" onclick="toggleNight()">🌙 Ночь</div>
+
 <script>
-let clicks = 0;
-let music = document.getElementById("music");
+/* НОЧЬ */
+function toggleNight(){
+  document.body.classList.toggle("night");
+}
 
-document.body.addEventListener("click",()=>{
-  music.play();
-  clicks++;
-  if(clicks===15){
-    document.getElementById("secret").style.display="flex";
-    document.getElementById("pages").scrollTo({
-      top: document.getElementById("pages").scrollHeight,
-      behavior: "smooth"
-    });
-  }
-});
-
-/* сердечки */
-setInterval(()=>{
-  let h=document.createElement("div");
+/* СЕРДЦА */
+for(let i=0;i<18;i++){
+  const h=document.createElement("div");
   h.className="heart";
-  h.innerText="💖";
+  h.innerText="♡";
   h.style.left=Math.random()*100+"vw";
+  h.style.animationDuration=8+Math.random()*6+"s";
   document.body.appendChild(h);
-  setTimeout(()=>h.remove(),6000);
-},700);
-
-/* финал */
-function finalHearts(){
-  for(let i=0;i<40;i++){
-    let h=document.createElement("div");
-    h.className="heart";
-    h.innerText="💖";
-    h.style.left=Math.random()*100+"vw";
-    h.style.fontSize="28px";
-    document.body.appendChild(h);
-    setTimeout(()=>h.remove(),6000);
-  }
 }
 
-/* мини игра */
+/* СЕКРЕТКА */
 function startQuest(){
-  document.getElementById("maze").innerHTML="";
-  for(let i=0;i<121;i++){
-    let c=document.createElement("div");
-    c.className="cell";
-    document.getElementById("maze").appendChild(c);
-  }
+  document.getElementById("mazeScreen").classList.remove("hidden");
+  document.querySelector(".pages").scrollTo({top:innerHeight*3,behavior:"smooth"});
 }
 
-function finishQuest(){
-  let name=document.getElementById("name").value;
-  let ghost=document.getElementById("ghost");
-  ghost.innerText="👻";
+/* ЛАБИРИНТ */
+let x=10,y=10;
+const player=document.getElementById("player");
+
+document.addEventListener("touchmove",e=>{
+  e.preventDefault();
+  const t=e.touches[0];
+  x+=t.movementX||0;
+  y+=t.movementY||0;
+  x=Math.max(0,Math.min(236,x));
+  y=Math.max(0,Math.min(236,y));
+  player.style.left=x+"px";
+  player.style.top=y+"px";
+
+  if(x>210 && y>210){
+    document.getElementById("formScreen").classList.remove("hidden");
+    document.getElementById("mazeScreen").classList.add("hidden");
+  }
+},{passive:false});
+
+/* ФИНАЛ */
+function finish(){
+  const n=document.getElementById("name").value||"героиня";
   document.getElementById("ghostText").innerText=
-  `Молодец, ${name}! Ты прошла мою игру, я тебя не съем :) `;
+   `Молодец, ${n}! 💖  
+   Ты прошла мою игру.  
+   Я тебя не съем :( `;
+  document.getElementById("finalScreen").classList.remove("hidden");
+  document.getElementById("formScreen").classList.add("hidden");
 }
 </script>
 
