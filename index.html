@@ -6,141 +6,184 @@
 
 <title>Для мамы ❤️</title>
 
-<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='0.9em' font-size='90'>❤️</text></svg>">
+<!-- ❤️ ИКОНКА -->
+<link rel="icon" href="data:image/svg+xml,
+<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'>
+<text y='0.9em' font-size='90'>❤️</text>
+</svg>">
 
 <style>
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
+body{
+  margin:0;
+  font-family:-apple-system,BlinkMacSystemFont,"SF Pro Display",sans-serif;
+  background:linear-gradient(180deg,#ff3f8f,#ff7fbe,#ffe3f1);
+  color:white;
+  text-align:center;
 }
 
-body {
-  font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", sans-serif;
-  background: linear-gradient(180deg, #fff0f5, #ffe6ef, #fff);
-  color: #5b2432;
-  overflow-x: hidden;
+.section{
+  min-height:100vh;
+  padding:50px 22px;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  align-items:center;
 }
 
-.pages {
-  height: 100vh;
-  overflow-y: scroll;
-  scroll-snap-type: y mandatory;
+h1{
+  font-size:52px;
+  margin-bottom:28px;
 }
 
-.page {
-  height: 100vh;
-  scroll-snap-align: start;
-  padding: 70px 24px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  position: relative;
+p{
+  font-size:26px;
+  line-height:1.8;
+  max-width:380px;
 }
 
-.text {
-  max-width: 900px;
-  font-size: 23px;
-  line-height: 1.8;
-  text-align: center;
-  animation: fadeUp 1.4s ease;
+/* 🎶 КНОПКА МУЗЫКИ */
+#musicBtn{
+  position:fixed;
+  bottom:24px;
+  left:50%;
+  transform:translateX(-50%);
+  background:#ff1f7a;
+  color:white;
+  border:none;
+  padding:18px 36px;
+  border-radius:40px;
+  font-size:22px;
+  font-weight:700;
+  box-shadow:0 12px 30px rgba(0,0,0,.35);
+  z-index:999;
 }
 
-@keyframes fadeUp {
-  from { opacity: 0; transform: translateY(40px); }
-  to { opacity: 1; transform: translateY(0); }
+/* 🖼 ФОТО */
+.photo{
+  width:90%;
+  max-width:380px;
+  border-radius:28px;
+  margin:24px 0;
+  box-shadow:0 20px 40px rgba(0,0,0,.35);
 }
 
-button {
-  font-size: 26px;
-  padding: 18px 36px;
-  border-radius: 50px;
-  border: none;
-  background: linear-gradient(135deg, #ff7aa2, #ff3f7f);
-  color: white;
-  cursor: pointer;
-  box-shadow: 0 14px 35px rgba(255, 63, 127, 0.4);
+/* 🎁 ЛОТЕРЕЯ */
+.lottery{
+  margin-top:30px;
+  background:black;
+  color:white;
+  padding:26px 30px;
+  border-radius:20px;
+  font-size:22px;
+  font-weight:700;
+  cursor:pointer;
+  user-select:none;
 }
 
-.petals span {
-  position: fixed;
-  top: -10%;
-  font-size: 22px;
-  animation: fall linear infinite;
-  opacity: 0.6;
+.secret{
+  margin-top:24px;
+  font-size:34px;
+  font-weight:800;
+  opacity:0;
+  transition:opacity 1s ease;
 }
-
-@keyframes fall {
-  to {
-    transform: translateY(110vh) rotate(360deg);
-  }
+.secret.show{
+  opacity:1;
 }
 </style>
 </head>
 
 <body>
 
-<!-- МУЗЫКА -->
+<!-- 🎶 МУЗЫКА -->
 <audio id="music" preload="auto">
   <source src="24b0d8ed4ae4cb2.mp3" type="audio/mpeg">
 </audio>
 
-<!-- ЛЕПЕСТКИ -->
-<div class="petals">
-  <span style="left:10%; animation-duration:18s">🌸</span>
-  <span style="left:25%; animation-duration:22s">🌷</span>
-  <span style="left:40%; animation-duration:20s">🌹</span>
-  <span style="left:60%; animation-duration:24s">🌸</span>
-  <span style="left:75%; animation-duration:19s">🌺</span>
-  <span style="left:90%; animation-duration:26s">🌷</span>
+<button id="musicBtn">▶ Включить музыку</button>
+
+<!-- ЭКРАН 1 -->
+<div class="section">
+  <h1>Мама 💖</h1>
+  <p>
+    Этот сайт мы сделали специально для тебя.
+    Ты самая добрая, самая красивая и самая любимая мама.
+    Мы очень тебя любим и хотим,
+    чтобы ты всегда улыбалась.
+  </p>
 </div>
 
-<div class="pages">
+<!-- ЭКРАН 2 -->
+<div class="section">
+  <img class="photo" src="https://i.ibb.co/6JDxwj1v/IMG-0704.jpg" alt="Фото мамы">
+  <p>
+    Спасибо тебе за заботу,
+    за тепло, за поддержку
+    и за то, что ты всегда рядом.
+    С тобой нам спокойно и хорошо.
+  </p>
+</div>
 
-  <!-- СТРАНИЦА 1 -->
-  <div class="page">
-    <button id="playBtn">▶ Включить музыку</button>
+<!-- ЭКРАН 3 -->
+<div class="section">
+  <img class="photo" src="https://i.ibb.co/p69x2rzG/IMG-0705.jpg" alt="Фото мамы">
+  <p>
+    Мы гордимся тобой
+    и очень ценим всё,
+    что ты для нас делаешь.
+    Ты наше самое большое счастье.
+  </p>
+</div>
+
+<!-- ЭКРАН 4 — ЛОТЕРЕЯ -->
+<div class="section">
+  <p>
+    Здесь есть маленький секрет 🌷  
+    Нужно немного понажимать…
+  </p>
+
+  <div class="lottery" id="lottery">
+    🎁 кликай как лотерея
   </div>
 
-  <!-- СТРАНИЦА 2 -->
-  <div class="page">
-    <div class="text">
-      Мамочка, этот сайт создан с мыслью о тебе.  
-      В каждом слове здесь — спокойствие, тепло и благодарность.  
-      Ты тот человек, рядом с которым всегда безопасно, уютно и по-настоящему хорошо.  
-      Иногда мир бывает шумным, быстрым и сложным, но ты всегда остаёшься тем самым местом, где можно просто выдохнуть и почувствовать любовь.
-    </div>
+  <div class="secret" id="secret">
+    ЛЮБИМ 💖 ЦЕНИМ
   </div>
+</div>
 
-  <!-- СТРАНИЦА 3 -->
-  <div class="page">
-    <div class="text">
-      Ты учила меня быть добрым, внимательным и не бояться чувств.  
-      Ты поддерживала, когда было трудно, и радовалась даже самым маленьким победам.  
-      Этот сайт — маленький подарок, но в нём большое чувство.  
-      Пусть музыка играет мягко, а лепестки напоминают, как ты наполняешь всё вокруг красотой.
-    </div>
-  </div>
-
-  <!-- СТРАНИЦА 4 -->
-  <div class="page">
-    <div class="text">
-      Спасибо тебе за всё, что ты делаешь каждый день — часто незаметно, но от всего сердца.  
-      Пусть у тебя будет больше спокойных моментов, тёплых улыбок и радостных дней.  
-      Ты очень ценна, ты очень любима, и это навсегда. ❤️
-    </div>
-  </div>
-
+<!-- ЭКРАН 5 -->
+<div class="section">
+  <h1>Спасибо, что ты у нас есть ❤️</h1>
+  <p>
+    Мы всегда будем рядом
+    и будем стараться радовать тебя.
+    От твоих сыновей —
+    Артёма и Андрея.
+  </p>
 </div>
 
 <script>
-const btn = document.getElementById('playBtn');
-const music = document.getElementById('music');
+/* 🎶 МУЗЫКА */
+const musicBtn = document.getElementById("musicBtn");
+const music = document.getElementById("music");
 
-btn.addEventListener('click', () => {
+musicBtn.onclick = () => {
+  music.volume = 0.6;
   music.play();
-  btn.style.display = 'none';
-});
+  musicBtn.style.display = "none";
+};
+
+/* 🎁 ЛОТЕРЕЯ */
+let clicks = 0;
+const lottery = document.getElementById("lottery");
+const secret = document.getElementById("secret");
+
+lottery.onclick = () => {
+  clicks++;
+  if(clicks >= 15){
+    secret.classList.add("show");
+  }
+};
 </script>
 
 </body>
