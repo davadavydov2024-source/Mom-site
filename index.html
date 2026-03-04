@@ -3,9 +3,9 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Для мамы 💖</title>
+<title>Для мамы ❤️</title>
 
-<!-- ❤️ ИКОНКА СЕРДЦЕ -->
+<!-- ❤️ ИКОНКА САЙТА -->
 <link rel="icon" href="data:image/svg+xml,
 <svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'>
 <text y='0.9em' font-size='90'>❤️</text>
@@ -13,10 +13,11 @@
 
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
+
 body{
   font-family:-apple-system,BlinkMacSystemFont,"SF Pro Display",sans-serif;
   background:linear-gradient(180deg,#ff5fa2,#ff8fcf,#ffd1e8);
-  color:#fff;
+  color:white;
   overflow:hidden;
 }
 
@@ -29,7 +30,7 @@ body{
 .page{
   height:100vh;
   scroll-snap-align:start;
-  padding:44px 26px;
+  padding:40px 24px;
   display:flex;
   flex-direction:column;
   justify-content:center;
@@ -38,6 +39,7 @@ body{
 }
 
 h1,h2{
+  font-size:34px;
   font-weight:800;
   margin-bottom:20px;
   animation:float 6s ease-in-out infinite;
@@ -46,8 +48,7 @@ h1,h2{
 p{
   font-size:18px;
   line-height:1.6;
-  max-width:600px;
-  animation:fadeUp 1.2s ease both;
+  max-width:360px;
 }
 
 img{
@@ -59,7 +60,7 @@ img{
 }
 
 .flowers{
-  position:absolute;
+  position:fixed;
   inset:0;
   pointer-events:none;
   background:
@@ -68,29 +69,26 @@ img{
   opacity:.25;
 }
 
-@keyframes fadeUp{
-  from{opacity:0;transform:translateY(20px)}
-  to{opacity:1;transform:translateY(0)}
-}
 @keyframes float{
   0%,100%{transform:translateY(0)}
   50%{transform:translateY(-8px)}
 }
 
-/* 🎶 TAP */
-#tap{
+/* 🎵 КНОПКА МУЗЫКИ */
+#musicButton{
   position:fixed;
-  inset:0;
-  background:radial-gradient(circle,#ff8fcf,#ff5fa2);
-  display:flex;
-  flex-direction:column;
-  justify-content:center;
-  align-items:center;
-  z-index:999;
-  font-size:26px;
-  font-weight:800;
+  bottom:20px;
+  left:50%;
+  transform:translateX(-50%);
+  background:#ff2f92;
+  color:white;
+  padding:14px 28px;
+  border-radius:30px;
+  font-size:18px;
+  font-weight:700;
+  z-index:9999;
+  box-shadow:0 12px 30px rgba(0,0,0,.3);
 }
-#tap span{font-size:18px;margin-top:10px}
 </style>
 </head>
 
@@ -98,13 +96,11 @@ img{
 
 <!-- 🎶 МУЗЫКА -->
 <audio id="music" loop>
-  <source src="music.mp3" type="audio/mpeg">
+  <source src="https://cdn.pixabay.com/download/audio/2022/03/15/audio_1b9b6dbf63.mp3" type="audio/mpeg">
 </audio>
 
-<div id="tap">
-  Нажми 💖
-  <span>это от Артёма и Андрея</span>
-</div>
+<!-- ❤️ КНОПКА -->
+<div id="musicButton" onclick="playMusic()">▶ Включить музыку</div>
 
 <div class="flowers"></div>
 
@@ -113,38 +109,40 @@ img{
   <section class="page">
     <h1>Мама 💐</h1>
     <p>
-      Привет, наша самая любимая мама на свете. Мы хотим сказать тебе самые
-      добрые слова, потому что ты у нас самая лучшая, самая красивая,
-      самая добрая и самая заботливая. Мы очень любим, когда ты улыбаешься,
-      когда обнимаешь нас и когда просто рядом. Нам всегда тепло и спокойно,
-      если ты с нами.
+      Привет, наша самая любимая мама на свете.
+      Мы сделали этот сайт специально для тебя,
+      потому что очень тебя любим.
+      Ты у нас самая добрая, самая красивая
+      и самая заботливая мама.
     </p>
   </section>
 
   <section class="page">
     <img src="https://i.ibb.co/6JDxwj1v/IMG-0704.jpg" alt="мама">
     <p>
-      Спасибо тебе за каждый день, за вкусные завтраки, за помощь с уроками,
-      за сказки, за добрые слова и за то, что ты всегда нас понимаешь.
-      Ты самая терпеливая мама и самая нежная. Мы очень стараемся быть
-      хорошими, потому что ты этого заслуживаешь.
+      Спасибо тебе за каждый день,
+      за вкусную еду, за помощь,
+      за добрые слова и тёплые объятия.
+      Нам всегда хорошо и спокойно,
+      когда ты рядом с нами.
     </p>
   </section>
 
   <section class="page">
     <img src="https://i.ibb.co/p69x2rzG/IMG-0705.jpg" alt="мама">
     <p>
-      Мы желаем тебе всегда быть счастливой, чтобы у тебя было хорошее
-      настроение, чтобы ты чаще отдыхала и улыбалась. Пусть у тебя будет
-      много цветов, радости и приятных сюрпризов. Мы всегда будем рядом,
-      будем тебя слушаться и очень-очень любить.
+      Мы хотим, чтобы ты всегда улыбалась,
+      была счастливой и радостной.
+      Пусть у тебя будет много цветов,
+      хорошего настроения и приятных сюрпризов.
     </p>
   </section>
 
   <section class="page">
     <h2>Спасибо, что ты у нас есть ❤️</h2>
     <p>
-      Мы тебя любим, ценим и обнимаем крепко-крепко.
+      Мы тебя очень любим, ценим
+      и всегда будем рядом.
       Твои сыновья Артём и Андрей 💖
     </p>
   </section>
@@ -152,33 +150,13 @@ img{
 </div>
 
 <script>
-const music=document.getElementById("music");
-const tap=document.getElementById("tap");
-tap.onclick=()=>{
-  music.volume=0;
+function playMusic(){
+  const music=document.getElementById("music");
+  music.volume=0.5;
   music.play();
-  let v=0;
-  const fade=setInterval(()=>{
-    v+=0.02;
-    music.volume=Math.min(v,0.5);
-    if(v>=0.5)clearInterval(fade);
-  },120);
-  tap.style.opacity=0;
-  setTimeout(()=>tap.remove(),800);
-};
+  document.getElementById("musicButton").innerText="🎶 Музыка играет";
+}
 </script>
-<!-- 🎵 Музыка -->
-<audio id="bg-music" loop>
-  <source src="https://cdn.pixabay.com/audio/2022/10/16/audio_3b6d8f6c94.mp3" type="audio/mpeg">
-</audio>
 
-<script>
-  // запуск музыки после первого касания (iPhone правило)
-  document.addEventListener('click', () => {
-    const music = document.getElementById('bg-music');
-    music.volume = 0.4; // тихо и нежно
-    music.play();
-  }, { once: true });
-</script>
 </body>
 </html>
