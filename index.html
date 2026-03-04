@@ -3,135 +3,150 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Для мамули 💖</title>
+<title>Для мамы 💖</title>
 
 <style>
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
+*{margin:0;padding:0;box-sizing:border-box}
+
+body{
+  font-family:-apple-system,BlinkMacSystemFont,"SF Pro Display",sans-serif;
+  background:linear-gradient(180deg,#ff2f92,#ff6fb7,#ffd6ea);
+  color:#3b0f25;
+  overflow-x:hidden;
 }
 
-body {
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-  background: linear-gradient(180deg, #ffe4ec, #fff7fa);
-  overflow-x: hidden;
+.pages{
+  height:100vh;
+  overflow-y:scroll;
+  scroll-snap-type:y mandatory;
 }
 
-/* СТРАНИЦЫ */
-.pages {
-  scroll-snap-type: y mandatory;
-  overflow-y: scroll;
-  height: 100vh;
+.page{
+  height:100vh;
+  scroll-snap-align:start;
+  padding:44px 26px;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  align-items:center;
+  text-align:center;
+  position:relative;
 }
 
-.page {
-  height: 100vh;
-  scroll-snap-align: start;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  padding: 30px;
-  text-align: center;
+/* ===== БОКОВЫЕ ЦВЕТЫ ===== */
+.side-flower{
+  position:absolute;
+  top:0;
+  bottom:0;
+  width:80px;
+  opacity:0.35;
+  background-size:cover;
+  background-position:center;
+  filter:blur(1px);
+  pointer-events:none;
 }
 
-/* ПЕРВЫЙ ЭКРАН */
-.hero {
-  background: linear-gradient(180deg, #ffb3c6, #ffe4ec);
+.left{left:-10px}
+.right{right:-10px}
+
+.page::before{
+  content:"";
+  position:absolute;
+  inset:0;
+  background:radial-gradient(circle at center,rgba(255,255,255,.35),transparent 70%);
 }
 
-h1 {
-  font-size: 44px;
-  color: #ff4d6d;
+/* ===== ТЕКСТ ===== */
+h1{
+  font-size:48px;
+  color:#fff;
+  text-shadow:0 8px 24px rgba(0,0,0,.25);
 }
 
-.subtitle {
-  margin-top: 12px;
-  font-size: 24px;
-  color: #7a2c3e;
+.subtitle{
+  margin-top:14px;
+  font-size:22px;
+  color:#ffe6f1;
 }
 
-.hint {
-  margin-top: 40px;
-  font-size: 14px;
-  opacity: 0.6;
+.text{
+  background:rgba(255,255,255,.92);
+  padding:28px;
+  border-radius:30px;
+  font-size:18px;
+  line-height:1.75;
+  max-width:420px;
+  box-shadow:0 20px 50px rgba(0,0,0,.2);
 }
 
-/* ТЕКСТ */
-.text {
-  font-size: 20px;
-  line-height: 1.8;
-  color: #444;
-  max-width: 420px;
+/* ===== ФОТО ===== */
+.photo img{
+  width:90%;
+  max-width:340px;
+  border-radius:32px;
+  box-shadow:0 25px 60px rgba(0,0,0,.35);
 }
 
-/* МЯГКИЕ ЭКРАНЫ */
-.soft {
-  background: linear-gradient(180deg, #fff, #fff0f5);
+.caption{
+  margin-top:14px;
+  font-size:16px;
+  color:#fff;
 }
 
-/* ФОТО */
-.photo img {
-  width: 90%;
-  max-width: 340px;
-  border-radius: 26px;
-  box-shadow: 0 20px 50px rgba(0,0,0,0.2);
+/* ===== ФИНАЛ ===== */
+.final{
+  background:linear-gradient(180deg,#ff8fc6,#ff2f92);
 }
 
-.caption {
-  margin-top: 14px;
-  font-size: 16px;
-  color: #ff4d6d;
+.final h2{
+  font-size:34px;
+  color:#fff;
 }
 
-/* ФИНАЛ */
-.final {
-  background: linear-gradient(180deg, #ffccd5, #fff);
+.from{
+  margin-top:14px;
+  font-size:20px;
+  color:#ffe6f1;
 }
 
-.final h2 {
-  font-size: 32px;
-  color: #ff4d6d;
+/* ===== ПЕРВЫЙ ТАП ===== */
+.first-tap{
+  position:fixed;
+  inset:0;
+  background:linear-gradient(180deg,#ff2f92,#ff6fb7);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  text-align:center;
+  font-size:26px;
+  color:white;
+  z-index:999;
+  animation:pulse 2s infinite;
 }
 
-.from {
-  margin-top: 12px;
-  font-size: 18px;
-  color: #444;
+@keyframes pulse{
+  0%{opacity:.85}
+  50%{opacity:1}
+  100%{opacity:.85}
 }
 
-/* СЕРДЦА И ЦВЕТЫ */
-.heart, .flower {
-  position: fixed;
-  font-size: 22px;
-  animation: floatUp 6s linear forwards;
-  pointer-events: none;
+/* ===== АНИМАЦИИ ===== */
+.heart,.flower{
+  position:fixed;
+  font-size:24px;
+  pointer-events:none;
+  animation:floatUp 6s linear forwards;
 }
 
-@keyframes floatUp {
-  from {
-    transform: translateY(100vh) scale(1);
-    opacity: 1;
-  }
-  to {
-    transform: translateY(-20vh) scale(1.6);
-    opacity: 0;
-  }
+@keyframes floatUp{
+  from{transform:translateY(100vh) scale(1);opacity:1}
+  to{transform:translateY(-20vh) scale(1.6);opacity:0}
 }
 
-/* ПЕРВЫЙ ТАП */
-.first-tap {
-  position: fixed;
-  inset: 0;
-  background: linear-gradient(180deg, #ffb3c6, #ff7aa2);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-  font-size: 26px;
-  color: white;
-  z-index: 999;
+@keyframes tapHeart{
+  0%{transform:scale(.3);opacity:0}
+  40%{transform:scale(1.3);opacity:1}
+  100%{transform:scale(1.8);opacity:0}
 }
 </style>
 </head>
@@ -140,27 +155,30 @@ h1 {
 
 <!-- ПЕРВЫЙ ТАП -->
 <div id="firstTap" class="first-tap">
-  Это от Артёма и Андрея 💖
+  Это от Артёма и Андрея 💖<br><br>
+  Нажми на экран
 </div>
 
 <!-- МУЗЫКА -->
-<audio id="bgMusic" loop>
-  <source src="https://cdn.pixabay.com/audio/2022/03/15/audio_6c1b2a8c8b.mp3">
+<audio id="music" loop>
+  <source src="24b0d8ed4ae4cb2.mp3" type="audio/mpeg">
 </audio>
 
 <div class="pages">
 
-  <section class="page hero">
+  <section class="page">
+    <div class="side-flower left" style="background-image:url('https://i.imgur.com/6QpZQpR.png')"></div>
+    <div class="side-flower right" style="background-image:url('https://i.imgur.com/YZ8FQpT.png')"></div>
+
     <h1>Мамочка 💖</h1>
     <div class="subtitle">С 8 Марта тебя 🌸</div>
-    <div class="hint">Листай вниз ⬇️</div>
   </section>
 
-  <section class="page soft">
+  <section class="page">
     <div class="text">
-      Ты у нас самая добрая, самая красивая  
-      и самая лучшая мама на свете.  
-      Мы очень рады, что именно ты — наша мама 💕
+      Ты у нас самая добрая, самая красивая и самая лучшая мама на свете.
+      Мы очень рады, что именно ты — наша мама. Ты делаешь каждый наш день
+      тёплым, уютным и счастливым 💕
     </div>
   </section>
 
@@ -169,23 +187,17 @@ h1 {
     <div class="caption">Ты у нас самая красивая 🌷</div>
   </section>
 
-  <section class="page soft">
+  <section class="page">
     <div class="text">
-      Спасибо тебе за заботу, тепло и любовь.  
-      Ты всегда рядом с нами и поддерживаешь ❤️
+      Спасибо тебе за заботу, поддержку и любовь.
+      Ты всегда рядом, всегда понимаешь и помогаешь.
+      Мы очень тебя ценим и любим всем сердцем ❤️
     </div>
   </section>
 
   <section class="page photo">
     <img src="https://allwebs.ru/image/IMG-0704.pKI0gi">
     <div class="caption">Мы тебя очень любим 💖</div>
-  </section>
-
-  <section class="page soft">
-    <div class="text">
-      Пусть каждый твой день будет светлым,  
-      радостным и наполненным счастьем 🌸
-    </div>
   </section>
 
   <section class="page final">
@@ -196,40 +208,40 @@ h1 {
 </div>
 
 <script>
-let started = false;
+let started=false;
 
-document.addEventListener("click", e => {
-  if (!started) {
-    document.getElementById("bgMusic").play();
-    document.getElementById("firstTap").style.display = "none";
-    started = true;
+document.addEventListener("click",e=>{
+  if(!started){
+    document.getElementById("music").play();
+    document.getElementById("firstTap").style.display="none";
+    started=true;
   }
-  magic(e.clientX, e.clientY);
+  tapHeart(e.clientX,e.clientY);
 });
 
-function magic(x, y) {
-  const h = document.createElement("div");
-  h.innerHTML = "💖";
-  h.style.position = "fixed";
-  h.style.left = x + "px";
-  h.style.top = y + "px";
-  h.style.fontSize = "36px";
-  h.style.animation = "floatUp 2s ease forwards";
+function tapHeart(x,y){
+  const h=document.createElement("div");
+  h.innerHTML="💖";
+  h.style.position="fixed";
+  h.style.left=x+"px";
+  h.style.top=y+"px";
+  h.style.fontSize="40px";
+  h.style.animation="tapHeart 1.4s ease forwards";
   document.body.appendChild(h);
-  setTimeout(() => h.remove(), 2000);
+  setTimeout(()=>h.remove(),1400);
 }
 
-function create(type, emoji) {
-  const el = document.createElement("div");
-  el.className = type;
-  el.innerHTML = emoji;
-  el.style.left = Math.random() * 100 + "vw";
-  document.body.appendChild(el);
-  setTimeout(() => el.remove(), 6000);
+function float(type,emoji){
+  const e=document.createElement("div");
+  e.className=type;
+  e.innerHTML=emoji;
+  e.style.left=Math.random()*100+"vw";
+  document.body.appendChild(e);
+  setTimeout(()=>e.remove(),6000);
 }
 
-setInterval(() => create("heart", "💗"), 700);
-setInterval(() => create("flower", "🌸"), 1200);
+setInterval(()=>float("heart","💗"),800);
+setInterval(()=>float("flower","🌸"),1400);
 </script>
 
 </body>
