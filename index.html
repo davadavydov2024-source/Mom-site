@@ -8,6 +8,8 @@
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
 
+html{scroll-behavior:smooth}
+
 body{
   font-family:-apple-system,BlinkMacSystemFont,"SF Pro Display",sans-serif;
   background:linear-gradient(180deg,#ff2f92,#ff6fb7,#ffd6ea);
@@ -15,6 +17,7 @@ body{
   overflow-x:hidden;
 }
 
+/* ===== СТРАНИЦЫ ===== */
 .pages{
   height:100vh;
   overflow-y:scroll;
@@ -24,7 +27,7 @@ body{
 .page{
   height:100vh;
   scroll-snap-align:start;
-  padding:44px 26px;
+  padding:50px 26px;
   display:flex;
   flex-direction:column;
   justify-content:center;
@@ -33,34 +36,31 @@ body{
   position:relative;
 }
 
-/* ===== БОКОВЫЕ ЦВЕТЫ ===== */
-.side-flower{
-  position:absolute;
-  top:0;
-  bottom:0;
-  width:80px;
-  opacity:0.35;
-  background-size:cover;
-  background-position:center;
-  filter:blur(1px);
-  pointer-events:none;
-}
-
-.left{left:-10px}
-.right{right:-10px}
-
+/* ===== ГЛУБИНА ===== */
 .page::before{
   content:"";
   position:absolute;
   inset:0;
   background:radial-gradient(circle at center,rgba(255,255,255,.35),transparent 70%);
+  z-index:0;
+}
+
+.page > *{
+  position:relative;
+  z-index:1;
+  animation:fadeUp 1.6s ease both;
+}
+
+@keyframes fadeUp{
+  from{opacity:0;transform:translateY(40px)}
+  to{opacity:1;transform:translateY(0)}
 }
 
 /* ===== ТЕКСТ ===== */
 h1{
-  font-size:48px;
+  font-size:52px;
   color:#fff;
-  text-shadow:0 8px 24px rgba(0,0,0,.25);
+  text-shadow:0 12px 30px rgba(0,0,0,.25);
 }
 
 .subtitle{
@@ -69,22 +69,37 @@ h1{
   color:#ffe6f1;
 }
 
+.big-words{
+  font-size:38px;
+  letter-spacing:6px;
+  color:#fff;
+  opacity:.85;
+}
+
+/* ===== КАРТОЧКИ ===== */
 .text{
-  background:rgba(255,255,255,.92);
-  padding:28px;
-  border-radius:30px;
+  background:rgba(255,255,255,.88);
+  backdrop-filter:blur(14px);
+  padding:30px;
+  border-radius:34px;
   font-size:18px;
   line-height:1.75;
   max-width:420px;
-  box-shadow:0 20px 50px rgba(0,0,0,.2);
+  box-shadow:0 30px 80px rgba(0,0,0,.25);
 }
 
 /* ===== ФОТО ===== */
 .photo img{
   width:90%;
   max-width:340px;
-  border-radius:32px;
-  box-shadow:0 25px 60px rgba(0,0,0,.35);
+  border-radius:34px;
+  box-shadow:0 30px 80px rgba(0,0,0,.4);
+  transform:scale(.96);
+  transition:transform .8s ease;
+}
+
+.photo img:hover{
+  transform:scale(1);
 }
 
 .caption{
@@ -99,12 +114,12 @@ h1{
 }
 
 .final h2{
-  font-size:34px;
+  font-size:36px;
   color:#fff;
 }
 
 .from{
-  margin-top:14px;
+  margin-top:16px;
   font-size:20px;
   color:#ffe6f1;
 }
@@ -121,7 +136,7 @@ h1{
   font-size:26px;
   color:white;
   z-index:999;
-  animation:pulse 2s infinite;
+  animation:pulse 2.4s infinite;
 }
 
 @keyframes pulse{
@@ -130,36 +145,34 @@ h1{
   100%{opacity:.85}
 }
 
-/* ===== АНИМАЦИИ ===== */
+/* ===== МАГИЯ ===== */
 .heart,.flower{
   position:fixed;
   font-size:24px;
   pointer-events:none;
-  animation:floatUp 6s linear forwards;
+  animation:floatUp 8s linear forwards;
 }
 
 @keyframes floatUp{
   from{transform:translateY(100vh) scale(1);opacity:1}
-  to{transform:translateY(-20vh) scale(1.6);opacity:0}
+  to{transform:translateY(-30vh) scale(1.8);opacity:0}
 }
 
 @keyframes tapHeart{
   0%{transform:scale(.3);opacity:0}
   40%{transform:scale(1.3);opacity:1}
-  100%{transform:scale(1.8);opacity:0}
+  100%{transform:scale(2);opacity:0}
 }
 </style>
 </head>
 
 <body>
 
-<!-- ПЕРВЫЙ ТАП -->
 <div id="firstTap" class="first-tap">
   Это от Артёма и Андрея 💖<br><br>
   Нажми на экран
 </div>
 
-<!-- МУЗЫКА -->
 <audio id="music" loop>
   <source src="24b0d8ed4ae4cb2.mp3" type="audio/mpeg">
 </audio>
@@ -167,37 +180,38 @@ h1{
 <div class="pages">
 
   <section class="page">
-    <div class="side-flower left" style="background-image:url('https://i.imgur.com/6QpZQpR.png')"></div>
-    <div class="side-flower right" style="background-image:url('https://i.imgur.com/YZ8FQpT.png')"></div>
-
     <h1>Мамочка 💖</h1>
-    <div class="subtitle">С 8 Марта тебя 🌸</div>
+    <div class="subtitle">Ты — наше счастье</div>
   </section>
 
   <section class="page">
     <div class="text">
-      Ты у нас самая добрая, самая красивая и самая лучшая мама на свете.
-      Мы очень рады, что именно ты — наша мама. Ты делаешь каждый наш день
-      тёплым, уютным и счастливым 💕
+      Наш дом самый тёплый, потому что в нём есть ты.
+      Ты наполняешь его любовью, заботой и светом.
+      Мы очень тебя любим 💕
     </div>
   </section>
 
   <section class="page photo">
     <img src="https://allwebs.ru/image/IMG-0705.pKIpeL">
-    <div class="caption">Ты у нас самая красивая 🌷</div>
+    <div class="caption">Ты невероятная 🌸</div>
   </section>
 
   <section class="page">
     <div class="text">
-      Спасибо тебе за заботу, поддержку и любовь.
-      Ты всегда рядом, всегда понимаешь и помогаешь.
-      Мы очень тебя ценим и любим всем сердцем ❤️
+      Ты всегда рядом — в радости и в трудные моменты.
+      Нам спокойно, когда ты рядом.
+      Спасибо тебе за всё ❤️
     </div>
   </section>
 
   <section class="page photo">
     <img src="https://allwebs.ru/image/IMG-0704.pKI0gi">
-    <div class="caption">Мы тебя очень любим 💖</div>
+    <div class="caption">Мы тобой гордимся 💖</div>
+  </section>
+
+  <section class="page">
+    <div class="big-words">ЛЮБИМ • ЦЕНИМ • ГОРДИМСЯ</div>
   </section>
 
   <section class="page final">
@@ -225,10 +239,10 @@ function tapHeart(x,y){
   h.style.position="fixed";
   h.style.left=x+"px";
   h.style.top=y+"px";
-  h.style.fontSize="40px";
-  h.style.animation="tapHeart 1.4s ease forwards";
+  h.style.fontSize="42px";
+  h.style.animation="tapHeart 1.6s ease forwards";
   document.body.appendChild(h);
-  setTimeout(()=>h.remove(),1400);
+  setTimeout(()=>h.remove(),1600);
 }
 
 function float(type,emoji){
@@ -237,11 +251,11 @@ function float(type,emoji){
   e.innerHTML=emoji;
   e.style.left=Math.random()*100+"vw";
   document.body.appendChild(e);
-  setTimeout(()=>e.remove(),6000);
+  setTimeout(()=>e.remove(),8000);
 }
 
-setInterval(()=>float("heart","💗"),800);
-setInterval(()=>float("flower","🌸"),1400);
+setInterval(()=>float("heart","💗"),900);
+setInterval(()=>float("flower","🌸"),1500);
 </script>
 
 </body>
