@@ -3,132 +3,143 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <title>Для мамы ❤️</title>
 
-<!-- ❤️ ИКОНКА -->
-<link rel="icon" href="data:image/svg+xml,
-<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'>
-<text y='0.9em' font-size='90'>❤️</text>
-</svg>">
-
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;800&family=Montserrat:wght@500;600&display=swap" rel="stylesheet">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='0.9em' font-size='90'>❤️</text></svg>">
 
 <style>
-body{
-  margin:0;
-  background:linear-gradient(180deg,#ff2f92,#ff7fc8,#ffe3f1);
-  color:white;
-  text-align:center;
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-.page{
-  min-height:100vh;
-  display:flex;
-  flex-direction:column;
-  justify-content:center;
-  align-items:center;
-  padding:50px 26px;
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", sans-serif;
+  background: linear-gradient(180deg, #fff0f5, #ffe6ef, #fff);
+  color: #5b2432;
+  overflow-x: hidden;
 }
 
-h1,h2{
-  font-family:'Playfair Display', serif;
+.pages {
+  height: 100vh;
+  overflow-y: scroll;
+  scroll-snap-type: y mandatory;
 }
 
-h1{ font-size:58px; margin-bottom:30px; }
-h2{ font-size:52px; margin-bottom:26px; }
-
-p{
-  font-family:'Montserrat', sans-serif;
-  font-size:28px;
-  line-height:1.9;
-  max-width:400px;
+.page {
+  height: 100vh;
+  scroll-snap-align: start;
+  padding: 70px 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
 }
 
-#musicBtn{
-  position:fixed;
-  bottom:26px;
-  left:50%;
-  transform:translateX(-50%);
-  background:linear-gradient(135deg,#ff1f8f,#ff5fb7);
-  color:white;
-  border:none;
-  padding:22px 42px;
-  border-radius:50px;
-  font-size:22px;
-  font-weight:700;
-  box-shadow:0 18px 40px rgba(0,0,0,.35);
-  z-index:999;
+.text {
+  max-width: 900px;
+  font-size: 23px;
+  line-height: 1.8;
+  text-align: center;
+  animation: fadeUp 1.4s ease;
+}
+
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(40px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+button {
+  font-size: 26px;
+  padding: 18px 36px;
+  border-radius: 50px;
+  border: none;
+  background: linear-gradient(135deg, #ff7aa2, #ff3f7f);
+  color: white;
+  cursor: pointer;
+  box-shadow: 0 14px 35px rgba(255, 63, 127, 0.4);
+}
+
+.petals span {
+  position: fixed;
+  top: -10%;
+  font-size: 22px;
+  animation: fall linear infinite;
+  opacity: 0.6;
+}
+
+@keyframes fall {
+  to {
+    transform: translateY(110vh) rotate(360deg);
+  }
 }
 </style>
 </head>
 
 <body>
 
-<!-- 🎵 МУЗЫКА -->
-<audio id="music" loop>
-  <source src="music.mp3" type="audio/mpeg">
+<!-- МУЗЫКА -->
+<audio id="music" preload="auto">
+  <source src="24b0d8ed4ae4cb2.mp3" type="audio/mpeg">
 </audio>
 
-<button id="musicBtn">▶ Включить музыку</button>
-
-<div class="page">
-  <h1>Мама 💖</h1>
-  <p>
-    Мама, мы сделали этот сайт специально для тебя,
-    потому что ты для нас самый важный человек на свете.
-    Ты всегда рядом, когда нам радостно и когда немного грустно.
-    Ты помогаешь нам, поддерживаешь и всегда веришь в нас.
-    Нам очень нравится проводить с тобой время,
-    разговаривать, смеяться и просто быть рядом.
-    Мы очень сильно тебя любим.
-  </p>
+<!-- ЛЕПЕСТКИ -->
+<div class="petals">
+  <span style="left:10%; animation-duration:18s">🌸</span>
+  <span style="left:25%; animation-duration:22s">🌷</span>
+  <span style="left:40%; animation-duration:20s">🌹</span>
+  <span style="left:60%; animation-duration:24s">🌸</span>
+  <span style="left:75%; animation-duration:19s">🌺</span>
+  <span style="left:90%; animation-duration:26s">🌷</span>
 </div>
 
-<div class="page">
-  <h2>Спасибо тебе ❤️</h2>
-  <p>
-    Спасибо тебе за каждое утро, когда ты нас будишь.
-    Спасибо за вкусную еду, за заботу и за тепло.
-    Спасибо за то, что ты всегда нас защищаешь
-    и учишь быть добрыми и честными.
-    Нам очень повезло, что у нас такая мама.
-    Мы гордимся тобой и всегда будем тебя любить.
-  </p>
-</div>
+<div class="pages">
 
-<div class="page">
-  <h2>Ты самая лучшая 🌷</h2>
-  <p>
-    Мы хотим, чтобы ты всегда улыбалась
-    и чтобы у тебя было хорошее настроение.
-    Пусть у тебя будет много радости,
-    счастья и красивых цветов.
-    Мы обещаем стараться радовать тебя
-    и помогать во всём, что сможем.
-    Мы всегда будем рядом.
-  </p>
-</div>
+  <!-- СТРАНИЦА 1 -->
+  <div class="page">
+    <button id="playBtn">▶ Включить музыку</button>
+  </div>
 
-<div class="page">
-  <h2>От нас 💖</h2>
-  <p>
-    Этот сайт сделан с любовью,
-    потому что ты самая лучшая мама.
-    Мы очень тебя ценим и любим.
-    Спасибо, что ты у нас есть.
-    Твои сыновья —
-    Артём и Андрей.
-  </p>
+  <!-- СТРАНИЦА 2 -->
+  <div class="page">
+    <div class="text">
+      Мамочка, этот сайт создан с мыслью о тебе.  
+      В каждом слове здесь — спокойствие, тепло и благодарность.  
+      Ты тот человек, рядом с которым всегда безопасно, уютно и по-настоящему хорошо.  
+      Иногда мир бывает шумным, быстрым и сложным, но ты всегда остаёшься тем самым местом, где можно просто выдохнуть и почувствовать любовь.
+    </div>
+  </div>
+
+  <!-- СТРАНИЦА 3 -->
+  <div class="page">
+    <div class="text">
+      Ты учила меня быть добрым, внимательным и не бояться чувств.  
+      Ты поддерживала, когда было трудно, и радовалась даже самым маленьким победам.  
+      Этот сайт — маленький подарок, но в нём большое чувство.  
+      Пусть музыка играет мягко, а лепестки напоминают, как ты наполняешь всё вокруг красотой.
+    </div>
+  </div>
+
+  <!-- СТРАНИЦА 4 -->
+  <div class="page">
+    <div class="text">
+      Спасибо тебе за всё, что ты делаешь каждый день — часто незаметно, но от всего сердца.  
+      Пусть у тебя будет больше спокойных моментов, тёплых улыбок и радостных дней.  
+      Ты очень ценна, ты очень любима, и это навсегда. ❤️
+    </div>
+  </div>
+
 </div>
 
 <script>
-const btn = document.getElementById("musicBtn");
-const music = document.getElementById("music");
+const btn = document.getElementById('playBtn');
+const music = document.getElementById('music');
 
-btn.addEventListener("click", () => {
-  music.volume = 0.6;
+btn.addEventListener('click', () => {
   music.play();
-  btn.style.display = "none"; // 👈 КНОПКА ИСЧЕЗАЕТ
+  btn.style.display = 'none';
 });
 </script>
 
