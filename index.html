@@ -10,7 +10,7 @@
 
 body{
   font-family:-apple-system,BlinkMacSystemFont,"SF Pro Display","Segoe UI",sans-serif;
-  background:linear-gradient(180deg,#ff4fa0,#ff86c8,#ffe1f0);
+  background:linear-gradient(180deg,#ff4fa0,#ff7bc8,#ffe1f0);
   color:#3b0f25;
   overflow:hidden;
 }
@@ -19,7 +19,7 @@ body{
 .start{
   position:fixed;
   inset:0;
-  background:radial-gradient(circle at top,#ff9ad5,#ff4fa0);
+  background:radial-gradient(circle at top,#ffb3dc,#ff4fa0);
   display:flex;
   flex-direction:column;
   justify-content:center;
@@ -29,11 +29,27 @@ body{
   color:white;
 }
 
-.start h1{font-size:44px;font-weight:700}
-.start p{margin-top:14px;font-size:20px;opacity:.9}
-.tap{margin-top:40px;font-size:16px;opacity:.7;animation:pulse 2s infinite}
+.start h1{
+  font-size:46px;
+  font-weight:800;
+  letter-spacing:.5px;
+  text-shadow:0 10px 40px rgba(0,0,0,.3);
+}
 
-@keyframes pulse{0%,100%{opacity:.5}50%{opacity:1}}
+.start p{
+  margin-top:16px;
+  font-size:20px;
+  opacity:.95;
+}
+
+.tap{
+  margin-top:44px;
+  font-size:15px;
+  opacity:.7;
+  animation:pulse 2s infinite;
+}
+
+@keyframes pulse{0%,100%{opacity:.4}50%{opacity:1}}
 
 /* ===== СТРАНИЦЫ ===== */
 .pages{
@@ -45,7 +61,7 @@ body{
 .page{
   height:100vh;
   scroll-snap-align:start;
-  padding:40px 26px;
+  padding:44px 26px;
   display:flex;
   flex-direction:column;
   justify-content:center;
@@ -54,89 +70,106 @@ body{
   position:relative;
 }
 
-/* ===== ФОН С СЕРДЦАМИ ===== */
+/* ===== ФОН ===== */
 .bg::before{
   content:"";
   position:absolute;
-  inset:0;
+  inset:-10%;
   background:
-    radial-gradient(circle,rgba(255,255,255,.35) 2px,transparent 2px),
-    radial-gradient(circle,rgba(255,255,255,.2) 1.5px,transparent 1.5px);
-  background-size:60px 60px,100px 100px;
-  opacity:.45;
+    radial-gradient(circle at 20% 30%,rgba(255,255,255,.35),transparent 40%),
+    radial-gradient(circle at 80% 70%,rgba(255,255,255,.25),transparent 40%);
+  filter:blur(40px);
 }
-
-/* ===== ТЕКСТ ===== */
-h2{
-  font-size:34px;
-  color:#fff;
-  text-shadow:0 8px 30px rgba(0,0,0,.25);
-}
-
-.text{
-  margin-top:20px;
-  max-width:420px;
-  background:rgba(255,255,255,.92);
-  padding:26px;
-  border-radius:30px;
-  font-size:18px;
-  line-height:1.7;
-  box-shadow:0 25px 60px rgba(0,0,0,.18);
-  opacity:0;
-  transform:translateY(30px);
-  transition:1s;
-}
-
-.show .text{opacity:1;transform:none}
-
-/* ===== ФОТО ===== */
-.photo img{
-  width:90%;
-  max-width:340px;
-  border-radius:32px;
-  box-shadow:0 30px 70px rgba(0,0,0,.35);
-}
-
-.caption{margin-top:14px;font-size:16px;color:#fff}
 
 /* ===== ЦВЕТЫ ===== */
 .flowers{
   position:absolute;
   top:0;bottom:0;
-  width:60px;
+  width:70px;
   display:flex;
   flex-direction:column;
   justify-content:space-around;
-  opacity:.4;
-  font-size:28px;
+  opacity:.35;
+  font-size:30px;
+  pointer-events:none;
 }
+
 .left{left:6px}
 .right{right:6px}
+
+/* ===== ТЕКСТ ===== */
+h2{
+  font-size:36px;
+  color:#fff;
+  text-shadow:0 12px 40px rgba(0,0,0,.3);
+}
+
+.text{
+  margin-top:22px;
+  max-width:420px;
+  background:rgba(255,255,255,.94);
+  padding:28px;
+  border-radius:32px;
+  font-size:18px;
+  line-height:1.7;
+  box-shadow:0 30px 80px rgba(0,0,0,.2);
+  opacity:0;
+  transform:translateY(40px);
+  transition:1.2s cubic-bezier(.2,.8,.2,1);
+}
+
+.show .text{
+  opacity:1;
+  transform:none;
+}
+
+/* ===== ФОТО ===== */
+.photo img{
+  width:90%;
+  max-width:340px;
+  border-radius:34px;
+  box-shadow:
+    0 0 0 6px rgba(255,255,255,.35),
+    0 35px 80px rgba(0,0,0,.35);
+}
+
+.caption{
+  margin-top:16px;
+  font-size:16px;
+  color:#fff;
+  opacity:.9;
+}
 
 /* ===== СЕРДЦА ===== */
 .heart{
   position:fixed;
   font-size:26px;
   pointer-events:none;
-  animation:float 7s linear forwards;
+  animation:float 8s linear forwards;
 }
+
 .outline{
   color:transparent;
-  -webkit-text-stroke:2px rgba(255,255,255,.9);
+  -webkit-text-stroke:2px rgba(255,255,255,.95);
 }
 
 @keyframes float{
   from{transform:translateY(100vh) scale(1);opacity:1}
-  to{transform:translateY(-20vh) scale(1.6);opacity:0}
+  to{transform:translateY(-25vh) scale(1.7);opacity:0}
 }
 
 /* ===== СЕКРЕТ ===== */
 .secret{
   background:radial-gradient(circle at top,#ffd6ea,#ff6fb7);
 }
-.secret p{margin-top:20px;font-size:18px;color:white}
 
-/* ===== СКРЫТ ===== */
+.secret p{
+  margin-top:22px;
+  font-size:18px;
+  color:white;
+  max-width:420px;
+}
+
 .hidden{display:none}
 </style>
 </head>
@@ -151,7 +184,7 @@ h2{
 <!-- СТАРТ -->
 <div class="start" id="start">
   <h1>Мамочка 💖</h1>
-  <p>Это от Артёма и Андрея ✨</p>
+  <p>Это от Артёма и Андрея</p>
   <div class="tap">Нажми на экран</div>
 </div>
 
@@ -165,8 +198,8 @@ h2{
     <div class="flowers left">🌷🌸🌷🌸</div>
     <div class="flowers right">🌸🌷🌸🌷</div>
     <div class="text">
-      Ты самая добрая, нежная  
-      и любимая мама на свете 💗  
+      Ты самая добрая, самая нежная  
+      и самая любимая мама на свете 💗  
       Нам очень повезло с тобой.
     </div>
   </section>
@@ -189,4 +222,70 @@ h2{
     <div class="caption">Навсегда в нашем сердце 💖</div>
   </section>
 
-  <section
+  <section class="page secret hidden" id="secret">
+    <h2>Секрет 💕</h2>
+    <p>
+      Ты — наше счастье, наш дом  
+      и наша любовь 🌷  
+      Спасибо, что ты у нас есть.
+    </p>
+  </section>
+
+</div>
+
+<script>
+/* старт + музыка с fade */
+document.addEventListener("click",()=>{
+  document.getElementById("start").style.display="none";
+  const m=document.getElementById("music");
+  m.volume=0;
+  m.play();
+  let v=0;
+  const fade=setInterval(()=>{
+    v+=0.02;
+    m.volume=Math.min(v,.8);
+    if(v>=.8)clearInterval(fade);
+  },100);
+},{once:true});
+
+/* сердца */
+function heart(x=null,y=null){
+  const h=document.createElement("div");
+  h.className="heart";
+  h.textContent=Math.random()>.5?"💗":"🤍";
+  if(h.textContent==="🤍")h.classList.add("outline");
+  h.style.left=(x??Math.random()*100)+"vw";
+  h.style.top=(y??100)+"vh";
+  h.style.fontSize=22+Math.random()*26+"px";
+  document.body.appendChild(h);
+  setTimeout(()=>h.remove(),8000);
+}
+setInterval(heart,650);
+
+/* по тапу */
+document.addEventListener("click",e=>{
+  heart(e.clientX,e.clientY);
+});
+
+/* появление текста */
+const obs=new IntersectionObserver(es=>{
+  es.forEach(e=>e.isIntersecting&&e.target.classList.add("show"));
+},{threshold:.4});
+document.querySelectorAll(".observe").forEach(e=>obs.observe(e));
+
+/* секрет — долгий тап */
+let hold;
+document.addEventListener("touchstart",()=>{
+  hold=setTimeout(()=>{
+    document.getElementById("secret").classList.remove("hidden");
+    document.querySelector(".pages").scrollTo({
+      top:document.getElementById("secret").offsetTop,
+      behavior:"smooth"
+    });
+  },2000);
+});
+document.addEventListener("touchend",()=>clearTimeout(hold));
+</script>
+
+</body>
+</html>
