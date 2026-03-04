@@ -2,123 +2,129 @@
 <html lang="ru">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<meta name="viewport"
+content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 <title>Для мамы 💖</title>
 
 <style>
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  touch-action: manipulation;
+*{margin:0;padding:0;box-sizing:border-box}
+html,body{
+  height:100%;
+  overflow-x:hidden;
+  font-family:-apple-system,BlinkMacSystemFont,"SF Pro Display",sans-serif;
+  touch-action:manipulation;
 }
 
-body {
-  font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", sans-serif;
-  background: linear-gradient(180deg, #ff5fa2, #ff9acb, #ffe1ef);
-  overflow-x: hidden;
+body{
+  background:linear-gradient(180deg,#ff5fa2,#ff9acb,#ffe3f1);
 }
 
-.pages {
-  height: 100vh;
-  overflow-y: scroll;
-  scroll-snap-type: y mandatory;
+.pages{
+  height:100vh;
+  overflow-y:scroll;
+  scroll-snap-type:y mandatory;
 }
 
-.page {
-  height: 100vh;
-  scroll-snap-align: start;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  padding: 28px;
-  text-align: center;
-  position: relative;
+.page{
+  height:100vh;
+  scroll-snap-align:start;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  align-items:center;
+  padding:28px;
+  text-align:center;
+  position:relative;
 }
 
-h1 {
-  font-size: 40px;
-  color: #fff;
-  text-shadow: 0 6px 20px rgba(0,0,0,.25);
+h1{
+  color:#fff;
+  font-size:40px;
+  text-shadow:0 6px 20px rgba(0,0,0,.25);
 }
 
-.text-box {
-  background: rgba(255,255,255,0.92);
-  padding: 26px;
-  border-radius: 28px;
-  max-width: 420px;
-  font-size: 18px;
-  line-height: 1.7;
-  color: #4a1f33;
-  box-shadow: 0 20px 50px rgba(0,0,0,.18);
+.box{
+  background:rgba(255,255,255,.95);
+  padding:26px;
+  border-radius:28px;
+  max-width:420px;
+  font-size:18px;
+  line-height:1.7;
+  color:#4a1f33;
+  box-shadow:0 20px 50px rgba(0,0,0,.2);
 }
 
-.flower {
-  position: absolute;
-  font-size: 34px;
-  opacity: .35;
+.flower{
+  position:absolute;
+  font-size:34px;
+  opacity:.35;
 }
 
-.secret-btn {
-  position: fixed;
-  bottom: 18px;
-  right: 18px;
-  background: #fff;
-  color: #ff4f9a;
-  padding: 14px 18px;
-  border-radius: 20px;
-  font-weight: 600;
-  display: none;
-  box-shadow: 0 10px 30px rgba(0,0,0,.25);
+.secret-btn{
+  position:fixed;
+  bottom:18px;
+  right:18px;
+  background:#fff;
+  color:#ff4f9a;
+  padding:14px 18px;
+  border-radius:20px;
+  font-weight:600;
+  display:none;
+  box-shadow:0 10px 30px rgba(0,0,0,.25);
+  z-index:20;
 }
 
-.hidden {
-  display: none;
+/* ===== СЕКРЕТКА ===== */
+#secret{
+  display:none;
+  background:linear-gradient(180deg,#2b1638,#3a1f4f);
+  color:#fff;
 }
 
-/* ===== ЛАБИРИНТ ===== */
-.maze {
-  display: grid;
-  grid-template-columns: repeat(10, 28px);
-  gap: 6px;
-  margin-bottom: 20px;
+.maze{
+  display:grid;
+  grid-template-columns:repeat(10,30px);
+  gap:6px;
+  margin:18px 0;
 }
 
-.cell {
-  width: 28px;
-  height: 28px;
-  border-radius: 8px;
+.cell{
+  width:30px;
+  height:30px;
+  border-radius:8px;
 }
 
-.wall { background: #f6b1cc; }
-.path { background: #fff; }
-.player { background: #ff4f9a; }
-.exit { background: #7dffb3; }
+.wall{background:#f4a9c6}
+.path{background:#fff}
+.player{background:#ff4f9a}
+.exit{background:#7dffb3}
 
-.controls {
-  display: grid;
-  grid-template-columns: repeat(3, 70px);
-  gap: 12px;
-  margin-top: 14px;
+.controls{
+  display:grid;
+  grid-template-columns:repeat(3,70px);
+  gap:12px;
+  margin-top:14px;
 }
 
-.ctrl {
-  background: #fff;
-  border-radius: 18px;
-  padding: 14px;
-  font-size: 22px;
-  box-shadow: 0 6px 20px rgba(0,0,0,.2);
+.ctrl{
+  background:#fff;
+  color:#333;
+  border-radius:18px;
+  padding:14px;
+  font-size:22px;
+  box-shadow:0 6px 20px rgba(0,0,0,.3);
 }
 
-input {
-  margin-top: 10px;
-  padding: 12px;
-  border-radius: 14px;
-  border: none;
-  width: 220px;
-  font-size: 16px;
+input{
+  margin-top:10px;
+  padding:12px;
+  border-radius:14px;
+  border:none;
+  width:220px;
+  font-size:16px;
 }
+
+.hidden{display:none}
 </style>
 </head>
 
@@ -126,26 +132,23 @@ input {
 
 <div class="pages" id="pages">
 
-  <!-- ЭКРАН 1 -->
   <section class="page">
     <h1>Мамочка 💖</h1>
-    <div class="flower" style="top:10%;left:10%">🌸</div>
+    <div class="flower" style="top:12%;left:10%">🌸</div>
     <div class="flower" style="bottom:12%;right:12%">💗</div>
   </section>
 
-  <!-- ЭКРАН 2 -->
   <section class="page">
-    <div class="text-box">
-      Ты — самое доброе, тёплое и любимое сердце ❤️  
-      Спасибо тебе за заботу, ласку и каждый день рядом.
+    <div class="box">
+      Ты — самое тёплое и доброе сердце ❤️  
+      Спасибо тебе за заботу, любовь и каждый день рядом.
     </div>
   </section>
 
-  <!-- ЭКРАН 3 -->
   <section class="page">
-    <div class="text-box">
+    <div class="box">
       Мы тебя очень любим, ценим и гордимся тобой ✨  
-      Пусть у тебя всегда будет улыбка и счастье 🌷
+      Пусть у тебя всегда будет радость и улыбка 🌷
     </div>
   </section>
 
@@ -153,10 +156,10 @@ input {
 
 <div class="secret-btn" id="openSecret">Секрет 💖</div>
 
-<!-- СЕКРЕТКА -->
-<div class="page hidden" id="secret">
-  <div class="text-box" id="secretText">
-    Пройди мини-квест 👀
+<section class="page" id="secret">
+  <div class="box" id="secretText">
+    Мини-квест 👀  
+    Пройди лабиринт
   </div>
 
   <div class="maze" id="maze"></div>
@@ -175,21 +178,24 @@ input {
     <input id="age" placeholder="Сколько тебе лет">
     <div class="ctrl" onclick="finish()">Готово 👻</div>
   </div>
-</div>
+</section>
 
 <script>
-let clicks = 0;
-document.body.addEventListener('click', () => {
+let clicks=0;
+document.body.addEventListener('click',()=>{
   clicks++;
-  if (clicks === 15) document.getElementById('openSecret').style.display = 'block';
+  if(clicks===15){
+    document.getElementById('openSecret').style.display='block';
+  }
 });
 
-document.getElementById('openSecret').onclick = () => {
-  document.getElementById('pages').style.display = 'none';
-  document.getElementById('secret').classList.remove('hidden');
+openSecret.onclick=()=>{
+  pages.style.display='none';
+  secret.style.display='flex';
 };
 
-const map = [
+/* ===== ЛАБИРИНТ ===== */
+const map=[
 "##########",
 "#P   #   #",
 "# ## # # #",
@@ -202,11 +208,11 @@ const map = [
 "##########"
 ];
 
-let px=1, py=1;
-const mazeEl = document.getElementById('maze');
+let px=1,py=1;
+const maze=document.getElementById('maze');
 
 function draw(){
-  mazeEl.innerHTML='';
+  maze.innerHTML='';
   map.forEach((row,y)=>{
     [...row].forEach((c,x)=>{
       const d=document.createElement('div');
@@ -215,7 +221,7 @@ function draw(){
         c=='#'?'wall':
         c=='E'?'exit':'path'
       );
-      mazeEl.appendChild(d);
+      maze.appendChild(d);
     });
   });
 }
@@ -223,21 +229,22 @@ draw();
 
 function move(dx,dy){
   const nx=px+dx, ny=py+dy;
-  const cell=map[ny][nx];
-  if(cell=='#') return;
+  if(map[ny][nx]=='#')return;
   px=nx; py=ny;
   draw();
-  if(cell=='E'){
-    document.getElementById('form').classList.remove('hidden');
-    document.getElementById('secretText').innerText='Ты прошла лабиринт 🎉';
+  if(map[ny][nx]=='E'){
+    form.classList.remove('hidden');
+    secretText.innerHTML='🎉 Ты прошла лабиринт!';
   }
 }
 
 function finish(){
-  const n=name.value, a=age.value;
-  document.getElementById('secretText').innerHTML=
-  `👻 Молодец, ${n}!<br>Ты прошла мою игру.<br>Я тебя не съем 😢💖`;
-  document.getElementById('form').style.display='none';
+  const n=name.value||'молодец';
+  secretText.innerHTML=
+  `👻 Молодец, ${n}!<br>
+   Ты прошла мою игру.<br>
+   Я тебя не съем 😢💖`;
+  form.style.display='none';
 }
 </script>
 
