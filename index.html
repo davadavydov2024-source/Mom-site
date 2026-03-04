@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Для мамы 💖</title>
+
+<!-- ❤️ ИКОНКА СЕРДЦЕ -->
+<link rel="icon" href="data:image/svg+xml,
+<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'>
+<text y='0.9em' font-size='90'>❤️</text>
+</svg>">
+
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{
+  font-family:-apple-system,BlinkMacSystemFont,"SF Pro Display",sans-serif;
+  background:linear-gradient(180deg,#ff5fa2,#ff8fcf,#ffd1e8);
+  color:#fff;
+  overflow:hidden;
+}
+
+.pages{
+  height:100vh;
+  overflow-y:scroll;
+  scroll-snap-type:y mandatory;
+}
+
+.page{
+  height:100vh;
+  scroll-snap-align:start;
+  padding:44px 26px;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  align-items:center;
+  text-align:center;
+}
+
+h1,h2{
+  font-weight:800;
+  margin-bottom:20px;
+  animation:float 6s ease-in-out infinite;
+}
+
+p{
+  font-size:18px;
+  line-height:1.6;
+  max-width:600px;
+  animation:fadeUp 1.2s ease both;
+}
+
+img{
+  width:90%;
+  max-width:320px;
+  border-radius:26px;
+  margin:20px 0;
+  box-shadow:0 20px 40px rgba(0,0,0,.25);
+}
+
+.flowers{
+  position:absolute;
+  inset:0;
+  pointer-events:none;
+  background:
+   url('https://images.unsplash.com/photo-1509042239860-f550ce710b93?auto=format&fit=crop&w=600&q=80') left center/120px repeat-y,
+   url('https://images.unsplash.com/photo-1490750967868-88aa4486c946?auto=format&fit=crop&w=600&q=80') right center/120px repeat-y;
+  opacity:.25;
+}
+
+@keyframes fadeUp{
+  from{opacity:0;transform:translateY(20px)}
+  to{opacity:1;transform:translateY(0)}
+}
+@keyframes float{
+  0%,100%{transform:translateY(0)}
+  50%{transform:translateY(-8px)}
+}
+
+/* 🎶 TAP */
+#tap{
+  position:fixed;
+  inset:0;
+  background:radial-gradient(circle,#ff8fcf,#ff5fa2);
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  align-items:center;
+  z-index:999;
+  font-size:26px;
+  font-weight:800;
+}
+#tap span{font-size:18px;margin-top:10px}
+</style>
+</head>
+
+<body>
+
+<!-- 🎶 МУЗЫКА -->
+<audio id="music" loop>
+  <source src="music.mp3" type="audio/mpeg">
+</audio>
+
+<div id="tap">
+  Нажми 💖
+  <span>это от Артёма и Андрея</span>
+</div>
+
+<div class="flowers"></div>
+
+<div class="pages">
+
+  <section class="page">
+    <h1>Мама 💐</h1>
+    <p>
+      Привет, наша самая любимая мама на свете. Мы хотим сказать тебе самые
+      добрые слова, потому что ты у нас самая лучшая, самая красивая,
+      самая добрая и самая заботливая. Мы очень любим, когда ты улыбаешься,
+      когда обнимаешь нас и когда просто рядом. Нам всегда тепло и спокойно,
+      если ты с нами.
+    </p>
+  </section>
+
+  <section class="page">
+    <img src="https://i.ibb.co/6JDxwj1v/IMG-0704.jpg" alt="мама">
+    <p>
+      Спасибо тебе за каждый день, за вкусные завтраки, за помощь с уроками,
+      за сказки, за добрые слова и за то, что ты всегда нас понимаешь.
+      Ты самая терпеливая мама и самая нежная. Мы очень стараемся быть
+      хорошими, потому что ты этого заслуживаешь.
+    </p>
+  </section>
+
+  <section class="page">
+    <img src="https://i.ibb.co/p69x2rzG/IMG-0705.jpg" alt="мама">
+    <p>
+      Мы желаем тебе всегда быть счастливой, чтобы у тебя было хорошее
+      настроение, чтобы ты чаще отдыхала и улыбалась. Пусть у тебя будет
+      много цветов, радости и приятных сюрпризов. Мы всегда будем рядом,
+      будем тебя слушаться и очень-очень любить.
+    </p>
+  </section>
+
+  <section class="page">
+    <h2>Спасибо, что ты у нас есть ❤️</h2>
+    <p>
+      Мы тебя любим, ценим и обнимаем крепко-крепко.
+      Твои сыновья Артём и Андрей 💖
+    </p>
+  </section>
+
+</div>
+
+<script>
+const music=document.getElementById("music");
+const tap=document.getElementById("tap");
+tap.onclick=()=>{
+  music.volume=0;
+  music.play();
+  let v=0;
+  const fade=setInterval(()=>{
+    v+=0.02;
+    music.volume=Math.min(v,0.5);
+    if(v>=0.5)clearInterval(fade);
+  },120);
+  tap.style.opacity=0;
+  setTimeout(()=>tap.remove(),800);
+};
+</script>
+
+</body>
+</html>
