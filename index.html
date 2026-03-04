@@ -3,10 +3,11 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Для мамы 💖</title>
+<title>Для мамули от сынулек ❤️‍🔥✨</title>
 
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
 
 body{
   font-family:-apple-system,BlinkMacSystemFont,"SF Pro Display","Segoe UI",sans-serif;
@@ -15,24 +16,28 @@ body{
   overflow-x:hidden;
 }
 
-/* Плавный скролл */
+/* ===== СТРАНИЦЫ ===== */
 .pages{
   height:100vh;
   overflow-y:scroll;
   scroll-snap-type:y mandatory;
-  scroll-behavior:smooth;
 }
 
 .page{
   height:100vh;
   scroll-snap-align:start;
-  padding:44px 26px;
+  padding:48px 26px;
   display:flex;
   flex-direction:column;
   justify-content:center;
   align-items:center;
   text-align:center;
   position:relative;
+}
+
+/* ===== ПАРАЛЛАКС ===== */
+[data-parallax]{
+  transition:transform .6s ease;
 }
 
 /* ===== БОКОВЫЕ ЦВЕТЫ ===== */
@@ -46,26 +51,17 @@ body{
   filter:blur(1.2px);
   pointer-events:none;
 }
-
 .left{left:0}
 .right{right:0}
 
-.roses{
-  background-image:url("https://images.unsplash.com/photo-1526045478516-99145907023c");
-}
-.tulips{
-  background-image:url("https://images.unsplash.com/photo-1524593166156-312f362cab0b");
-}
-.peonies{
-  background-image:url("https://images.unsplash.com/photo-1501004318641-b39e6451bec6");
-}
-.lilies{
-  background-image:url("https://images.unsplash.com/photo-1490750967868-88aa4486c946");
-}
+.roses{background-image:url("https://images.unsplash.com/photo-1526045478516-99145907023c")}
+.tulips{background-image:url("https://images.unsplash.com/photo-1524593166156-312f362cab0b")}
+.peonies{background-image:url("https://images.unsplash.com/photo-1501004318641-b39e6451bec6")}
+.lilies{background-image:url("https://images.unsplash.com/photo-1490750967868-88aa4486c946")}
 
 /* ===== ТЕКСТ ===== */
 h1{
-  font-size:46px;
+  font-size:48px;
   color:#ff4d6d;
 }
 
@@ -78,23 +74,23 @@ h1{
 .text{
   max-width:420px;
   font-size:20px;
-  line-height:1.8;
-  background:rgba(255,255,255,.85);
-  padding:26px;
-  border-radius:28px;
-  box-shadow:0 20px 45px rgba(0,0,0,.15);
+  line-height:1.9;
+  background:rgba(255,255,255,.9);
+  padding:28px;
+  border-radius:30px;
+  box-shadow:0 25px 60px rgba(0,0,0,.18);
 }
 
 /* ===== ФОТО ===== */
 .photo img{
   width:90%;
   max-width:340px;
-  border-radius:28px;
-  box-shadow:0 25px 60px rgba(0,0,0,.25);
+  border-radius:30px;
+  box-shadow:0 30px 70px rgba(0,0,0,.3);
 }
 
 .caption{
-  margin-top:14px;
+  margin-top:16px;
   font-size:18px;
   color:#ff4d6d;
 }
@@ -105,12 +101,12 @@ h1{
 }
 
 .final h2{
-  font-size:34px;
+  font-size:36px;
   color:#ff4d6d;
 }
 
 .from{
-  margin-top:14px;
+  margin-top:16px;
   font-size:20px;
   color:#444;
 }
@@ -127,7 +123,7 @@ h1{
   font-size:28px;
   color:#fff;
   z-index:999;
-  animation:pulse 2s infinite;
+  animation:pulse 2.2s infinite;
 }
 
 @keyframes pulse{
@@ -141,24 +137,37 @@ h1{
   position:fixed;
   font-size:24px;
   pointer-events:none;
-  animation:floatUp 6s linear forwards;
+  animation:floatUp 7s linear forwards;
 }
 
 @keyframes floatUp{
   from{transform:translateY(100vh) scale(1);opacity:1}
-  to{transform:translateY(-20vh) scale(1.6);opacity:0}
+  to{transform:translateY(-30vh) scale(1.7);opacity:0}
 }
 
-.secret{
+.secret-word{
   position:fixed;
-  font-size:38px;
-  animation:secret 1.6s ease forwards;
+  font-size:34px;
+  font-weight:600;
+  color:#ff2f92;
+  animation:secret 2s ease forwards;
 }
 
 @keyframes secret{
   0%{transform:scale(.4);opacity:0}
   40%{transform:scale(1.2);opacity:1}
-  100%{transform:scale(1.8);opacity:0}
+  100%{transform:scale(2);opacity:0}
+}
+
+/* Лотерея */
+.lottery{
+  margin-top:40px;
+  background:#111;
+  color:#fff;
+  padding:14px 22px;
+  border-radius:20px;
+  font-size:14px;
+  opacity:.7;
 }
 </style>
 </head>
@@ -167,7 +176,8 @@ h1{
 
 <!-- ПЕРВЫЙ ТАП -->
 <div id="firstTap" class="first-tap">
-  Это от Артёма и Андрея 💖<br><br>Нажми 💕
+  Это от Артёма и Андрея 💖<br><br>
+  Нажми на экран
 </div>
 
 <!-- МУЗЫКА -->
@@ -177,70 +187,69 @@ h1{
 
 <div class="pages">
 
-  <!-- ЭКРАН 1 -->
-  <section class="page">
-    <div class="side left roses"></div>
-    <div class="side right roses"></div>
-    <h1>Мамочка 💖</h1>
-    <div class="subtitle">С 8 Марта тебя 🌸</div>
-  </section>
+<section class="page">
+  <div class="side left roses"></div>
+  <div class="side right roses"></div>
+  <h1 data-parallax>Мамочка 💖</h1>
+  <div class="subtitle" data-parallax>С 8 Марта тебя 🌸</div>
+</section>
 
-  <!-- ЭКРАН 2 -->
-  <section class="page">
-    <div class="side left tulips"></div>
-    <div class="side right tulips"></div>
-    <div class="text">
-      Ты у нас самая добрая, самая заботливая и самая красивая мама на свете.
-      Мы каждый день чувствуем твою любовь и тепло 💕
-    </div>
-  </section>
+<section class="page">
+  <div class="side left tulips"></div>
+  <div class="side right tulips"></div>
+  <div class="text" data-parallax>
+    Ты самая добрая и самая заботливая мама.
+    Ты всегда поддерживаешь нас и веришь в нас.
+    Нам очень повезло, что именно ты наша мама 💕
+  </div>
+</section>
 
-  <!-- ЭКРАН 3 -->
-  <section class="page">
-    <div class="side left peonies"></div>
-    <div class="side right peonies"></div>
-    <div class="text">
-      Наш дом — самый уютный, потому что в нём есть ты.
-      Ты делаешь всё вокруг светлее и лучше 🌷
-    </div>
-  </section>
+<section class="page photo">
+  <div class="side left peonies"></div>
+  <div class="side right peonies"></div>
+  <img src="https://i.ibb.co/p69x2rzG/IMG-0705.jpg">
+  <div class="caption">Ты невероятная 🌸</div>
+</section>
 
-  <!-- ФОТО 1 -->
-  <section class="page photo">
-    <div class="side left lilies"></div>
-    <div class="side right lilies"></div>
-    <img src="https://allwebs.ru/image/IMG-0705.pKIpeL">
-    <div class="caption">Ты невероятная 💖</div>
-  </section>
+<section class="page">
+  <div class="side left lilies"></div>
+  <div class="side right lilies"></div>
+  <div class="text" data-parallax>
+    Ты делаешь наш дом самым уютным местом.
+    С тобой всегда тепло, спокойно и хорошо ❤️
+  </div>
+</section>
 
-  <!-- ЭКРАН 4 -->
-  <section class="page">
-    <div class="side left roses"></div>
-    <div class="side right roses"></div>
-    <div class="text">
-      Спасибо тебе за терпение, поддержку и заботу.
-      Мы очень ценим всё, что ты для нас делаешь ❤️
-    </div>
-  </section>
+<section class="page photo">
+  <div class="side left tulips"></div>
+  <div class="side right tulips"></div>
+  <img src="https://i.ibb.co/6JDxwj1v/IMG-0704.jpg">
+  <div class="caption">Мы тебя очень любим 💖</div>
+</section>
 
-  <!-- ФОТО 2 -->
-  <section class="page photo">
-    <div class="side left tulips"></div>
-    <div class="side right tulips"></div>
-    <img src="https://allwebs.ru/image/IMG-0704.pKI0gi">
-    <div class="caption">Мы тебя очень любим 🌸</div>
-  </section>
+<section class="page">
+  <div class="text">
+    Мы хотим, чтобы ты всегда улыбалась,
+    была счастлива и знала —
+    мы всегда рядом 🌷
+  </div>
 
-  <!-- ФИНАЛ -->
-  <section class="page final">
-    <h2>Спасибо, что ты у нас есть 💖</h2>
-    <div class="from">Твои сыновья — Артём и Андрей</div>
-  </section>
+  <div id="lottery" class="lottery">
+    кликай как лотерея 🎟
+  </div>
+</section>
+
+<section class="page final">
+  <h2>Спасибо, что ты у нас есть 💖</h2>
+  <div class="from">Твои сыновья — Артём и Андрей</div>
+</section>
 
 </div>
 
 <script>
 let started=false;
+let clicks=0;
+const secretWords=["ЛЮБИМ","ЦЕНИМ"];
 
 document.addEventListener("click",e=>{
   if(!started){
@@ -251,14 +260,41 @@ document.addEventListener("click",e=>{
   spark(e.clientX,e.clientY);
 });
 
+/* Параллакс */
+document.querySelector(".pages").addEventListener("scroll",()=>{
+  document.querySelectorAll("[data-parallax]").forEach(el=>{
+    el.style.transform=`translateY(${window.scrollY*0.04}px)`;
+  });
+});
+
+/* Лотерея */
+document.getElementById("lottery").addEventListener("click",e=>{
+  e.stopPropagation();
+  clicks++;
+  if(clicks===15){
+    showSecret();
+  }
+});
+
+function showSecret(){
+  const w=document.createElement("div");
+  w.className="secret-word";
+  w.innerText=secretWords.join(" • ");
+  w.style.left="50%";
+  w.style.top="50%";
+  w.style.transform="translate(-50%,-50%)";
+  document.body.appendChild(w);
+  setTimeout(()=>w.remove(),2000);
+}
+
 function spark(x,y){
   const s=document.createElement("div");
-  s.className="secret";
+  s.className="secret-word";
   s.innerHTML="💖";
   s.style.left=x+"px";
   s.style.top=y+"px";
   document.body.appendChild(s);
-  setTimeout(()=>s.remove(),1600);
+  setTimeout(()=>s.remove(),1200);
 }
 
 function float(type,emoji){
@@ -267,11 +303,11 @@ function float(type,emoji){
   e.innerHTML=emoji;
   e.style.left=Math.random()*100+"vw";
   document.body.appendChild(e);
-  setTimeout(()=>e.remove(),6000);
+  setTimeout(()=>e.remove(),7000);
 }
 
-setInterval(()=>float("heart","💗"),700);
-setInterval(()=>float("flower","🌷"),1200);
+setInterval(()=>float("heart","💗"),800);
+setInterval(()=>float("flower","🌷"),1300);
 </script>
 
 </body>
