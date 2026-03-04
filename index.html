@@ -3,20 +3,52 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Для мамули от сынулек ❤️‍🔥✨</title>
+<title>Для мамы 💖</title>
 
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
-html{scroll-behavior:smooth}
 
 body{
   font-family:-apple-system,BlinkMacSystemFont,"SF Pro Display","Segoe UI",sans-serif;
-  background:linear-gradient(180deg,#ffe4ec,#fff7fa);
+  background:linear-gradient(180deg,#ff2f92,#ff6fb7,#ffd6ea);
   color:#3b0f25;
   overflow-x:hidden;
 }
 
-/* ===== СТРАНИЦЫ ===== */
+/* ===== START SCREEN ===== */
+.start{
+  position:fixed;
+  inset:0;
+  background:radial-gradient(circle at top,#ff7fc7,#ff2f92);
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  align-items:center;
+  text-align:center;
+  z-index:1000;
+  color:#fff;
+  animation:pulse 4s infinite;
+}
+
+.start h1{
+  font-size:48px;
+  letter-spacing:1px;
+  text-shadow:0 10px 30px rgba(0,0,0,.25);
+}
+
+.start p{
+  margin-top:18px;
+  font-size:20px;
+  opacity:.9;
+}
+
+@keyframes pulse{
+  0%{filter:brightness(1)}
+  50%{filter:brightness(1.15)}
+  100%{filter:brightness(1)}
+}
+
+/* ===== PAGES ===== */
 .pages{
   height:100vh;
   overflow-y:scroll;
@@ -26,7 +58,7 @@ body{
 .page{
   height:100vh;
   scroll-snap-align:start;
-  padding:48px 26px;
+  padding:44px 26px;
   display:flex;
   flex-direction:column;
   justify-content:center;
@@ -35,279 +67,175 @@ body{
   position:relative;
 }
 
-/* ===== ПАРАЛЛАКС ===== */
-[data-parallax]{
-  transition:transform .6s ease;
-}
-
-/* ===== БОКОВЫЕ ЦВЕТЫ ===== */
-.side{
-  position:absolute;
-  top:0; bottom:0;
-  width:80px;
-  background-size:cover;
-  background-position:center;
-  opacity:.35;
-  filter:blur(1.2px);
-  pointer-events:none;
-}
-.left{left:0}
-.right{right:0}
-
-.roses{background-image:url("https://images.unsplash.com/photo-1526045478516-99145907023c")}
-.tulips{background-image:url("https://images.unsplash.com/photo-1524593166156-312f362cab0b")}
-.peonies{background-image:url("https://images.unsplash.com/photo-1501004318641-b39e6451bec6")}
-.lilies{background-image:url("https://images.unsplash.com/photo-1490750967868-88aa4486c946")}
-
-/* ===== ТЕКСТ ===== */
-h1{
-  font-size:48px;
-  color:#ff4d6d;
+/* ===== TEXT ===== */
+h2{
+  font-size:40px;
+  color:#fff;
+  text-shadow:0 8px 25px rgba(0,0,0,.25);
 }
 
 .subtitle{
-  margin-top:14px;
-  font-size:24px;
-  color:#7a2c3e;
+  margin-top:12px;
+  font-size:22px;
+  color:#ffe6f2;
 }
 
-.text{
-  max-width:420px;
-  font-size:20px;
-  line-height:1.9;
+.card{
   background:rgba(255,255,255,.9);
   padding:28px;
-  border-radius:30px;
+  border-radius:28px;
+  max-width:420px;
+  font-size:18px;
+  line-height:1.7;
   box-shadow:0 25px 60px rgba(0,0,0,.18);
+  animation:fadeUp 1.2s ease both;
 }
 
-/* ===== ФОТО ===== */
+/* ===== PHOTO ===== */
 .photo img{
   width:90%;
   max-width:340px;
   border-radius:30px;
-  box-shadow:0 30px 70px rgba(0,0,0,.3);
+  box-shadow:0 25px 60px rgba(0,0,0,.35);
+  animation:fadeUp 1.2s ease both;
 }
 
 .caption{
   margin-top:16px;
   font-size:18px;
-  color:#ff4d6d;
+  color:#fff;
 }
 
-/* ===== ФИНАЛ ===== */
+/* ===== FINAL ===== */
 .final{
-  background:linear-gradient(180deg,#ffccd5,#fff);
+  background:radial-gradient(circle at top,#ff9bd4,#ff2f92);
 }
 
-.final h2{
-  font-size:36px;
-  color:#ff4d6d;
+.final h3{
+  font-size:32px;
+  color:#fff;
 }
 
 .from{
-  margin-top:16px;
+  margin-top:14px;
   font-size:20px;
-  color:#444;
+  color:#ffe6f2;
 }
 
-/* ===== ПЕРВЫЙ ТАП ===== */
-.first-tap{
-  position:fixed;
-  inset:0;
-  background:linear-gradient(180deg,#ff6fb7,#ff2f92);
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  text-align:center;
-  font-size:28px;
-  color:#fff;
-  z-index:999;
-  animation:pulse 2.2s infinite;
+/* ===== SECRET PAGE ===== */
+.secret{
+  background:radial-gradient(circle,#fff0f8,#ffd1ea);
 }
 
-@keyframes pulse{
-  0%{opacity:.85}
-  50%{opacity:1}
-  100%{opacity:.85}
+.secret .card{
+  font-size:20px;
 }
 
-/* ===== МАГИЯ ===== */
+/* ===== ANIMATIONS ===== */
+@keyframes fadeUp{
+  from{opacity:0;transform:translateY(40px)}
+  to{opacity:1;transform:none}
+}
+
+/* ===== FLOATING ===== */
 .heart,.flower{
   position:fixed;
-  font-size:24px;
+  font-size:22px;
   pointer-events:none;
   animation:floatUp 7s linear forwards;
 }
 
 @keyframes floatUp{
-  from{transform:translateY(100vh) scale(1);opacity:1}
-  to{transform:translateY(-30vh) scale(1.7);opacity:0}
-}
-
-.secret-word{
-  position:fixed;
-  font-size:34px;
-  font-weight:600;
-  color:#ff2f92;
-  animation:secret 2s ease forwards;
-}
-
-@keyframes secret{
-  0%{transform:scale(.4);opacity:0}
-  40%{transform:scale(1.2);opacity:1}
-  100%{transform:scale(2);opacity:0}
-}
-
-/* Лотерея */
-.lottery{
-  margin-top:40px;
-  background:#111;
-  color:#fff;
-  padding:14px 22px;
-  border-radius:20px;
-  font-size:14px;
-  opacity:.7;
+  from{transform:translateY(110vh) scale(1);opacity:1}
+  to{transform:translateY(-20vh) scale(1.6);opacity:0}
 }
 </style>
 </head>
 
 <body>
 
-<!-- ПЕРВЫЙ ТАП -->
-<div id="firstTap" class="first-tap">
-  Это от Артёма и Андрея 💖<br><br>
-  Нажми на экран
+<!-- START -->
+<div class="start" id="start">
+  <h1>Мамочка 💖</h1>
+  <p>Это от Артёма и Андрея ✨<br><br>Нажми на экран</p>
 </div>
 
-<!-- МУЗЫКА -->
+<!-- MUSIC -->
 <audio id="music" loop>
   <source src="24b0d8ed4ae4cb2.mp3" type="audio/mpeg">
 </audio>
 
+<!-- PAGES -->
 <div class="pages">
 
-<section class="page">
-  <div class="side left roses"></div>
-  <div class="side right roses"></div>
-  <h1 data-parallax>Мамочка 💖</h1>
-  <div class="subtitle" data-parallax>С 8 Марта тебя 🌸</div>
-</section>
+  <section class="page">
+    <h2>С 8 Марта 🌸</h2>
+    <div class="subtitle">Самой любимой маме</div>
+  </section>
 
-<section class="page">
-  <div class="side left tulips"></div>
-  <div class="side right tulips"></div>
-  <div class="text" data-parallax>
-    Ты самая добрая и самая заботливая мама.
-    Ты всегда поддерживаешь нас и веришь в нас.
-    Нам очень повезло, что именно ты наша мама 💕
-  </div>
-</section>
+  <section class="page">
+    <div class="card">
+      Ты у нас самая добрая, самая красивая  
+      и самая лучшая мама на свете 💕  
+      Мы очень счастливы, что ты у нас есть
+    </div>
+  </section>
 
-<section class="page photo">
-  <div class="side left peonies"></div>
-  <div class="side right peonies"></div>
-  <img src="https://i.ibb.co/p69x2rzG/IMG-0705.jpg">
-  <div class="caption">Ты невероятная 🌸</div>
-</section>
+  <section class="page photo">
+    <img src="https://i.ibb.co/6JDxwj1v/IMG-0704.jpg">
+    <div class="caption">Ты невероятная 🌷</div>
+  </section>
 
-<section class="page">
-  <div class="side left lilies"></div>
-  <div class="side right lilies"></div>
-  <div class="text" data-parallax>
-    Ты делаешь наш дом самым уютным местом.
-    С тобой всегда тепло, спокойно и хорошо ❤️
-  </div>
-</section>
+  <section class="page">
+    <div class="card">
+      Спасибо тебе за заботу, тепло и любовь.  
+      С тобой всегда спокойно и хорошо ❤️
+    </div>
+  </section>
 
-<section class="page photo">
-  <div class="side left tulips"></div>
-  <div class="side right tulips"></div>
-  <img src="https://i.ibb.co/6JDxwj1v/IMG-0704.jpg">
-  <div class="caption">Мы тебя очень любим 💖</div>
-</section>
+  <section class="page photo">
+    <img src="https://i.ibb.co/p69x2rzG/IMG-0705.jpg">
+    <div class="caption">Мы тебя очень любим 💖</div>
+  </section>
 
-<section class="page">
-  <div class="text">
-    Мы хотим, чтобы ты всегда улыбалась,
-    была счастлива и знала —
-    мы всегда рядом 🌷
-  </div>
+  <section class="page final">
+    <h3>Спасибо, что ты у нас есть 💗</h3>
+    <div class="from">Твои сыновья — Артём и Андрей</div>
+  </section>
 
-  <div id="lottery" class="lottery">
-    кликай как лотерея 🎟
-  </div>
-</section>
-
-<section class="page final">
-  <h2>Спасибо, что ты у нас есть 💖</h2>
-  <div class="from">Твои сыновья — Артём и Андрей</div>
-</section>
+  <!-- SECRET -->
+  <section class="page secret">
+    <div class="card">
+      Если ты это читаешь — знай 💞  
+      мы тебя любим больше всего на свете  
+      и всегда будем рядом 🌸
+    </div>
+  </section>
 
 </div>
 
 <script>
 let started=false;
-let clicks=0;
-const secretWords=["ЛЮБИМ","ЦЕНИМ"];
 
-document.addEventListener("click",e=>{
+document.addEventListener("click",()=>{
   if(!started){
     document.getElementById("music").play();
-    document.getElementById("firstTap").style.display="none";
+    document.getElementById("start").style.display="none";
     started=true;
   }
-  spark(e.clientX,e.clientY);
 });
 
-/* Параллакс */
-document.querySelector(".pages").addEventListener("scroll",()=>{
-  document.querySelectorAll("[data-parallax]").forEach(el=>{
-    el.style.transform=`translateY(${window.scrollY*0.04}px)`;
-  });
-});
-
-/* Лотерея */
-document.getElementById("lottery").addEventListener("click",e=>{
-  e.stopPropagation();
-  clicks++;
-  if(clicks===15){
-    showSecret();
-  }
-});
-
-function showSecret(){
-  const w=document.createElement("div");
-  w.className="secret-word";
-  w.innerText=secretWords.join(" • ");
-  w.style.left="50%";
-  w.style.top="50%";
-  w.style.transform="translate(-50%,-50%)";
-  document.body.appendChild(w);
-  setTimeout(()=>w.remove(),2000);
+function spawn(type,emoji){
+  const el=document.createElement("div");
+  el.className=type;
+  el.innerHTML=emoji;
+  el.style.left=Math.random()*100+"vw";
+  document.body.appendChild(el);
+  setTimeout(()=>el.remove(),7000);
 }
 
-function spark(x,y){
-  const s=document.createElement("div");
-  s.className="secret-word";
-  s.innerHTML="💖";
-  s.style.left=x+"px";
-  s.style.top=y+"px";
-  document.body.appendChild(s);
-  setTimeout(()=>s.remove(),1200);
-}
-
-function float(type,emoji){
-  const e=document.createElement("div");
-  e.className=type;
-  e.innerHTML=emoji;
-  e.style.left=Math.random()*100+"vw";
-  document.body.appendChild(e);
-  setTimeout(()=>e.remove(),7000);
-}
-
-setInterval(()=>float("heart","💗"),800);
-setInterval(()=>float("flower","🌷"),1300);
+setInterval(()=>spawn("heart","💖"),800);
+setInterval(()=>spawn("flower","🌸"),1300);
 </script>
 
 </body>
