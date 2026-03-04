@@ -189,4 +189,48 @@ h1 {
   </section>
 
   <section class="page final">
-    <
+    <h2>Спасибо, что ты у нас есть 💖</h2>
+    <div class="from">Твои сыновья — Артём и Андрей</div>
+  </section>
+
+</div>
+
+<script>
+let started = false;
+
+document.addEventListener("click", e => {
+  if (!started) {
+    document.getElementById("bgMusic").play();
+    document.getElementById("firstTap").style.display = "none";
+    started = true;
+  }
+  magic(e.clientX, e.clientY);
+});
+
+function magic(x, y) {
+  const h = document.createElement("div");
+  h.innerHTML = "💖";
+  h.style.position = "fixed";
+  h.style.left = x + "px";
+  h.style.top = y + "px";
+  h.style.fontSize = "36px";
+  h.style.animation = "floatUp 2s ease forwards";
+  document.body.appendChild(h);
+  setTimeout(() => h.remove(), 2000);
+}
+
+function create(type, emoji) {
+  const el = document.createElement("div");
+  el.className = type;
+  el.innerHTML = emoji;
+  el.style.left = Math.random() * 100 + "vw";
+  document.body.appendChild(el);
+  setTimeout(() => el.remove(), 6000);
+}
+
+setInterval(() => create("heart", "💗"), 700);
+setInterval(() => create("flower", "🌸"), 1200);
+</script>
+
+</body>
+</html>
