@@ -10,16 +10,17 @@
 
 body{
   font-family:-apple-system,BlinkMacSystemFont,"SF Pro Display","Segoe UI",sans-serif;
-  background:linear-gradient(180deg,#ff4f9a,#ff87bf,#ffd1e8);
+  background:linear-gradient(180deg,#ff4f9a 0%,#ff8fc8 50%,#ffe1f1 100%);
   overflow-x:hidden;
   color:#4a1f33;
 }
 
-/* ===== СТРАНИЦЫ ===== */
+/* ===== СКРОЛЛ ===== */
 .pages{
   height:100vh;
   overflow-y:scroll;
   scroll-snap-type:y mandatory;
+  scroll-behavior:smooth;
 }
 
 .page{
@@ -36,70 +37,69 @@ body{
 
 /* ===== ТЕКСТ ===== */
 h1{
-  font-size:46px;
+  font-size:48px;
   color:#fff;
-  text-shadow:0 6px 18px rgba(0,0,0,.25);
+  text-shadow:0 8px 24px rgba(0,0,0,.25);
+  animation:fadeUp 1.4s ease;
 }
 
 .subtitle{
-  margin-top:14px;
+  margin-top:16px;
   font-size:24px;
-  color:#ffe9f3;
+  color:#fff0f7;
+  animation:fadeUp 1.8s ease;
 }
 
 .text{
   max-width:420px;
   font-size:20px;
-  line-height:1.8;
-  background:rgba(255,255,255,.85);
-  padding:26px;
-  border-radius:28px;
-  backdrop-filter:blur(14px);
-  box-shadow:0 25px 60px rgba(0,0,0,.18);
+  line-height:1.9;
+  background:rgba(255,255,255,.88);
+  padding:28px;
+  border-radius:30px;
+  backdrop-filter:blur(18px);
+  box-shadow:0 30px 80px rgba(0,0,0,.18);
+  animation:floatCard 6s ease-in-out infinite;
 }
 
 /* ===== ФОТО ===== */
 .photo img{
   width:92%;
   max-width:360px;
-  border-radius:30px;
-  box-shadow:0 30px 70px rgba(0,0,0,.35);
+  border-radius:32px;
+  box-shadow:0 35px 90px rgba(0,0,0,.35);
+  animation:fadeUp 1.4s ease;
 }
 
 .caption{
-  margin-top:16px;
+  margin-top:18px;
   font-size:18px;
   color:#fff;
+  opacity:.95;
 }
 
 /* ===== ФИНАЛ ===== */
 .final{
-  background:radial-gradient(circle at top,#ff9ed2,#ff4f9a);
-  animation:shimmer 4s infinite;
+  background:radial-gradient(circle at top,#ffb6dc,#ff4f9a);
+  animation:shimmer 5s infinite;
 }
 
 .final h2{
-  font-size:34px;
-  color:white;
+  font-size:36px;
+  color:#fff;
 }
 
 .final .from{
-  margin-top:14px;
+  margin-top:16px;
   font-size:20px;
-  color:#ffe9f3;
-}
-
-@keyframes shimmer{
-  0%{filter:brightness(1)}
-  50%{filter:brightness(1.15)}
-  100%{filter:brightness(1)}
+  color:#fff0f7;
 }
 
 /* ===== ПЕРВЫЙ ТАП ===== */
 .first-tap{
   position:fixed;
   inset:0;
-  background:radial-gradient(circle,#ff7abf,#ff3f8f);
+  background:radial-gradient(circle,#ff86c8,#ff3f8f);
   display:flex;
   justify-content:center;
   align-items:center;
@@ -107,42 +107,30 @@ h1{
   color:white;
   text-align:center;
   z-index:999;
-  animation:glow 2s infinite;
-}
-
-@keyframes glow{
-  0%{opacity:.85}
-  50%{opacity:1}
-  100%{opacity:.85}
+  animation:pulse 2s infinite;
 }
 
 /* ===== ЦВЕТЫ ПО БОКАМ ===== */
 .side-flower{
   position:fixed;
   top:0;
-  width:120px;
+  width:140px;
   height:100%;
   background-size:contain;
   background-repeat:repeat-y;
-  opacity:.35;
-  animation:floatSide 18s ease-in-out infinite;
+  opacity:.32;
   pointer-events:none;
+  animation:sideMove 22s ease-in-out infinite;
 }
 
 .left-flower{
-  left:0;
+  left:-20px;
   background-image:url("https://i.ibb.co/3FhKJkM/rose.png");
 }
 
 .right-flower{
-  right:0;
+  right:-20px;
   background-image:url("https://i.ibb.co/3WvZz6n/tulip.png");
-}
-
-@keyframes floatSide{
-  0%{transform:translateY(0)}
-  50%{transform:translateY(-80px)}
-  100%{transform:translateY(0)}
 }
 
 /* ===== МАГИЯ ===== */
@@ -151,6 +139,35 @@ h1{
   font-size:26px;
   pointer-events:none;
   animation:floatUp 6s linear forwards;
+}
+
+/* ===== АНИМАЦИИ ===== */
+@keyframes fadeUp{
+  from{opacity:0;transform:translateY(30px)}
+  to{opacity:1;transform:translateY(0)}
+}
+
+@keyframes floatCard{
+  0%,100%{transform:translateY(0)}
+  50%{transform:translateY(-8px)}
+}
+
+@keyframes sideMove{
+  0%{transform:translateY(0)}
+  50%{transform:translateY(-120px)}
+  100%{transform:translateY(0)}
+}
+
+@keyframes shimmer{
+  0%{filter:brightness(1)}
+  50%{filter:brightness(1.18)}
+  100%{filter:brightness(1)}
+}
+
+@keyframes pulse{
+  0%{opacity:.85}
+  50%{opacity:1}
+  100%{opacity:.85}
 }
 
 @keyframes floatUp{
@@ -188,17 +205,9 @@ h1{
 
 <section class="page">
   <div class="text">
-    Ты у нас самая добрая, самая красивая  
-    и самая лучшая мама на свете.  
-    Мы очень рады, что именно ты — наша мама 💕
-  </div>
-</section>
-
-<section class="page">
-  <div class="text">
-    Спасибо тебе за заботу, тепло и любовь.  
-    Ты всегда рядом с нами  
-    и поддерживаешь нас ❤️
+    Ты у нас самая добрая, самая красивая и самая лучшая мама на свете.
+    Мы очень рады, что именно ты — наша мама. Ты всегда рядом, всегда
+    поддерживаешь нас и даришь тепло 💕
   </div>
 </section>
 
@@ -209,15 +218,14 @@ h1{
 
 <section class="page">
   <div class="text">
-    С тобой всегда спокойно,  
-    тепло и хорошо.  
-    Мы очень тебя любим 💞
+    Мы очень тебя любим и хотим, чтобы ты всегда улыбалась.
+    Пусть каждый день будет радостным, тёплым и счастливым 💖
   </div>
 </section>
 
 <section class="page photo">
   <img id="photo2">
-  <div class="caption">Навсегда в нашем сердце 💖</div>
+  <div class="caption">Навсегда в нашем сердце 💞</div>
 </section>
 
 <section class="page final">
@@ -246,29 +254,13 @@ document.addEventListener("click",e=>{
     firstTap.style.display="none";
     started=true;
   }
-  secretHeart(e.clientX,e.clientY);
-});
-
-function secretHeart(x,y){
   const h=document.createElement("div");
   h.innerHTML="💖";
-  h.style.position="fixed";
-  h.style.left=x+"px";
-  h.style.top=y+"px";
-  h.style.fontSize="40px";
-  h.style.animation="secret 1.6s ease forwards";
-  document.body.appendChild(h);
-  setTimeout(()=>h.remove(),1600);
-}
-
-setInterval(()=>{
-  const h=document.createElement("div");
   h.className="heart";
-  h.innerHTML="💗";
   h.style.left=Math.random()*100+"vw";
   document.body.appendChild(h);
   setTimeout(()=>h.remove(),6000);
-},800);
+});
 </script>
 
 </body>
