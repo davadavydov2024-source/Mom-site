@@ -10,45 +10,50 @@
 
 body{
   font-family:-apple-system,BlinkMacSystemFont,"SF Pro Display","Segoe UI",sans-serif;
-  background:linear-gradient(180deg,#ff2f92,#ff6fb7,#ffd6ea);
+  background:linear-gradient(180deg,#ff4fa0,#ff86c8,#ffe1f0);
   color:#3b0f25;
-  overflow-x:hidden;
+  overflow:hidden;
 }
 
-/* ===== START SCREEN ===== */
+/* ===== СТАРТ ===== */
 .start{
   position:fixed;
   inset:0;
-  background:radial-gradient(circle at top,#ff7fc7,#ff2f92);
+  background:radial-gradient(circle at top,#ff9ad5,#ff4fa0);
   display:flex;
   flex-direction:column;
   justify-content:center;
   align-items:center;
   text-align:center;
   z-index:1000;
-  color:#fff;
-  animation:pulse 4s infinite;
+  color:white;
 }
 
 .start h1{
-  font-size:48px;
+  font-size:42px;
+  font-weight:700;
   letter-spacing:1px;
-  text-shadow:0 10px 30px rgba(0,0,0,.25);
 }
 
 .start p{
-  margin-top:18px;
+  margin-top:16px;
   font-size:20px;
   opacity:.9;
 }
 
-@keyframes pulse{
-  0%{filter:brightness(1)}
-  50%{filter:brightness(1.15)}
-  100%{filter:brightness(1)}
+.tap{
+  margin-top:40px;
+  font-size:16px;
+  opacity:.7;
+  animation:pulse 2s infinite;
 }
 
-/* ===== PAGES ===== */
+@keyframes pulse{
+  0%,100%{opacity:.6}
+  50%{opacity:1}
+}
+
+/* ===== СТРАНИЦЫ ===== */
 .pages{
   height:100vh;
   overflow-y:scroll;
@@ -58,7 +63,7 @@ body{
 .page{
   height:100vh;
   scroll-snap-align:start;
-  padding:44px 26px;
+  padding:40px 26px;
   display:flex;
   flex-direction:column;
   justify-content:center;
@@ -67,175 +72,176 @@ body{
   position:relative;
 }
 
-/* ===== TEXT ===== */
+/* ===== ТЕКСТ ===== */
 h2{
-  font-size:40px;
+  font-size:34px;
   color:#fff;
-  text-shadow:0 8px 25px rgba(0,0,0,.25);
+  text-shadow:0 6px 20px rgba(0,0,0,.2);
 }
 
-.subtitle{
-  margin-top:12px;
-  font-size:22px;
-  color:#ffe6f2;
-}
-
-.card{
-  background:rgba(255,255,255,.9);
-  padding:28px;
-  border-radius:28px;
+.text{
+  margin-top:20px;
   max-width:420px;
+  background:rgba(255,255,255,.9);
+  padding:26px;
+  border-radius:28px;
   font-size:18px;
   line-height:1.7;
-  box-shadow:0 25px 60px rgba(0,0,0,.18);
-  animation:fadeUp 1.2s ease both;
+  box-shadow:0 20px 50px rgba(0,0,0,.15);
 }
 
-/* ===== PHOTO ===== */
+/* ===== ФОТО ===== */
 .photo img{
   width:90%;
   max-width:340px;
   border-radius:30px;
-  box-shadow:0 25px 60px rgba(0,0,0,.35);
-  animation:fadeUp 1.2s ease both;
+  box-shadow:0 25px 60px rgba(0,0,0,.3);
 }
 
 .caption{
-  margin-top:16px;
-  font-size:18px;
-  color:#fff;
-}
-
-/* ===== FINAL ===== */
-.final{
-  background:radial-gradient(circle at top,#ff9bd4,#ff2f92);
-}
-
-.final h3{
-  font-size:32px;
-  color:#fff;
-}
-
-.from{
   margin-top:14px;
-  font-size:20px;
-  color:#ffe6f2;
+  font-size:16px;
+  color:#fff;
 }
 
-/* ===== SECRET PAGE ===== */
-.secret{
-  background:radial-gradient(circle,#fff0f8,#ffd1ea);
+/* ===== ФОН С СЕРДЦАМИ ===== */
+.bg-hearts::before{
+  content:"";
+  position:absolute;
+  inset:0;
+  background-image:
+    radial-gradient(circle,rgba(255,255,255,.35) 2px,transparent 2px),
+    radial-gradient(circle,rgba(255,255,255,.25) 1.5px,transparent 1.5px);
+  background-size:60px 60px,90px 90px;
+  opacity:.5;
 }
 
-.secret .card{
-  font-size:20px;
-}
-
-/* ===== ANIMATIONS ===== */
-@keyframes fadeUp{
-  from{opacity:0;transform:translateY(40px)}
-  to{opacity:1;transform:none}
-}
-
-/* ===== FLOATING ===== */
-.heart,.flower{
+/* ===== ПЛАВАЮЩИЕ СЕРДЦА ===== */
+.heart{
   position:fixed;
-  font-size:22px;
+  font-size:26px;
+  color:white;
+  opacity:.9;
+  animation:float 7s linear forwards;
   pointer-events:none;
-  animation:floatUp 7s linear forwards;
 }
 
-@keyframes floatUp{
-  from{transform:translateY(110vh) scale(1);opacity:1}
+.outline{
+  color:transparent;
+  -webkit-text-stroke:2px rgba(255,255,255,.9);
+}
+
+@keyframes float{
+  from{transform:translateY(100vh) scale(1);opacity:1}
   to{transform:translateY(-20vh) scale(1.6);opacity:0}
+}
+
+/* ===== ЦВЕТЫ ПО БОКАМ ===== */
+.flower-side{
+  position:absolute;
+  top:0;
+  bottom:0;
+  width:60px;
+  opacity:.35;
+  font-size:28px;
+  display:flex;
+  flex-direction:column;
+  justify-content:space-around;
+}
+
+.left{left:6px}
+.right{right:6px}
+
+/* ===== СЕКРЕТ ===== */
+.secret{
+  background:radial-gradient(circle at top,#ffd6ea,#ff6fb7);
+}
+
+.secret h2{
+  font-size:30px;
+}
+
+.secret p{
+  margin-top:18px;
+  font-size:18px;
+  color:white;
 }
 </style>
 </head>
 
 <body>
 
-<!-- START -->
+<!-- СТАРТ -->
 <div class="start" id="start">
   <h1>Мамочка 💖</h1>
-  <p>Это от Артёма и Андрея ✨<br><br>Нажми на экран</p>
+  <p>Это от Артёма и Андрея ✨</p>
+  <div class="tap">Нажми на экран</div>
 </div>
 
-<!-- MUSIC -->
-<audio id="music" loop>
-  <source src="24b0d8ed4ae4cb2.mp3" type="audio/mpeg">
-</audio>
-
-<!-- PAGES -->
-<div class="pages">
+<!-- СТРАНИЦЫ -->
+<div class="pages bg-hearts">
 
   <section class="page">
     <h2>С 8 Марта 🌸</h2>
-    <div class="subtitle">Самой любимой маме</div>
   </section>
 
   <section class="page">
-    <div class="card">
-      Ты у нас самая добрая, самая красивая  
-      и самая лучшая мама на свете 💕  
-      Мы очень счастливы, что ты у нас есть
+    <div class="flower-side left">🌷🌸🌷🌸</div>
+    <div class="flower-side right">🌸🌷🌸🌷</div>
+    <div class="text">
+      Ты самая добрая, самая нежная  
+      и самая любимая мама на свете 💗  
+      Нам очень повезло с тобой.
     </div>
   </section>
 
   <section class="page photo">
     <img src="https://i.ibb.co/6JDxwj1v/IMG-0704.jpg">
-    <div class="caption">Ты невероятная 🌷</div>
+    <div class="caption">Ты у нас самая красивая 💐</div>
   </section>
 
   <section class="page">
-    <div class="card">
-      Спасибо тебе за заботу, тепло и любовь.  
-      С тобой всегда спокойно и хорошо ❤️
+    <div class="text">
+      Спасибо тебе за заботу, тепло  
+      и за то, что ты всегда рядом ❤️  
+      Мы очень тебя любим.
     </div>
   </section>
 
   <section class="page photo">
     <img src="https://i.ibb.co/p69x2rzG/IMG-0705.jpg">
-    <div class="caption">Мы тебя очень любим 💖</div>
+    <div class="caption">Навсегда в нашем сердце 💖</div>
   </section>
 
-  <section class="page final">
-    <h3>Спасибо, что ты у нас есть 💗</h3>
-    <div class="from">Твои сыновья — Артём и Андрей</div>
-  </section>
-
-  <!-- SECRET -->
   <section class="page secret">
-    <div class="card">
-      Если ты это читаешь — знай 💞  
-      мы тебя любим больше всего на свете  
-      и всегда будем рядом 🌸
-    </div>
+    <h2>Секрет 💕</h2>
+    <p>
+      Ты — наше счастье,  
+      наш дом и наша любовь 🌷  
+      Спасибо, что ты у нас есть.
+    </p>
   </section>
 
 </div>
 
 <script>
-let started=false;
-
+/* старт */
 document.addEventListener("click",()=>{
-  if(!started){
-    document.getElementById("music").play();
-    document.getElementById("start").style.display="none";
-    started=true;
-  }
-});
+  document.getElementById("start").style.display="none";
+},{once:true});
 
-function spawn(type,emoji){
-  const el=document.createElement("div");
-  el.className=type;
-  el.innerHTML=emoji;
-  el.style.left=Math.random()*100+"vw";
-  document.body.appendChild(el);
-  setTimeout(()=>el.remove(),7000);
+/* сердца */
+function heart(){
+  const h=document.createElement("div");
+  h.className="heart";
+  h.textContent=Math.random()>.5?"🤍":"💗";
+  if(h.textContent==="🤍")h.classList.add("outline");
+  h.style.left=Math.random()*100+"vw";
+  h.style.fontSize=20+Math.random()*20+"px";
+  document.body.appendChild(h);
+  setTimeout(()=>h.remove(),7000);
 }
-
-setInterval(()=>spawn("heart","💖"),800);
-setInterval(()=>spawn("flower","🌸"),1300);
+setInterval(heart,700);
 </script>
 
 </body>
