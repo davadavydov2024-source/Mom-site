@@ -167,6 +167,18 @@ tap.onclick=()=>{
   setTimeout(()=>tap.remove(),800);
 };
 </script>
+<!-- 🎵 Музыка -->
+<audio id="bg-music" loop>
+  <source src="https://cdn.pixabay.com/audio/2022/10/16/audio_3b6d8f6c94.mp3" type="audio/mpeg">
+</audio>
 
+<script>
+  // запуск музыки после первого касания (iPhone правило)
+  document.addEventListener('click', () => {
+    const music = document.getElementById('bg-music');
+    music.volume = 0.4; // тихо и нежно
+    music.play();
+  }, { once: true });
+</script>
 </body>
 </html>
