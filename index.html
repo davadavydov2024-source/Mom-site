@@ -14,7 +14,12 @@ html,body{
   font-family:-apple-system,BlinkMacSystemFont,"SF Pro Display",sans-serif;
 }
 
-/* ===== СКРОЛЛ (КЛЮЧ!) ===== */
+/* ===== ФОН ===== */
+body{
+  background:linear-gradient(180deg,#ff4fa3,#ff8fc7,#ffd6ea);
+}
+
+/* ===== СКРОЛЛ ===== */
 .pages{
   height:100vh;
   overflow-y:auto;
@@ -31,25 +36,22 @@ html,body{
   justify-content:center;
   align-items:center;
   text-align:center;
-  padding:32px 20px;
-}
-
-/* ===== ФОН ===== */
-body{
-  background:linear-gradient(180deg,#ff4fa3,#ff8fc7,#ffd6ea);
+  padding:36px 24px;
+  position:relative;
 }
 
 /* ===== ТЕКСТ ===== */
 h1{
+  font-size:36px;
   color:#fff;
-  font-size:34px;
-  margin-bottom:16px;
+  margin-bottom:18px;
+  text-shadow:0 8px 30px rgba(0,0,0,.3);
 }
 
 p{
-  color:#fff;
   font-size:18px;
   line-height:1.6;
+  color:#fff;
   max-width:340px;
 }
 
@@ -66,7 +68,7 @@ p{
   color:#ff4f9a;
   background:radial-gradient(circle,#fff,#ffd6ea 40%,#ff9fc9);
   box-shadow:0 20px 40px rgba(0,0,0,.25);
-  margin-bottom:24px;
+  margin-bottom:26px;
 }
 
 /* ===== СЕРДЕЧКИ ===== */
@@ -77,6 +79,7 @@ p{
   animation:float 9s linear infinite;
   pointer-events:none;
 }
+
 @keyframes float{
   from{transform:translateY(100vh)}
   to{transform:translateY(-120vh)}
@@ -84,7 +87,7 @@ p{
 
 /* ===== КНОПКИ ===== */
 button{
-  margin-top:20px;
+  margin-top:22px;
   padding:14px 28px;
   border:none;
   border-radius:999px;
@@ -133,7 +136,7 @@ button{
   bottom:10px;
 }
 
-/* ===== КНОПКИ УПРАВЛЕНИЯ ===== */
+/* ===== УПРАВЛЕНИЕ ===== */
 .controls{
   display:flex;
   gap:10px;
@@ -158,25 +161,41 @@ button{
   <p>Листай вниз ✨</p>
 </section>
 
-<!-- ЭКРАН 2 -->
+<!-- ЭКРАН 2 — ГЛАВНОЕ ПОЗДРАВЛЕНИЕ -->
 <section class="page">
+  <h1>Мамочка 💖</h1>
   <p>
-    Мамочка 💕  
-    Этот сайт мы сделали  
-    с любовью и нежностью.  
-    Пусть он подарит  
-    тебе улыбку ✨
+    Поздравляем тебя с 8 Марта 🌸  
+    Ты самая добрая, заботливая  
+    и любимая мама на свете.  
+    <br><br>
+    Спасибо тебе за тепло,  
+    поддержку и любовь,  
+    которые ты даришь нам  
+    каждый день ✨  
+    <br><br>
+    Мы тебя очень любим ❤️
   </p>
 </section>
 
 <!-- ЭКРАН 3 -->
 <section class="page">
+  <p>
+    Этот сайт — маленький  
+    подарок для тебя 💕  
+    Мы сделали его  
+    с любовью и улыбкой ✨
+  </p>
+</section>
+
+<!-- ЭКРАН 4 — СЕКРЕТКА -->
+<section class="page">
   <h1>Секрет 🌸</h1>
-  <p>Хочешь пройти мини-квест?</p>
+  <p>Хочешь пройти наш мини-квест?</p>
   <button onclick="startQuest()">Начать</button>
 </section>
 
-<!-- ЛАБИРИНТ -->
+<!-- ЭКРАН 5 — ЛАБИРИНТ -->
 <section class="page hidden" id="mazeScreen">
   <h1>Лабиринт 👌</h1>
 
@@ -202,7 +221,7 @@ button{
   </div>
 </section>
 
-<!-- ФОРМА -->
+<!-- ЭКРАН 6 — ФОРМА -->
 <section class="page hidden" id="formScreen">
   <h1>Ты справилась 💖</h1>
   <input id="name" placeholder="Твоё имя"><br><br>
@@ -210,7 +229,7 @@ button{
   <button onclick="finish()">Готово</button>
 </section>
 
-<!-- ФИНАЛ -->
+<!-- ЭКРАН 7 — ФИНАЛ -->
 <section class="page hidden" id="finalScreen">
   <div style="font-size:64px">👻</div>
   <p id="ghostText"></p>
@@ -219,7 +238,7 @@ button{
 </div>
 
 <script>
-/* СЕРДЦА */
+/* СЕРДЕЧКИ */
 for(let i=0;i<20;i++){
   const h=document.createElement("div");
   h.className="heart";
@@ -232,7 +251,10 @@ for(let i=0;i<20;i++){
 /* СЕКРЕТКА */
 function startQuest(){
   document.getElementById("mazeScreen").classList.remove("hidden");
-  document.querySelector(".pages").scrollTo({top:innerHeight*3,behavior:"smooth"});
+  document.querySelector(".pages").scrollTo({
+    top:innerHeight*4,
+    behavior:"smooth"
+  });
 }
 
 /* ЛАБИРИНТ */
@@ -256,8 +278,8 @@ function finish(){
   const n=document.getElementById("name").value||"героиня";
   document.getElementById("ghostText").innerText=
    `Молодец, ${n}! 💖  
-   Ты прошла лабиринт.  
-   Я тебя не съем ;) `;
+   Ты прошла мой лабиринт.  
+   Я тебя не съем :( `;
   document.getElementById("formScreen").classList.add("hidden");
   document.getElementById("finalScreen").classList.remove("hidden");
 }
