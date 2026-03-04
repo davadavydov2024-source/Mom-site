@@ -6,120 +6,132 @@
 <title>Для мамы 💖</title>
 
 <style>
-*{
-  margin:0;
-  padding:0;
-  box-sizing:border-box;
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-body{
-  font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
-  background:linear-gradient(180deg,#ffb3d9,#ffd6ea,#ffffff);
-  color:#5a2438;
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  background: linear-gradient(180deg, #ffe4ec, #fff7fa);
+  overflow-x: hidden;
 }
 
-/* ===== СТРАНИЦЫ ===== */
-.pages{
-  height:100vh;
-  overflow-y:scroll;
-  scroll-snap-type:y mandatory;
+/* СТРАНИЦЫ */
+.pages {
+  scroll-snap-type: y mandatory;
+  overflow-y: scroll;
+  height: 100vh;
 }
 
-.page{
-  height:100vh;
-  scroll-snap-align:start;
-  padding:32px 22px;
-  display:flex;
-  flex-direction:column;
-  justify-content:center;
-  align-items:center;
-  text-align:center;
+.page {
+  height: 100vh;
+  scroll-snap-align: start;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 30px;
+  text-align: center;
 }
 
-/* ===== ТЕКСТ ===== */
-h1{
-  font-size:40px;
-  color:#fff;
-  text-shadow:0 4px 12px rgba(0,0,0,.2);
+/* ПЕРВЫЙ ЭКРАН */
+.hero {
+  background: linear-gradient(180deg, #ffb3c6, #ffe4ec);
 }
 
-.subtitle{
-  margin-top:10px;
-  font-size:22px;
-  color:#fff3f8;
+h1 {
+  font-size: 44px;
+  color: #ff4d6d;
 }
 
-.text{
-  max-width:420px;
-  font-size:20px;
-  line-height:1.8;
-  background:#ffffff;
-  padding:26px;
-  border-radius:22px;
-  box-shadow:0 12px 30px rgba(0,0,0,.15);
+.subtitle {
+  margin-top: 12px;
+  font-size: 24px;
+  color: #7a2c3e;
 }
 
-/* ===== ФОТО ===== */
-.photo img{
-  width:90%;
-  max-width:340px;
-  border-radius:22px;
-  box-shadow:0 18px 45px rgba(0,0,0,.25);
+.hint {
+  margin-top: 40px;
+  font-size: 14px;
+  opacity: 0.6;
 }
 
-.caption{
-  margin-top:14px;
-  font-size:16px;
-  color:#fff;
+/* ТЕКСТ */
+.text {
+  font-size: 20px;
+  line-height: 1.8;
+  color: #444;
+  max-width: 420px;
 }
 
-/* ===== ФИНАЛ ===== */
-.final{
-  background:linear-gradient(180deg,#ff9acb,#ff5fa2);
+/* МЯГКИЕ ЭКРАНЫ */
+.soft {
+  background: linear-gradient(180deg, #fff, #fff0f5);
 }
 
-.final h2{
-  font-size:30px;
-  color:#fff;
+/* ФОТО */
+.photo img {
+  width: 90%;
+  max-width: 340px;
+  border-radius: 26px;
+  box-shadow: 0 20px 50px rgba(0,0,0,0.2);
 }
 
-.final .from{
-  margin-top:12px;
-  font-size:18px;
-  color:#ffe6f1;
+.caption {
+  margin-top: 14px;
+  font-size: 16px;
+  color: #ff4d6d;
 }
 
-/* ===== ПЕРВЫЙ ЭКРАН ===== */
-.first-tap{
-  position:fixed;
-  inset:0;
-  background:linear-gradient(180deg,#ff8fc4,#ff5fa2);
-  display:flex;
-  justify-content:center;
-  align-items:center;
-  font-size:26px;
-  color:white;
-  text-align:center;
-  z-index:1000;
+/* ФИНАЛ */
+.final {
+  background: linear-gradient(180deg, #ffccd5, #fff);
 }
 
-/* ===== СЕРДЦА ===== */
-.heart{
-  position:fixed;
-  font-size:26px;
-  pointer-events:none;
-  animation:floatUp 5s linear forwards;
+.final h2 {
+  font-size: 32px;
+  color: #ff4d6d;
 }
 
-@keyframes floatUp{
-  from{
-    transform:translateY(100vh);
-    opacity:1;
+.from {
+  margin-top: 12px;
+  font-size: 18px;
+  color: #444;
+}
+
+/* СЕРДЦА И ЦВЕТЫ */
+.heart, .flower {
+  position: fixed;
+  font-size: 22px;
+  animation: floatUp 6s linear forwards;
+  pointer-events: none;
+}
+
+@keyframes floatUp {
+  from {
+    transform: translateY(100vh) scale(1);
+    opacity: 1;
   }
-  to{
-    transform:translateY(-20vh);
-    opacity:0;
+  to {
+    transform: translateY(-20vh) scale(1.6);
+    opacity: 0;
   }
+}
+
+/* ПЕРВЫЙ ТАП */
+.first-tap {
+  position: fixed;
+  inset: 0;
+  background: linear-gradient(180deg, #ffb3c6, #ff7aa2);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  font-size: 26px;
+  color: white;
+  z-index: 999;
 }
 </style>
 </head>
@@ -133,66 +145,48 @@ h1{
 
 <!-- МУЗЫКА -->
 <audio id="bgMusic" loop>
-  <source src="24b0d8ed4ae4cb2.mp3">
+  <source src="https://cdn.pixabay.com/audio/2022/03/15/audio_6c1b2a8c8b.mp3">
 </audio>
 
 <div class="pages">
 
-<section class="page">
-  <h1>Мамочка 💖</h1>
-  <div class="subtitle">С 8 Марта тебя 🌸</div>
-</section>
+  <section class="page hero">
+    <h1>Мамочка 💖</h1>
+    <div class="subtitle">С 8 Марта тебя 🌸</div>
+    <div class="hint">Листай вниз ⬇️</div>
+  </section>
 
-<section class="page">
-  <div class="text">
-    Ты у нас самая добрая, самая заботливая и самая лучшая мама.
-    Мы очень тебя любим и благодарны тебе за всё тепло,
-    которое ты нам даришь каждый день 💕
-  </div>
-</section>
+  <section class="page soft">
+    <div class="text">
+      Ты у нас самая добрая, самая красивая  
+      и самая лучшая мама на свете.  
+      Мы очень рады, что именно ты — наша мама 💕
+    </div>
+  </section>
 
-<section class="page photo">
-  <img src="ССЫЛКА_НА_ФОТО_1">
-  <div class="caption">Ты у нас самая красивая 🌷</div>
-</section>
+  <section class="page photo">
+    <img src="https://allwebs.ru/image/IMG-0705.pKIpeL">
+    <div class="caption">Ты у нас самая красивая 🌷</div>
+  </section>
 
-<section class="page">
-  <div class="text">
-    Спасибо тебе за поддержку, улыбки и любовь.
-    Нам очень повезло, что именно ты — наша мама ❤️
-  </div>
-</section>
+  <section class="page soft">
+    <div class="text">
+      Спасибо тебе за заботу, тепло и любовь.  
+      Ты всегда рядом с нами и поддерживаешь ❤️
+    </div>
+  </section>
 
-<section class="page photo">
-  <img src="ССЫЛКА_НА_ФОТО_2">
-  <div class="caption">Мы тебя очень любим 💖</div>
-</section>
+  <section class="page photo">
+    <img src="https://allwebs.ru/image/IMG-0704.pKI0gi">
+    <div class="caption">Мы тебя очень любим 💖</div>
+  </section>
 
-<section class="page final">
-  <h2>Спасибо, что ты у нас есть 💖</h2>
-  <div class="from">Твои сыновья — Артём и Андрей</div>
-</section>
+  <section class="page soft">
+    <div class="text">
+      Пусть каждый твой день будет светлым,  
+      радостным и наполненным счастьем 🌸
+    </div>
+  </section>
 
-</div>
-
-<script>
-let started=false;
-
-document.addEventListener("click",()=>{
-  if(!started){
-    document.getElementById("bgMusic").play();
-    document.getElementById("firstTap").style.display="none";
-    started=true;
-  }
-
-  const h=document.createElement("div");
-  h.className="heart";
-  h.innerHTML="💖";
-  h.style.left=Math.random()*100+"vw";
-  document.body.appendChild(h);
-  setTimeout(()=>h.remove(),5000);
-});
-</script>
-
-</body>
-</html>
+  <section class="page final">
+    <
