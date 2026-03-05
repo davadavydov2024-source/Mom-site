@@ -2,26 +2,32 @@
 <html lang="ru">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Для мамы 💖</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+<title>💐 С 8 Марта, Мамочка</title>
 
 <style>
 
-*{margin:0;padding:0;box-sizing:border-box}
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+-webkit-tap-highlight-color:transparent;
+}
 
 body{
 font-family:-apple-system,BlinkMacSystemFont,"SF Pro Display",sans-serif;
-background:linear-gradient(180deg,#ffd6ec,#fff);
+background:linear-gradient(180deg,#ff4fa3,#ffc3da);
 overflow-x:hidden;
+scroll-behavior:smooth;
 }
 
 /* страницы */
 
 .pages{
 height:100vh;
-overflow-y:auto;
+overflow-y:scroll;
 scroll-snap-type:y mandatory;
-scroll-behavior:smooth;
 }
 
 .page{
@@ -29,178 +35,145 @@ height:100vh;
 scroll-snap-align:start;
 display:flex;
 flex-direction:column;
-justify-content:center;
 align-items:center;
-text-align:center;
+justify-content:center;
 padding:30px;
+text-align:center;
 }
 
-/* glass */
+/* glass карточки */
 
-.glass{
-background:rgba(255,255,255,.55);
-backdrop-filter:blur(25px);
-border-radius:30px;
-padding:30px;
-max-width:430px;
-box-shadow:0 25px 60px rgba(0,0,0,.18);
-border:1px solid rgba(255,255,255,.4);
+.card{
+background:rgba(255,255,255,0.55);
+backdrop-filter:blur(20px);
+border-radius:28px;
+padding:25px;
+max-width:600px;
+box-shadow:0 10px 40px rgba(0,0,0,0.15);
+}
+
+/* заголовок */
+
+h1{
+font-size:40px;
+color:#ff2f7a;
+margin-bottom:20px;
 }
 
 /* текст */
 
-h1{
-font-size:44px;
-color:#ff2f7d;
-margin-bottom:12px;
-animation:fade 1.8s ease;
-}
-
 .text{
 font-size:18px;
 line-height:1.7;
-animation:fade 2s ease;
-}
-
-@keyframes fade{
-from{opacity:0;transform:translateY(30px)}
-to{opacity:1}
 }
 
 /* фото */
 
-.photo img{
-width:300px;
-border-radius:26px;
-margin-top:18px;
-box-shadow:0 20px 60px rgba(0,0,0,.25);
+.photo{
+width:220px;
+border-radius:22px;
+margin:20px 0;
+box-shadow:0 10px 30px rgba(0,0,0,0.2);
 }
 
-/* 3D цветы */
+/* цветы */
 
 .flower{
 position:fixed;
-font-size:30px;
-pointer-events:none;
-animation:flowerMove linear infinite;
+font-size:24px;
+animation:float 10s linear infinite;
+opacity:0.8;
 }
 
-@keyframes flowerMove{
-
-0%{
-transform:translateY(110vh) rotate(0deg) scale(.8);
-opacity:.9;
+@keyframes float{
+0%{transform:translateY(110vh) rotate(0)}
+100%{transform:translateY(-10vh) rotate(360deg)}
 }
 
-50%{
-transform:translateY(40vh) rotate(180deg) scale(1.2);
-}
-
-100%{
-transform:translateY(-20vh) rotate(360deg) scale(1.4);
-opacity:0;
-}
-
-}
-
-/* сердце */
+/* сердца */
 
 .heart{
 position:fixed;
-font-size:26px;
+font-size:22px;
 pointer-events:none;
-animation:rise 6s linear forwards;
+animation:heart 2s linear forwards;
 }
 
-@keyframes rise{
-0%{transform:translateY(100vh)}
-100%{transform:translateY(-20vh)}
+@keyframes heart{
+0%{transform:scale(0)}
+100%{transform:translateY(-200px) scale(1);opacity:0}
 }
 
-/* фейерверк */
+/* кнопка */
 
-.particle{
-position:fixed;
-font-size:20px;
-pointer-events:none;
-animation:boom 1.6s ease forwards;
-}
-
-@keyframes boom{
-0%{
-transform:scale(.5);
-opacity:1;
-}
-100%{
-transform:translate(var(--x),var(--y)) scale(1.6);
-opacity:0;
-}
+.btn{
+margin-top:20px;
+padding:12px 22px;
+border-radius:20px;
+border:none;
+background:white;
+font-size:16px;
+box-shadow:0 4px 10px rgba(0,0,0,0.2);
 }
 
 /* лабиринт */
 
 #maze{
-width:260px;
-height:260px;
-background:white;
-border:4px solid #ff2f7d;
+display:grid;
+grid-template-columns:repeat(8,40px);
+gap:6px;
 margin-top:20px;
-position:relative;
+}
+
+.cell{
+width:40px;
+height:40px;
+border-radius:10px;
+background:#fff;
 }
 
 .wall{
-position:absolute;
-background:#ff2f7d;
+background:#ff7fb4;
 }
 
 .player{
-width:16px;
-height:16px;
-background:#ff2f7d;
-border-radius:50%;
-position:absolute;
-left:10px;
-top:10px;
+background:#ff2f7a;
 }
 
 .exit{
-width:20px;
-height:20px;
-background:green;
-position:absolute;
-right:10px;
-bottom:10px;
+background:#70e0a1;
 }
 
-/* кнопки */
+/* стрелки */
 
 .controls{
-margin-top:20px;
+margin-top:25px;
 display:grid;
-grid-template-columns:60px 60px 60px;
-gap:8px;
+grid-template-columns:80px 80px 80px;
+gap:10px;
+justify-content:center;
 }
 
 .controls button{
-font-size:22px;
+font-size:24px;
 padding:10px;
+border-radius:18px;
 border:none;
-border-radius:14px;
-background:#ff2f7d;
-color:white;
+background:white;
+box-shadow:0 6px 15px rgba(0,0,0,0.25);
 }
 
 /* призрак */
 
-#ghost{
-font-size:70px;
-margin-top:20px;
+.ghost{
+font-size:80px;
+margin-top:10px;
 }
 
-#chat{
-margin-top:12px;
+.ghostText{
+margin-top:15px;
 font-size:18px;
-max-width:300px;
+min-height:80px;
 }
 
 </style>
@@ -212,54 +185,109 @@ max-width:300px;
 <source src="24b0d8ed4ae4cb2.mp3">
 </audio>
 
-<div class="pages">
+<div class="pages" id="pages">
+
+<!-- старт -->
 
 <section class="page">
-
 <h1>Мамочка ❤️</h1>
 
-<div class="glass text">
+<div class="card">
+<p class="text">Нажми на экран чтобы начать ✨</p>
+</div>
+</section>
 
-Поздравляем тебя с прекрасным праздником — 
-Международным женским днём. Ты самая добрая,
-заботливая и красивая мама.
-Спасибо за любовь, поддержку и тепло.
-Мы очень тебя любим.
+<!-- поздравление 1 -->
+
+<section class="page">
+
+<img class="photo"
+src="https://i.ibb.co/6JDxwj1v/IMG-0704.jpg">
+
+<div class="card text">
+
+Дорогая мамочка!  
+Сегодня особенный день — 8 марта.  
+Это день весны, тепла и любви.
+
+Ты самый важный человек в нашей жизни.  
+Спасибо тебе за заботу, поддержку, доброту и терпение.
+
+Каждый день ты делаешь наш мир лучше.  
+Твоя улыбка делает нас счастливыми.
+
+Мы очень благодарны за всё, что ты делаешь для нас.  
+Пусть в твоей жизни будет много радости, здоровья и красивых моментов.
 
 </div>
 
 </section>
 
+<!-- поздравление 2 -->
+
 <section class="page">
 
-<div class="glass text">
+<img class="photo"
+src="https://i.ibb.co/p69x2rzG/IMG-0705.jpg">
 
-Пусть каждый день приносит радость,
-улыбки и счастье.
+<div class="card text">
 
-Пусть жизнь будет наполнена цветами
-и хорошим настроением.
+Мамочка, ты самая добрая, самая красивая и самая заботливая.
 
-</div>
+Пусть этот весенний праздник принесёт тебе счастье,  
+много улыбок и прекрасное настроение.
 
-<div class="photo">
-<img src="https://i.ibb.co/p69x2rzG/IMG-0705.jpg">
+Мы желаем тебе здоровья, радости и исполнения мечт.
+
+Пусть каждый день будет наполнен светом, теплом и любовью.
+
+Мы очень тебя любим ❤️
+
 </div>
 
 </section>
 
+<!-- квест -->
+
 <section class="page">
 
-<div class="glass text">
+<h1>Мини-квест 👀</h1>
 
-Мы очень тебя любим ❤️  
-Спасибо что ты у нас есть.
+<div id="maze"></div>
+
+<div class="controls">
+<button onclick="move(-1,0)">⬅️</button>
+<button onclick="move(0,-1)">⬆️</button>
+<button onclick="move(1,0)">➡️</button>
+<button onclick="move(0,1)">⬇️</button>
+</div>
+
+</section>
+
+<!-- имя -->
+
+<section class="page">
+
+<div class="card">
+
+<h2>Введите имя и возраст</h2>
+
+<input id="name" placeholder="Имя"><br><br>
+<input id="age" placeholder="Возраст"><br><br>
+
+<button class="btn" onclick="finish()">Готово</button>
 
 </div>
 
-<div class="photo">
-<img src="https://i.ibb.co/6JDxwj1v/IMG-0704.jpg">
-</div>
+</section>
+
+<!-- призрак -->
+
+<section class="page">
+
+<div class="ghost">👻</div>
+
+<div class="card ghostText" id="ghostText"></div>
 
 </section>
 
@@ -269,77 +297,126 @@ max-width:300px;
 
 /* музыка */
 
-document.addEventListener("click",()=>{
+document.body.onclick=()=>{
 document.getElementById("music").play()
-},{once:true})
+}
 
-/* 3D цветы */
+/* цветы */
 
 setInterval(()=>{
-
 let f=document.createElement("div")
 f.className="flower"
-f.innerHTML="🌸"
-
+f.innerHTML=["🌸","🌺","💮","🌼"][Math.floor(Math.random()*4)]
 f.style.left=Math.random()*100+"vw"
-f.style.animationDuration=(8+Math.random()*8)+"s"
-
+f.style.fontSize=(20+Math.random()*30)+"px"
 document.body.appendChild(f)
 
-setTimeout(()=>f.remove(),16000)
+setTimeout(()=>f.remove(),10000)
+},700)
 
-},800)
+/* сердца */
 
-/* сердца при касании */
-
-document.addEventListener("click",e=>{
-
+document.addEventListener("touchstart",e=>{
 let h=document.createElement("div")
 h.className="heart"
 h.innerHTML="❤️"
-
-h.style.left=e.clientX+"px"
-h.style.top=e.clientY+"px"
-
+h.style.left=e.touches[0].clientX+"px"
+h.style.top=e.touches[0].clientY+"px"
 document.body.appendChild(h)
 
-setTimeout(()=>h.remove(),6000)
-
+setTimeout(()=>h.remove(),2000)
 })
 
-/* фейерверк */
+/* лабиринт */
 
-function fireworks(){
+let maze=[
+[0,0,0,0,0,0,0,0],
+[0,1,1,1,1,1,1,0],
+[0,1,0,0,0,0,1,0],
+[0,1,1,1,1,0,1,0],
+[0,0,0,0,1,0,1,0],
+[0,1,1,1,1,1,1,2]
+]
 
-for(let i=0;i<120;i++){
+let px=1
+let py=1
 
-let p=document.createElement("div")
-p.className="particle"
-p.innerHTML="💖"
+function draw(){
+mazeDiv.innerHTML=""
 
-let x=(Math.random()-0.5)*600+"px"
-let y=(Math.random()-0.5)*600+"px"
+maze.forEach((row,y)=>{
+row.forEach((cell,x)=>{
 
-p.style.left="50vw"
-p.style.top="50vh"
+let d=document.createElement("div")
+d.className="cell"
 
-p.style.setProperty("--x",x)
-p.style.setProperty("--y",y)
+if(cell==0)d.classList.add("wall")
+if(cell==2)d.classList.add("exit")
 
-document.body.appendChild(p)
+if(x==px&&y==py)d.classList.add("player")
 
-setTimeout(()=>p.remove(),1600)
+mazeDiv.appendChild(d)
 
+})
+})
+}
+
+function move(dx,dy){
+
+let nx=px+dx
+let ny=py+dy
+
+if(maze[ny][nx]==0)return
+
+px=nx
+py=ny
+
+draw()
+
+if(maze[ny][nx]==2){
+setTimeout(()=>{
+document.getElementById("pages").scrollTo({top:window.innerHeight*4,behavior:"smooth"})
+},300)
 }
 
 }
 
-/* запуск фейерверка через 6 секунд */
+let mazeDiv=document.getElementById("maze")
+draw()
 
-setTimeout(fireworks,6000)
+/* финал */
+
+function finish(){
+
+let name=document.getElementById("name").value
+
+let text="Привет "+name+" ❤️ Спасибо что прошла мини-квест. Мы очень тебя любим и поздравляем с 8 марта! Пусть в твоей жизни всегда будет радость, счастье и много красивых моментов."
+
+type(text)
+
+}
+
+/* печать */
+
+function type(text){
+
+let i=0
+
+let el=document.getElementById("ghostText")
+
+let t=setInterval(()=>{
+
+el.innerHTML+=text[i]
+
+i++
+
+if(i>=text.length)clearInterval(t)
+
+},40)
+
+}
 
 </script>
-overflow-x:hidden;
-touch-action:manipulation;
+
 </body>
 </html>
