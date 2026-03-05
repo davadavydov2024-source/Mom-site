@@ -3,7 +3,6 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
 <title>Для мамы ❤️</title>
 
 <style>
@@ -14,15 +13,11 @@ padding:0;
 box-sizing:border-box;
 }
 
-html,body{
-height:100%;
-overflow-x:hidden;
+body{
 font-family:-apple-system,BlinkMacSystemFont,"SF Pro Display",sans-serif;
 background:linear-gradient(180deg,#ffd9ec,#fff);
-scroll-behavior:smooth;
+overflow-x:hidden;
 }
-
-/* вертикальный скролл */
 
 .pages{
 height:100vh;
@@ -37,59 +32,45 @@ display:flex;
 flex-direction:column;
 justify-content:center;
 align-items:center;
-padding:40px;
+padding:30px;
 text-align:center;
-position:relative;
 }
-
-/* apple glass */
-
-.glass{
-background:rgba(255,255,255,.65);
-backdrop-filter:blur(18px);
-border-radius:30px;
-padding:28px;
-max-width:420px;
-box-shadow:0 10px 40px rgba(0,0,0,.15);
-}
-
-/* заголовки */
 
 h1{
-font-size:48px;
+font-size:42px;
 color:#ff2f7d;
 margin-bottom:10px;
 }
 
-h2{
-font-size:28px;
-margin-bottom:20px;
+.glass{
+background:rgba(255,255,255,.8);
+backdrop-filter:blur(15px);
+padding:25px;
+border-radius:25px;
+max-width:420px;
+box-shadow:0 15px 40px rgba(0,0,0,.15);
 }
-
-/* текст */
 
 .text{
 font-size:18px;
-line-height:1.7;
+line-height:1.6;
 }
-
-/* фото */
 
 .photo img{
 width:280px;
-border-radius:26px;
-margin-top:20px;
-box-shadow:0 20px 40px rgba(0,0,0,.2);
+border-radius:22px;
+margin-top:18px;
+box-shadow:0 15px 35px rgba(0,0,0,.2);
 }
 
 /* цветы */
 
 .flower{
 position:fixed;
-font-size:26px;
+font-size:24px;
+animation:float 10s linear infinite;
 pointer-events:none;
-animation:float 12s linear infinite;
-opacity:.6;
+opacity:.7;
 }
 
 @keyframes float{
@@ -101,7 +82,7 @@ opacity:.6;
 
 .heart{
 position:fixed;
-font-size:20px;
+font-size:22px;
 animation:rise 6s linear forwards;
 pointer-events:none;
 }
@@ -109,18 +90,6 @@ pointer-events:none;
 @keyframes rise{
 0%{transform:translateY(100vh)}
 100%{transform:translateY(-20vh)}
-}
-
-/* кнопки */
-
-button{
-margin-top:20px;
-padding:14px 26px;
-border:none;
-border-radius:30px;
-background:#ff2f7d;
-color:white;
-font-size:18px;
 }
 
 /* секретка */
@@ -134,11 +103,11 @@ align-items:center;
 /* лабиринт */
 
 #maze{
-margin-top:20px;
-width:240px;
-height:240px;
+width:260px;
+height:260px;
 background:white;
 border:4px solid #ff2f7d;
+margin-top:20px;
 position:relative;
 }
 
@@ -148,8 +117,8 @@ height:18px;
 background:#ff2f7d;
 border-radius:50%;
 position:absolute;
-left:5px;
-top:5px;
+left:10px;
+top:10px;
 }
 
 .exit{
@@ -157,8 +126,26 @@ width:22px;
 height:22px;
 background:green;
 position:absolute;
-right:5px;
-bottom:5px;
+right:10px;
+bottom:10px;
+}
+
+/* управление */
+
+.controls{
+margin-top:20px;
+display:grid;
+grid-template-columns:60px 60px 60px;
+gap:8px;
+}
+
+.controls button{
+font-size:22px;
+padding:10px;
+border:none;
+border-radius:12px;
+background:#ff2f7d;
+color:white;
 }
 
 /* призрак */
@@ -169,16 +156,9 @@ margin-top:20px;
 }
 
 #chat{
-margin-top:15px;
+margin-top:12px;
 font-size:18px;
 max-width:300px;
-}
-
-/* ночной режим */
-
-.dark{
-background:#111;
-color:white;
 }
 
 </style>
@@ -187,12 +167,10 @@ color:white;
 <body>
 
 <audio id="music" loop>
-<source src="music.mp3">
+<source src="24b0d8ed4ae4cb2.mp3">
 </audio>
 
 <div class="pages">
-
-<!-- экран 1 -->
 
 <section class="page">
 
@@ -200,30 +178,26 @@ color:white;
 
 <div class="glass text">
 
-Поздравляю тебя с прекрасным праздником —  
+Поздравляем тебя с прекрасным праздником —  
 [International Women's Day](chatgpt://generic-entity?number=1).
 
-Этот день наполнен теплом, цветами и словами благодарности.  
-Но никакие слова не смогут полностью передать, насколько ты важна.
-
-Ты человек, который всегда поддерживает, помогает и вдохновляет.  
-Ты создаёшь уют, заботу и атмосферу, в которой хочется жить и радоваться.
+Ты самая добрая, заботливая и красивая мама.  
+Спасибо за любовь, поддержку и тепло.  
+Мы очень тебя любим.
 
 </div>
 
 </section>
 
-<!-- экран 2 -->
-
 <section class="page">
 
 <div class="glass text">
 
-Спасибо тебе за заботу, терпение и любовь.  
-За все советы, за поддержку и за то, что ты всегда рядом.
+Пусть каждый день приносит радость.  
+Пусть всегда будет хорошее настроение,  
+улыбки и счастье.
 
-Ты умеешь делать обычные дни особенными.  
-Ты даришь тепло и свет людям вокруг себя.
+Ты делаешь нашу жизнь лучше.
 
 </div>
 
@@ -233,18 +207,15 @@ color:white;
 
 </section>
 
-<!-- экран 3 -->
-
 <section class="page">
 
 <div class="glass text">
 
-Мы очень рады, что именно ты — наша мама.
+С 8 Марта тебя!  
+Пусть будет много цветов,  
+радости и любви.
 
-Пусть каждый твой день будет наполнен счастьем,  
-пусть будет много улыбок, здоровья и радости.
-
-Ты заслуживаешь самого лучшего.
+Мы тебя очень любим ❤️
 
 </div>
 
@@ -253,26 +224,6 @@ color:white;
 </div>
 
 </section>
-
-<!-- экран 4 -->
-
-<section class="page">
-
-<div class="glass text">
-
-С 8 Марта тебя!
-
-Пусть в жизни будет много света, тепла и радости.  
-Пусть мечты сбываются, а рядом всегда будут люди,  
-которые тебя любят и ценят.
-
-Мы тебя очень любим ❤️
-
-</div>
-
-</section>
-
-<!-- секретка -->
 
 <section class="page secret" id="secret">
 
@@ -283,10 +234,23 @@ color:white;
 <div class="exit"></div>
 </div>
 
+<div class="controls">
+
+<div></div>
+<button onclick="move(0,-20)">⬆️</button>
+<div></div>
+
+<button onclick="move(-20,0)">⬅️</button>
+<button onclick="move(0,20)">⬇️</button>
+<button onclick="move(20,0)">➡️</button>
+
+</div>
+
 <div id="form" style="display:none">
 
+<br>
 <input id="name" placeholder="Имя"><br><br>
-<input id="age" placeholder="Возраст"><br>
+<input id="age" placeholder="Возраст"><br><br>
 
 <button onclick="finish()">Готово</button>
 
@@ -310,34 +274,24 @@ document.getElementById("music").play()
 /* цветы */
 
 setInterval(()=>{
-
 let f=document.createElement("div")
 f.className="flower"
 f.innerHTML="🌸"
-
 f.style.left=Math.random()*100+"vw"
-
 document.body.appendChild(f)
-
-setTimeout(()=>f.remove(),12000)
-
+setTimeout(()=>f.remove(),10000)
 },1200)
 
-/* сердца при касании */
+/* сердца */
 
 document.addEventListener("click",e=>{
-
 let h=document.createElement("div")
 h.className="heart"
 h.innerHTML="❤️"
-
 h.style.left=e.clientX+"px"
 h.style.top=e.clientY+"px"
-
 document.body.appendChild(h)
-
 setTimeout(()=>h.remove(),6000)
-
 })
 
 /* 15 кликов */
@@ -345,43 +299,38 @@ setTimeout(()=>h.remove(),6000)
 let clicks=0
 
 document.addEventListener("click",()=>{
-
 clicks++
 
 if(clicks==15){
-
 document.getElementById("secret").style.display="flex"
-
 document.getElementById("secret").scrollIntoView()
-
 }
-
 })
 
 /* лабиринт */
 
-let p=document.getElementById("player")
+let x=10
+let y=10
+let player=document.getElementById("player")
 
-let x=5
-let y=5
+function move(dx,dy){
 
-document.addEventListener("keydown",e=>{
+x+=dx
+y+=dy
 
-if(e.key=="ArrowRight")x+=12
-if(e.key=="ArrowLeft")x-=12
-if(e.key=="ArrowDown")y+=12
-if(e.key=="ArrowUp")y-=12
+if(x<0)x=0
+if(y<0)y=0
+if(x>230)x=230
+if(y>230)y=230
 
-p.style.left=x+"px"
-p.style.top=y+"px"
+player.style.left=x+"px"
+player.style.top=y+"px"
 
-if(x>200 && y>200){
-
+if(x>210 && y>210){
 document.getElementById("form").style.display="block"
-
 }
 
-})
+}
 
 /* призрак */
 
@@ -392,17 +341,16 @@ let age=document.getElementById("age").value
 
 document.getElementById("ghost").style.display="block"
 
-let text=`Молодец ${name}!  
-Ты прошла мой лабиринт.  
+type(`Молодец ${name}! 
+Ты прошла мой лабиринт. 
+Тебе ${age} лет и ты очень смелая!
 
-Тебе ${age} лет и ты очень смелая и молодая😉
+Я призрак этого сайта 👻
+Сегодня я пришёл поздравить тебя с 8 Марта.
 
-Я призрак этого сайта и сегодня пришёл поздравить тебя с 8 Марта.  
-Я тебя не съем :)`
+Я тебя не съем :)`)
 
-type(text)
-
-fireworks()
+explode()
 
 }
 
@@ -416,7 +364,6 @@ let el=document.getElementById("chat")
 let t=setInterval(()=>{
 
 el.innerHTML+=text[i]
-
 i++
 
 if(i>=text.length)clearInterval(t)
@@ -427,7 +374,7 @@ if(i>=text.length)clearInterval(t)
 
 /* взрыв */
 
-function fireworks(){
+function explode(){
 
 for(let i=0;i<200;i++){
 
@@ -436,12 +383,10 @@ setTimeout(()=>{
 let h=document.createElement("div")
 h.className="heart"
 h.innerHTML="💖"
-
 h.style.left=Math.random()*100+"vw"
-
 document.body.appendChild(h)
 
-},i*15)
+},i*10)
 
 }
 
