@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
+
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
 
@@ -19,11 +20,10 @@ body{
 font-family:-apple-system,BlinkMacSystemFont,"SF Pro Display",sans-serif;
 background:linear-gradient(180deg,#ff5fa2,#ff9acb,#ffdff1);
 overflow-x:hidden;
-transition:0.5s;
 }
 
 .dark{
-background:linear-gradient(180deg,#140a22,#2a0f3f);
+background:linear-gradient(180deg,#12081f,#2c0f3e);
 color:white;
 }
 
@@ -42,20 +42,17 @@ display:flex;
 flex-direction:column;
 justify-content:center;
 align-items:center;
-padding:30px;
 text-align:center;
+padding:30px;
 }
 
-/* заголовок */
+/* текст */
 
 h1{
-font-size:44px;
+font-size:46px;
 color:white;
-text-shadow:0 10px 30px rgba(0,0,0,0.4);
-animation:fade 1s;
+text-shadow:0 10px 40px rgba(0,0,0,0.3);
 }
-
-/* карточка */
 
 .box{
 background:white;
@@ -63,52 +60,23 @@ padding:28px;
 border-radius:26px;
 max-width:420px;
 font-size:19px;
-line-height:1.7;
-box-shadow:0 30px 60px rgba(0,0,0,0.25);
-animation:fade 1s;
+line-height:1.6;
+box-shadow:0 25px 60px rgba(0,0,0,0.25);
+margin-bottom:20px;
 }
 
 .dark .box{
-background:#ffffff18;
-backdrop-filter:blur(20px);
+background:#ffffff15;
+backdrop-filter:blur(15px);
 color:white;
-}
-
-@keyframes fade{
-from{opacity:0;transform:translateY(40px)}
-to{opacity:1;transform:translateY(0)}
-}
-
-/* кнопка */
-
-.btn{
-margin-top:20px;
-padding:12px 22px;
-border-radius:20px;
-background:white;
-font-weight:bold;
-box-shadow:0 15px 30px rgba(0,0,0,0.2);
-}
-
-/* ночной режим */
-
-.night{
-position:fixed;
-bottom:20px;
-left:20px;
-background:#00000040;
-color:white;
-padding:10px 16px;
-border-radius:20px;
-backdrop-filter:blur(10px);
 }
 
 /* цветы */
 
 .flower{
 position:fixed;
-font-size:22px;
-opacity:0.4;
+font-size:24px;
+opacity:0.5;
 animation:fall linear infinite;
 }
 
@@ -121,26 +89,26 @@ animation:fall linear infinite;
 
 .maze{
 display:grid;
-grid-template-columns:repeat(8,40px);
+grid-template-columns:repeat(8,42px);
 gap:6px;
-margin-top:20px;
+margin-top:10px;
 }
 
 .cell{
-width:40px;
-height:40px;
+width:42px;
+height:42px;
 border-radius:12px;
 }
 
 .wall{background:#f4a9c6}
 .path{background:white}
 .player{background:#ff4f9a}
-.exit{background:#6bffb0}
+.exit{background:#7dffba}
 
-/* управление */
+/* кнопки */
 
 .controls{
-margin-top:30px;
+margin-top:25px;
 display:grid;
 grid-template-columns:repeat(3,70px);
 gap:12px;
@@ -151,7 +119,32 @@ background:white;
 padding:16px;
 border-radius:22px;
 font-size:22px;
-box-shadow:0 15px 30px rgba(0,0,0,0.25);
+box-shadow:0 10px 25px rgba(0,0,0,0.3);
+}
+
+/* ввод */
+
+input{
+padding:10px;
+border-radius:12px;
+border:none;
+margin:6px;
+width:120px;
+text-align:center;
+}
+
+/* призрак */
+
+.ghost{
+font-size:70px;
+margin-top:20px;
+animation:float 2s infinite ease-in-out;
+}
+
+@keyframes float{
+0%{transform:translateY(0)}
+50%{transform:translateY(-10px)}
+100%{transform:translateY(0)}
 }
 
 /* сердца */
@@ -164,8 +157,20 @@ animation:boom 3s linear forwards;
 
 @keyframes boom{
 0%{transform:scale(0)}
-40%{transform:scale(1.5)}
-100%{transform:translateY(-700px) scale(0)}
+40%{transform:scale(1.6)}
+100%{transform:translateY(-800px) scale(0)}
+}
+
+/* ночь */
+
+.night{
+position:fixed;
+bottom:20px;
+left:20px;
+background:#00000040;
+color:white;
+padding:10px 18px;
+border-radius:20px;
 }
 
 </style>
@@ -176,7 +181,7 @@ animation:boom 3s linear forwards;
 <div class="pages">
 
 <div class="page">
-<h1>Мамочка 💖</h1>
+<h1>Мамочка ❤️</h1>
 </div>
 
 <div class="page">
@@ -184,16 +189,15 @@ animation:boom 3s linear forwards;
 С 8 Марта 🌸  
 Спасибо тебе за любовь, заботу  
 и за всё тепло которое ты даришь.  
+
 Ты самая лучшая мама ❤️
 </div>
 </div>
 
 <div class="page">
 <div class="box">
-Пусть у тебя всегда будет  
-радость, здоровье и счастье ✨  
-
-Мы тебя очень любим 💐
+Мы тебя очень любим  
+и всегда будем рядом 💐
 </div>
 </div>
 
@@ -204,7 +208,7 @@ animation:boom 3s linear forwards;
 Пройди лабиринт
 </div>
 
-<div class="maze" id="maze"></div>
+<div id="maze" class="maze"></div>
 
 <div class="controls">
 
@@ -218,9 +222,28 @@ animation:boom 3s linear forwards;
 
 </div>
 
-<div id="win" style="display:none;margin-top:20px;" class="box">
-🎉 Ты прошла лабиринт!  
-Мы тебя очень любим 💖
+<div id="form" style="display:none" class="box">
+
+Введите имя и возраст 👇
+
+<br><br>
+
+<input id="name" placeholder="Имя">
+
+<input id="age" placeholder="Возраст">
+
+<br>
+
+<button onclick="finish()">Готово</button>
+
+</div>
+
+<div id="ghost" style="display:none" class="box">
+
+<div class="ghost">👻</div>
+
+<div id="ghostText"></div>
+
 </div>
 
 </div>
@@ -233,14 +256,12 @@ animation:boom 3s linear forwards;
 
 /* цветы */
 
-function flowers(){
-
-for(let i=0;i<15;i++){
+for(let i=0;i<18;i++){
 
 let f=document.createElement("div")
 
 f.className="flower"
-f.innerHTML=["🌸","🌺","💐","🌼"][Math.floor(Math.random()*4)]
+f.innerHTML=["🌸","🌺","🌼","💐"][Math.floor(Math.random()*4)]
 
 f.style.left=Math.random()*100+"vw"
 f.style.animationDuration=5+Math.random()*6+"s"
@@ -248,10 +269,6 @@ f.style.animationDuration=5+Math.random()*6+"s"
 document.body.appendChild(f)
 
 }
-
-}
-
-flowers()
 
 /* лабиринт */
 
@@ -278,13 +295,12 @@ maze.innerHTML=""
 map.forEach((row,y)=>{
 [...row].forEach((c,x)=>{
 
-const d=document.createElement("div")
+let d=document.createElement("div")
 
 d.className="cell "+(
-x===px && y===py ? "player" :
-c=="#" ? "wall" :
-c=="E" ? "exit" :
-"path"
+x==px&&y==py?"player":
+c=="#"?"wall":
+c=="E"?"exit":"path"
 )
 
 maze.appendChild(d)
@@ -298,8 +314,8 @@ draw()
 
 function move(dx,dy){
 
-const nx=px+dx
-const ny=py+dy
+let nx=px+dx
+let ny=py+dy
 
 if(map[ny][nx]=="#")return
 
@@ -309,15 +325,32 @@ py=ny
 draw()
 
 if(map[ny][nx]=="E"){
-win.style.display="block"
-superHearts()
+form.style.display="block"
 }
+
+}
+
+/* финал */
+
+function finish(){
+
+let name=document.getElementById("name").value
+let age=document.getElementById("age").value
+
+ghost.style.display="block"
+
+ghostText.innerHTML=
+"Молодец "+name+" 🎉<br><br>"+
+"Тебе "+age+" лет и ты прошла мою игру!<br><br>"+
+"Я тебя не съем 👻"
+
+hearts()
 
 }
 
 /* 200 сердечек */
 
-function superHearts(){
+function hearts(){
 
 for(let i=0;i<200;i++){
 
