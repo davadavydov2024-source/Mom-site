@@ -3,26 +3,25 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Для мамы ❤️</title>
+<title>Для мамы 💖</title>
 
 <style>
 
-*{
-margin:0;
-padding:0;
-box-sizing:border-box;
-}
+*{margin:0;padding:0;box-sizing:border-box}
 
 body{
 font-family:-apple-system,BlinkMacSystemFont,"SF Pro Display",sans-serif;
-background:linear-gradient(180deg,#ffd9ec,#fff);
+background:linear-gradient(180deg,#ffd6ec,#fff);
 overflow-x:hidden;
 }
+
+/* страницы */
 
 .pages{
 height:100vh;
 overflow-y:auto;
 scroll-snap-type:y mandatory;
+scroll-behavior:smooth;
 }
 
 .page{
@@ -32,59 +31,85 @@ display:flex;
 flex-direction:column;
 justify-content:center;
 align-items:center;
-padding:30px;
 text-align:center;
+padding:30px;
 }
 
-h1{
-font-size:42px;
-color:#ff2f7d;
-margin-bottom:10px;
-}
+/* glass */
 
 .glass{
-background:rgba(255,255,255,.8);
-backdrop-filter:blur(15px);
-padding:25px;
-border-radius:25px;
-max-width:420px;
-box-shadow:0 15px 40px rgba(0,0,0,.15);
+background:rgba(255,255,255,.55);
+backdrop-filter:blur(25px);
+border-radius:30px;
+padding:30px;
+max-width:430px;
+box-shadow:0 25px 60px rgba(0,0,0,.18);
+border:1px solid rgba(255,255,255,.4);
+}
+
+/* текст */
+
+h1{
+font-size:44px;
+color:#ff2f7d;
+margin-bottom:12px;
+animation:fade 1.8s ease;
 }
 
 .text{
 font-size:18px;
-line-height:1.6;
+line-height:1.7;
+animation:fade 2s ease;
 }
+
+@keyframes fade{
+from{opacity:0;transform:translateY(30px)}
+to{opacity:1}
+}
+
+/* фото */
 
 .photo img{
-width:280px;
-border-radius:22px;
+width:300px;
+border-radius:26px;
 margin-top:18px;
-box-shadow:0 15px 35px rgba(0,0,0,.2);
+box-shadow:0 20px 60px rgba(0,0,0,.25);
 }
 
-/* цветы */
+/* 3D цветы */
 
 .flower{
 position:fixed;
-font-size:24px;
-animation:float 10s linear infinite;
+font-size:30px;
 pointer-events:none;
-opacity:.7;
+animation:flowerMove linear infinite;
 }
 
-@keyframes float{
-0%{transform:translateY(110vh)}
-100%{transform:translateY(-20vh)}
+@keyframes flowerMove{
+
+0%{
+transform:translateY(110vh) rotate(0deg) scale(.8);
+opacity:.9;
 }
 
-/* сердца */
+50%{
+transform:translateY(40vh) rotate(180deg) scale(1.2);
+}
+
+100%{
+transform:translateY(-20vh) rotate(360deg) scale(1.4);
+opacity:0;
+}
+
+}
+
+/* сердце */
 
 .heart{
 position:fixed;
-font-size:22px;
-animation:rise 6s linear forwards;
+font-size:26px;
 pointer-events:none;
+animation:rise 6s linear forwards;
 }
 
 @keyframes rise{
@@ -92,12 +117,24 @@ pointer-events:none;
 100%{transform:translateY(-20vh)}
 }
 
-/* секретка */
+/* фейерверк */
 
-.secret{
-display:none;
-flex-direction:column;
-align-items:center;
+.particle{
+position:fixed;
+font-size:20px;
+pointer-events:none;
+animation:boom 1.6s ease forwards;
+}
+
+@keyframes boom{
+0%{
+transform:scale(.5);
+opacity:1;
+}
+100%{
+transform:translate(var(--x),var(--y)) scale(1.6);
+opacity:0;
+}
 }
 
 /* лабиринт */
@@ -111,9 +148,14 @@ margin-top:20px;
 position:relative;
 }
 
+.wall{
+position:absolute;
+background:#ff2f7d;
+}
+
 .player{
-width:18px;
-height:18px;
+width:16px;
+height:16px;
 background:#ff2f7d;
 border-radius:50%;
 position:absolute;
@@ -122,15 +164,15 @@ top:10px;
 }
 
 .exit{
-width:22px;
-height:22px;
+width:20px;
+height:20px;
 background:green;
 position:absolute;
 right:10px;
 bottom:10px;
 }
 
-/* управление */
+/* кнопки */
 
 .controls{
 margin-top:20px;
@@ -143,7 +185,7 @@ gap:8px;
 font-size:22px;
 padding:10px;
 border:none;
-border-radius:12px;
+border-radius:14px;
 background:#ff2f7d;
 color:white;
 }
@@ -179,11 +221,10 @@ max-width:300px;
 <div class="glass text">
 
 Поздравляем тебя с прекрасным праздником —  
-[International Women's Day](chatgpt://generic-entity?number=1).
+8 Марта.
 
-Ты самая добрая, заботливая и красивая мама.  
-Спасибо за любовь, поддержку и тепло.  
-Мы очень тебя любим.
+Спасибо за твою заботу, любовь и тепло.  
+Ты самая лучшая мама.
 
 </div>
 
@@ -193,11 +234,11 @@ max-width:300px;
 
 <div class="glass text">
 
-Пусть каждый день приносит радость.  
-Пусть всегда будет хорошее настроение,  
+Пусть каждый день приносит радость,
 улыбки и счастье.
 
-Ты делаешь нашу жизнь лучше.
+Пусть жизнь будет наполнена цветами
+и хорошим настроением.
 
 </div>
 
@@ -211,53 +252,14 @@ max-width:300px;
 
 <div class="glass text">
 
-С 8 Марта тебя!  
-Пусть будет много цветов,  
-радости и любви.
-
-Мы тебя очень любим ❤️
+Мы очень тебя любим ❤️  
+Спасибо что ты у нас есть.
 
 </div>
 
 <div class="photo">
 <img src="https://i.ibb.co/6JDxwj1v/IMG-0704.jpg">
 </div>
-
-</section>
-
-<section class="page secret" id="secret">
-
-<h2>🎁 Мини-квест</h2>
-
-<div id="maze">
-<div class="player" id="player"></div>
-<div class="exit"></div>
-</div>
-
-<div class="controls">
-
-<div></div>
-<button onclick="move(0,-20)">⬆️</button>
-<div></div>
-
-<button onclick="move(-20,0)">⬅️</button>
-<button onclick="move(0,20)">⬇️</button>
-<button onclick="move(20,0)">➡️</button>
-
-</div>
-
-<div id="form" style="display:none">
-
-<br>
-<input id="name" placeholder="Имя"><br><br>
-<input id="age" placeholder="Возраст"><br><br>
-
-<button onclick="finish()">Готово</button>
-
-</div>
-
-<div id="ghost" style="display:none">👻</div>
-<div id="chat"></div>
 
 </section>
 
@@ -271,126 +273,70 @@ document.addEventListener("click",()=>{
 document.getElementById("music").play()
 },{once:true})
 
-/* цветы */
+/* 3D цветы */
 
 setInterval(()=>{
+
 let f=document.createElement("div")
 f.className="flower"
 f.innerHTML="🌸"
-f.style.left=Math.random()*100+"vw"
-document.body.appendChild(f)
-setTimeout(()=>f.remove(),10000)
-},1200)
 
-/* сердца */
+f.style.left=Math.random()*100+"vw"
+f.style.animationDuration=(8+Math.random()*8)+"s"
+
+document.body.appendChild(f)
+
+setTimeout(()=>f.remove(),16000)
+
+},800)
+
+/* сердца при касании */
 
 document.addEventListener("click",e=>{
+
 let h=document.createElement("div")
 h.className="heart"
 h.innerHTML="❤️"
+
 h.style.left=e.clientX+"px"
 h.style.top=e.clientY+"px"
+
 document.body.appendChild(h)
+
 setTimeout(()=>h.remove(),6000)
+
 })
 
-/* 15 кликов */
+/* фейерверк */
 
-let clicks=0
+function fireworks(){
 
-document.addEventListener("click",()=>{
-clicks++
+for(let i=0;i<120;i++){
 
-if(clicks==15){
-document.getElementById("secret").style.display="flex"
-document.getElementById("secret").scrollIntoView()
-}
-})
+let p=document.createElement("div")
+p.className="particle"
+p.innerHTML="💖"
 
-/* лабиринт */
+let x=(Math.random()-0.5)*600+"px"
+let y=(Math.random()-0.5)*600+"px"
 
-let x=10
-let y=10
-let player=document.getElementById("player")
+p.style.left="50vw"
+p.style.top="50vh"
 
-function move(dx,dy){
+p.style.setProperty("--x",x)
+p.style.setProperty("--y",y)
 
-x+=dx
-y+=dy
+document.body.appendChild(p)
 
-if(x<0)x=0
-if(y<0)y=0
-if(x>230)x=230
-if(y>230)y=230
-
-player.style.left=x+"px"
-player.style.top=y+"px"
-
-if(x>210 && y>210){
-document.getElementById("form").style.display="block"
-}
-
-}
-
-/* призрак */
-
-function finish(){
-
-let name=document.getElementById("name").value
-let age=document.getElementById("age").value
-
-document.getElementById("ghost").style.display="block"
-
-type(`Молодец ${name}! 
-Ты прошла мой лабиринт. 
-Тебе ${age} лет и ты очень смелая!
-
-Я призрак этого сайта 👻
-Сегодня я пришёл поздравить тебя с 8 Марта.
-
-Я тебя не съем :)`)
-
-explode()
-
-}
-
-/* печать текста */
-
-function type(text){
-
-let i=0
-let el=document.getElementById("chat")
-
-let t=setInterval(()=>{
-
-el.innerHTML+=text[i]
-i++
-
-if(i>=text.length)clearInterval(t)
-
-},35)
-
-}
-
-/* взрыв */
-
-function explode(){
-
-for(let i=0;i<200;i++){
-
-setTimeout(()=>{
-
-let h=document.createElement("div")
-h.className="heart"
-h.innerHTML="💖"
-h.style.left=Math.random()*100+"vw"
-document.body.appendChild(h)
-
-},i*10)
+setTimeout(()=>p.remove(),1600)
 
 }
 
 }
+
+/* запуск фейерверка через 6 секунд */
+
+setTimeout(fireworks,6000)
 
 </script>
 
