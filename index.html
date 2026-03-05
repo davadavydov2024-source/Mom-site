@@ -3,8 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>❤️ Для Мамы ❤️</title>
+<title>💐 С 8 Марта, Мама 💐</title>
 
 <style>
 
@@ -16,92 +15,147 @@ font-family:-apple-system,BlinkMacSystemFont,"SF Pro Display",sans-serif;
 }
 
 body{
-background:linear-gradient(180deg,#ffd6e7,#ffeef5,#ffffff);
+background:linear-gradient(180deg,#ffe6f0,#fff,#ffeef7);
 overflow-x:hidden;
 color:#333;
 }
 
-/* Apple glass */
-
-.glass{
-backdrop-filter:blur(20px);
-background:rgba(255,255,255,0.6);
-border-radius:25px;
-box-shadow:0 10px 40px rgba(0,0,0,0.15);
-padding:30px;
-margin:40px auto;
-max-width:700px;
-}
-
-/* start screen */
+/* старт */
 
 #start{
 position:fixed;
 width:100%;
 height:100%;
-background:black;
-color:white;
+background:linear-gradient(160deg,#ff7aa8,#ffb3d1);
 display:flex;
 align-items:center;
 justify-content:center;
 flex-direction:column;
+color:white;
 z-index:10;
+text-align:center;
 }
 
 #start h1{
-font-size:40px;
-margin-bottom:20px;
+font-size:42px;
+margin-bottom:15px;
 }
 
 #start p{
-opacity:0.7;
+opacity:0.8;
 }
 
-/* flowers */
+/* цветы */
 
 .flower{
 position:fixed;
 font-size:30px;
-animation:fall linear infinite;
 pointer-events:none;
-}
-
-@keyframes fall{
-0%{transform:translateY(-100px) rotate(0deg)}
-100%{transform:translateY(110vh) rotate(360deg)}
-}
-
-/* hearts */
-
-.heart{
-position:fixed;
-font-size:25px;
-animation:float 5s linear forwards;
+animation:float 8s linear infinite;
 }
 
 @keyframes float{
-0%{opacity:1}
+
+0%{
+transform:translateY(-100px) rotate(0deg)
+}
+
 100%{
-transform:translateY(-200px);
+transform:translateY(110vh) rotate(360deg)
+}
+
+}
+
+/* контейнер */
+
+.container{
+max-width:1100px;
+margin:auto;
+padding:60px 20px;
+}
+
+/* блок */
+
+.block{
+
+display:flex;
+gap:40px;
+margin-bottom:80px;
+align-items:center;
+
+background:rgba(255,255,255,0.7);
+backdrop-filter:blur(20px);
+padding:35px;
+border-radius:25px;
+
+box-shadow:
+0 20px 50px rgba(0,0,0,0.1);
+
+}
+
+.block img{
+
+width:320px;
+border-radius:20px;
+
+}
+
+/* текст */
+
+.block h2{
+color:#ff4f8b;
+margin-bottom:15px;
+font-size:28px;
+}
+
+.block p{
+line-height:1.7;
+font-size:18px;
+}
+
+/* сердечки */
+
+.heart{
+
+position:fixed;
+font-size:22px;
+pointer-events:none;
+animation:heartUp 3s linear forwards;
+
+}
+
+@keyframes heartUp{
+
+0%{
+opacity:1;
+}
+
+100%{
+transform:translateY(-180px);
 opacity:0;
 }
+
 }
 
-/* maze */
+/* лабиринт */
 
 #maze{
+
 display:grid;
-grid-template-columns:repeat(10,40px);
+grid-template-columns:repeat(10,35px);
 gap:4px;
 justify-content:center;
 margin-top:20px;
+
 }
 
 .cell{
-width:40px;
-height:40px;
+
+width:35px;
+height:35px;
 background:white;
-border:2px solid #ff7aa8;
+border-radius:6px;
+
 }
 
 .wall{
@@ -116,45 +170,31 @@ background:#6be675;
 background:#4aa3ff;
 }
 
-/* ghost */
-
-#ghost{
-font-size:120px;
-text-align:center;
-margin-top:50px;
-}
+/* кнопки */
 
 button{
-padding:15px 25px;
+
+background:#ff4f8b;
 border:none;
-border-radius:15px;
-background:#ff5a8f;
 color:white;
+padding:15px 25px;
+border-radius:14px;
 font-size:18px;
 margin-top:20px;
+
 }
 
-input{
-padding:12px;
-border-radius:10px;
-border:1px solid #ccc;
-margin-top:10px;
-width:80%;
+/* секрет */
+
+#quest{
+margin-top:120px;
 }
 
-img{
-width:100%;
-border-radius:20px;
-margin-top:15px;
-}
+#ghost{
 
-/* secret */
-
-#secret{
-display:none;
+font-size:120px;
 text-align:center;
-font-size:30px;
-padding:50px;
+
 }
 
 </style>
@@ -163,147 +203,151 @@ padding:50px;
 <body>
 
 <div id="start">
-<h1>❤️ Для Мамы ❤️</h1>
+
+<h1>💐 С 8 Марта, Мама 💐</h1>
 <p>Нажми на экран</p>
+
 </div>
 
-<audio id="music" loop>
-<source src="https://cdn.pixabay.com/audio/2022/03/15/audio_7c7a1b5b0e.mp3">
-</audio>
+<div class="container">
 
-<div id="content" style="display:none">
+<!-- БЛОК 1 -->
 
-<div class="glass">
+<div class="block">
 
-<h2>Мама ❤️</h2>
+<img src="ФОТО1">
+
+<div>
+
+<h2>Самая лучшая мама ❤️</h2>
 
 <p>
 
-Ты самый добрый, самый родной человек на свете.  
-Спасибо тебе за твою заботу, за тепло, за улыбку и за то, что ты всегда рядом.  
-Ты поддерживаешь меня, помогаешь и веришь в меня даже тогда, когда мне трудно.
+Мама, поздравляю тебя с прекрасным праздником — 8 Марта!  
+Этот день посвящён самым красивым, добрым и заботливым людям на земле.  
+И для меня самым таким человеком всегда будешь именно ты.  
+
+Ты наполняешь дом теплом, уютом и радостью.  
+Когда рядом ты — всё становится спокойнее, светлее и добрее.  
+Твоя улыбка способна сделать день лучше, а твоя поддержка помогает преодолеть любые трудности.  
+
+Спасибо тебе за заботу, за терпение, за любовь и за то, что ты всегда рядом.  
+Ты делаешь нашу жизнь счастливее просто тем, что ты есть.
 
 </p>
 
 </div>
+</div>
 
-<div class="glass">
+
+<!-- БЛОК 2 -->
+
+<div class="block">
+
+<img src="ФОТО2">
+
+<div>
+
+<h2>Спасибо за всё 💗</h2>
 
 <p>
 
-Каждый день рядом с тобой наполнен добротой, радостью и уютом.  
-Ты делаешь наш дом настоящим местом счастья.  
-Твоя любовь делает мир ярче и лучше.
+Ты каждый день даришь столько добра, что иногда даже невозможно представить,
+сколько сил и любви ты вкладываешь в нашу семью.  
+
+Ты умеешь поддержать, когда трудно,  
+умеешь порадоваться вместе со мной,  
+умеешь сделать обычный день тёплым и особенным.  
+
+Твоя забота — это настоящее волшебство.  
+И я очень благодарен за всё, что ты делаешь.
 
 </p>
 
 </div>
+</div>
 
-<div class="glass">
+
+<!-- БЛОК 3 -->
+
+<div class="block">
+
+<img src="ФОТО3">
+
+<div>
+
+<h2>С 8 Марта 🌷</h2>
 
 <p>
 
-Я очень благодарен за всё, что ты для меня делаешь.  
-Ты вдохновляешь меня становиться лучше, сильнее и добрее.  
-Спасибо тебе за бесконечную любовь.
+В этот весенний день я хочу пожелать тебе счастья,
+много улыбок, радости и вдохновения.  
+
+Пусть каждый новый день приносит что-то хорошее,
+пусть мечты исполняются,
+пусть вокруг всегда будут любовь, тепло и забота.
 
 </p>
 
 </div>
-
-<div class="glass">
-
-<p>
-
-Я хочу чтобы ты всегда была счастливой, здоровой и улыбалась.  
-Пусть каждый день приносит тебе радость, тепло и много красивых моментов.
-
-</p>
+</div>
 
 </div>
 
+<!-- КВЕСТ -->
 
-<div class="glass">
+<div class="container" id="quest">
 
-<h2>🧠 Лабиринт</h2>
-<p>Найди путь!</p>
+<h2>🎁 Секретный квест</h2>
+<p>Пройди лабиринт!</p>
 
 <div id="maze"></div>
 
-<button onclick="finishMaze()">Я прошёл</button>
+<button onclick="finishMaze()">Я прошла лабиринт</button>
 
-</div>
-
-
-<div class="glass">
-
-<h2>Введите имя и возраст</h2>
+<br><br>
 
 <input id="name" placeholder="Имя мамы">
-
 <br>
-
 <input id="age" placeholder="Возраст">
 
 <br>
 
-<button onclick="showGhost()">Продолжить</button>
-
-</div>
-
-<div class="glass">
+<button onclick="ghost()">Продолжить</button>
 
 <div id="ghost">👻</div>
 
 <h2 id="ghostText"></h2>
 
-<button onclick="final()">Получить подарок</button>
+<button onclick="hearts()">Получить подарок</button>
 
-</div>
-
-<div class="glass">
-
-<h2>Наши фото ❤️</h2>
-
-<img src="ССЫЛКА_НА_ФОТО1">
-<img src="ССЫЛКА_НА_ФОТО2">
-<img src="ССЫЛКА_НА_ФОТО3">
-
-</div>
-
-</div>
-
-<div id="secret">
-🎁 СЕКРЕТ!  
-Ты лучшая мама ❤️
 </div>
 
 <script>
 
-/* start */
+/* старт */
 
 document.getElementById("start").onclick=()=>{
 document.getElementById("start").style.display="none"
-document.getElementById("content").style.display="block"
-document.getElementById("music").play()
 }
 
-/* flowers */
+/* цветы */
 
-for(let i=0;i<25;i++){
+for(let i=0;i<30;i++){
 
 let f=document.createElement("div")
+
 f.className="flower"
 f.innerHTML="🌸"
 
 f.style.left=Math.random()*100+"%"
-f.style.animationDuration=5+Math.random()*5+"s"
+f.style.animationDuration=6+Math.random()*6+"s"
 
 document.body.appendChild(f)
 
 }
 
-/* hearts */
+/* сердца */
 
 document.addEventListener("click",e=>{
 
@@ -316,31 +360,33 @@ h.style.top=e.clientY+"px"
 
 document.body.appendChild(h)
 
-setTimeout(()=>h.remove(),5000)
+setTimeout(()=>h.remove(),3000)
 
 })
 
-/* maze */
+/* лабиринт */
 
 let maze=[
-[0,1,0,0,0,1,0,0,0,0],
-[0,1,0,1,0,1,0,1,1,0],
-[0,0,0,1,0,0,0,1,0,0],
-[1,1,0,1,1,1,0,1,0,1],
-[0,0,0,0,0,1,0,0,0,1],
-[0,1,1,1,0,1,1,1,0,0],
-[0,0,0,1,0,0,0,1,0,1],
-[1,1,0,1,1,1,0,1,0,0],
-[0,0,0,0,0,1,0,0,0,1],
-[0,1,1,1,0,0,0,1,0,0]
+[0,1,0,0,0,0,0,0,0,0],
+[0,1,0,1,1,1,1,1,1,0],
+[0,0,0,0,0,0,0,0,1,0],
+[1,1,1,1,1,1,1,0,1,0],
+[0,0,0,0,0,0,1,0,1,0],
+[0,1,1,1,1,0,1,0,1,0],
+[0,0,0,0,1,0,0,0,1,0],
+[1,1,1,0,1,1,1,0,0,0],
+[0,0,0,0,0,0,1,1,1,0],
+[0,1,1,1,1,0,0,0,0,0]
 ]
 
 let mazeDiv=document.getElementById("maze")
 
 maze.forEach((row,y)=>{
+
 row.forEach((cell,x)=>{
 
 let d=document.createElement("div")
+
 d.className="cell"
 
 if(cell==1)d.classList.add("wall")
@@ -350,34 +396,41 @@ if(y==9&&x==9)d.classList.add("finish")
 mazeDiv.appendChild(d)
 
 })
+
 })
 
 function finishMaze(){
 
 alert("Молодец!")
 
-window.scrollTo({
-top:document.body.scrollHeight,
-behavior:"smooth"
-})
-
 }
 
-/* ghost */
-
-function showGhost(){
+function ghost(){
 
 let name=document.getElementById("name").value
 let age=document.getElementById("age").value
 
-document.getElementById("ghostText").innerText=
-"Привет "+name+"! 👻 Тебе "+age+" лет и ты самая лучшая мама!"
+let text="Молодец "+name+"! 👻 Ты прошла мою игру. Тебе "+age+" лет и ты самая лучшая мама!"
+
+let i=0
+
+let ghostText=document.getElementById("ghostText")
+
+ghostText.innerHTML=""
+
+let typing=setInterval(()=>{
+
+ghostText.innerHTML+=text[i]
+
+i++
+
+if(i>=text.length)clearInterval(typing)
+
+},40)
 
 }
 
-/* final hearts */
-
-function final(){
+function hearts(){
 
 for(let i=0;i<200;i++){
 
@@ -395,7 +448,7 @@ document.body.appendChild(h)
 
 }
 
-/* secret */
+/* секрет */
 
 let clicks=0
 
@@ -405,7 +458,9 @@ clicks++
 
 if(clicks==15){
 
-document.getElementById("secret").style.display="block"
+document.getElementById("quest").scrollIntoView({
+behavior:"smooth"
+})
 
 }
 
