@@ -2,32 +2,39 @@
 <html lang="ru">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1.0">
 
-<title>Мамочка ❤️</title>
+<meta name="viewport"
+content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+<title>Для мамы 💖</title>
 
 <style>
 
-*{
+{
 margin:0;
 padding:0;
 box-sizing:border-box;
--webkit-tap-highlight-color:transparent;
 }
+
+html,body{
+height:100%;
+font-family:-apple-system,BlinkMacSystemFont,"SF Pro Display",sans-serif;
+overflow-x:hidden;
+touch-action:manipulation;
+}
+
+/ ФОН /
 
 body{
-font-family:-apple-system,BlinkMacSystemFont,"SF Pro Display",sans-serif;
-background:linear-gradient(180deg,#ff6ab5,#ffd6ec);
-overflow-x:hidden;
+background:linear-gradient(180deg,#ff6aa9,#ff9fcf,#ffe4f2);
 }
 
-/* страницы */
+/ СТРАНИЦЫ /
 
 .pages{
 height:100vh;
 overflow-y:auto;
 scroll-snap-type:y mandatory;
-scroll-behavior:smooth;
 }
 
 .page{
@@ -38,157 +45,121 @@ flex-direction:column;
 justify-content:center;
 align-items:center;
 text-align:center;
-padding:30px;
+padding:30px 20px;
 }
 
-/* glass */
-
-.card{
-background:rgba(255,255,255,.55);
-backdrop-filter:blur(25px);
-border-radius:30px;
-padding:28px;
-max-width:500px;
-box-shadow:0 20px 60px rgba(0,0,0,.2);
-border:1px solid rgba(255,255,255,.4);
-}
-
-/* текст */
+/ ТЕКСТ /
 
 h1{
-font-size:42px;
-color:#ff2f7a;
-margin-bottom:15px;
-animation:fade 1.5s ease;
+font-size:36px;
+color:white;
+margin-bottom:14px;
 }
 
-.text{
+p{
 font-size:18px;
 line-height:1.7;
-animation:fade 2s ease;
+color:white;
+max-width:340px;
 }
 
-@keyframes fade{
-from{opacity:0;transform:translateY(30px)}
-to{opacity:1}
-}
+/ БЕЛАЯ КАРТОЧКА /
 
-/* фото */
-
-.photo{
-width:260px;
+.card{
+background:white;
+padding:26px;
 border-radius:24px;
-margin:20px 0;
-box-shadow:0 20px 50px rgba(0,0,0,.25);
+box-shadow:0 20px 50px rgba(0,0,0,.2);
 }
 
-/* цветы */
-
-.flower{
-position:fixed;
-pointer-events:none;
-animation:flower linear infinite;
+.card p{
+color:#6a1d45;
 }
 
-@keyframes flower{
-0%{
-transform:translateY(110vh) rotate(0deg) scale(.8);
-}
-50%{
-transform:translateY(50vh) rotate(180deg) scale(1.2);
-}
-100%{
-transform:translateY(-10vh) rotate(360deg) scale(1.4);
-opacity:0;
-}
+/ КРУГ С 8 /
+
+.avatar{
+width:140px;
+height:140px;
+border-radius:50%;
+background:white;
+display:flex;
+align-items:center;
+justify-content:center;
+font-size:70px;
+font-weight:900;
+color:#ff4fa3;
+margin-bottom:20px;
 }
 
-/* сердца */
+/ КНОПКИ /
 
-.heart{
-position:fixed;
-pointer-events:none;
-animation:heart 2s forwards;
-}
-
-@keyframes heart{
-0%{transform:scale(.2)}
-100%{transform:translateY(-180px) scale(1.2);opacity:0}
-}
-
-/* фейерверк */
-
-.particle{
-position:fixed;
-pointer-events:none;
-animation:boom 1.6s forwards;
-}
-
-@keyframes boom{
-0%{opacity:1}
-100%{
-transform:translate(var(--x),var(--y)) scale(1.4);
-opacity:0;
-}
-}
-
-/* лабиринт */
-
-#maze{
-display:grid;
-grid-template-columns:repeat(8,40px);
-gap:6px;
+button{
 margin-top:20px;
+padding:14px 34px;
+border:none;
+border-radius:999px;
+background:white;
+color:#ff4fa3;
+font-size:16px;
+box-shadow:0 10px 30px rgba(0,0,0,.2);
+}
+
+/ СКРЫТО /
+
+.hidden{
+display:none;
+}
+
+/ ЛАБИРИНТ /
+
+.maze{
+display:grid;
+grid-template-columns:repeat(11,26px);
+grid-template-rows:repeat(11,26px);
+gap:4px;
+margin:20px auto;
 }
 
 .cell{
-width:40px;
-height:40px;
-border-radius:10px;
-background:#fff;
+width:26px;
+height:26px;
+border-radius:6px;
 }
 
 .wall{
-background:#ff8fc3;
+background:#5b2d7a;
+}
+
+.path{
+background:white;
 }
 
 .player{
-background:#ff2f7a;
+background:#ff4fa3;
 }
 
 .exit{
-background:#7df0a3;
+background:#6cffb2;
 }
 
-/* кнопки */
+/ УПРАВЛЕНИЕ /
 
 .controls{
-margin-top:25px;
 display:grid;
-grid-template-columns:80px 80px 80px;
+grid-template-columns:60px 60px 60px;
 gap:10px;
+margin-top:20px;
 }
 
 .controls button{
-font-size:24px;
-padding:10px;
-border-radius:18px;
-border:none;
-background:white;
-box-shadow:0 8px 20px rgba(0,0,0,.25);
+width:60px;
+height:60px;
+font-size:22px;
 }
 
-/* призрак */
-
-.ghost{
-font-size:80px;
-margin-top:10px;
-}
-
-.ghostText{
-margin-top:15px;
-font-size:18px;
-min-height:80px;
+.controls .empty{
+visibility:hidden;
 }
 
 </style>
@@ -196,100 +167,104 @@ min-height:80px;
 
 <body>
 
-<audio id="music" loop>
-<source src="24b0d8ed4ae4cb2.mp3">
-</audio>
+<div class="pages">
 
-<div class="pages" id="pages">
+<!-- СТАРТ -->
 
 <section class="page">
 
-<h1>Мамочка ❤️</h1>
+<div class="avatar">8</div>
 
-<div class="card text">
-Нажми на экран чтобы начать ✨
-</div>
+<h1>Для мамы 💖</h1>
 
-</section>
-
-<section class="page">
-
-<img class="photo"
-src="https://i.ibb.co/6JDxwj1v/IMG-0704.jpg">
-
-<div class="card text">
-
-Дорогая мамочка!
-
-Поздравляем тебя с прекрасным праздником 8 марта.  
-Это день весны, тепла и любви.
-
-Спасибо тебе за заботу, терпение и поддержку.  
-Ты самый важный человек в нашей жизни.
-
-Пусть каждый день приносит тебе радость,
-счастье и хорошее настроение.
-
-</div>
+<p>Листай вниз</p>
 
 </section>
 
-<section class="page">
-
-<img class="photo"
-src="https://i.ibb.co/p69x2rzG/IMG-0705.jpg">
-
-<div class="card text">
-
-Мамочка, ты самая добрая и самая красивая.  
-Мы очень благодарны за всё, что ты делаешь для нас.
-
-Пусть в твоей жизни будет много улыбок,
-здоровья и приятных моментов.
-
-Мы очень тебя любим ❤️
-
-</div>
-
-</section>
-
-<section class="page">
-
-<h1>Мини-квест 👀</h1>
-
-<div id="maze"></div>
-
-<div class="controls">
-
-<button onclick="move(-1,0)">⬅️</button>
-<button onclick="move(0,-1)">⬆️</button>
-<button onclick="move(1,0)">➡️</button>
-<button onclick="move(0,1)">⬇️</button>
-
-</div>
-
-</section>
+<!-- ПОЗДРАВЛЕНИЕ -->
 
 <section class="page">
 
 <div class="card">
 
-<h2>Имя и возраст</h2>
+<p>
 
-<input id="name" placeholder="Имя"><br><br>
-<input id="age" placeholder="Возраст"><br><br>
+Мамочка 🌸
 
-<button onclick="finish()">Готово</button>
+<br><br>
+
+Поздравляем тебя с 8 Марта 💐
+
+<br><br>
+
+Ты самый добрый,  
+самый заботливый  
+и самый любимый человек  
+в нашей жизни.
+
+<br><br>
+
+Спасибо тебе за тепло,  
+за поддержку  
+и за любовь,  
+которую ты даришь нам  
+каждый день.
+
+<br><br>
+
+Мы тебя очень любим 💖
+
+</p>
 
 </div>
 
 </section>
 
+<!-- СЕКРЕТ -->
+
 <section class="page">
 
-<div class="ghost">👻</div>
+<h1>Секрет 🌷</h1>
 
-<div class="card ghostText" id="ghostText"></div>
+<p>Пройди небольшой лабиринт</p>
+
+<button onclick="openMaze()">Начать</button>
+
+</section>
+
+<!-- ЛАБИРИНТ -->
+
+<section class="page hidden" id="mazeScreen">
+
+<h1>Лабиринт 🧩</h1>
+
+<div class="maze" id="maze"></div>
+
+<div class="controls">
+
+<div class="empty"></div>
+<button onclick="move(0,-1)">⬆️</button>
+<div class="empty"></div>
+
+<button onclick="move(-1,0)">⬅️</button>
+<div class="empty"></div>
+<button onclick="move(1,0)">➡️</button>
+
+<div class="empty"></div>
+<button onclick="move(0,1)">⬇️</button>
+<div class="empty"></div>
+
+</div>
+
+</section>
+
+<!-- ФИНАЛ -->
+
+<section class="page hidden" id="finalScreen">
+
+<h1>🎉</h1>
+
+<p id="finalText"></p>
 
 </section>
 
@@ -297,171 +272,97 @@ src="https://i.ibb.co/p69x2rzG/IMG-0705.jpg">
 
 <script>
 
-/* музыка */
+/ КАРТА ЛАБИРИНТА /
 
-document.body.onclick=()=>{
-document.getElementById("music").play()
-}
+const mazeMap=[
 
-/* 3D цветы */
+"###########",
+"#P   #    #",
+"# ### ### #",
+"# #     # #",
+"# # ### # #",
+"#   #   # #",
+"### # ### #",
+"#   #     #",
+"# ### ### #",
+"#     #  E#",
+"###########"
 
-setInterval(()=>{
-
-let f=document.createElement("div")
-
-f.className="flower"
-f.innerHTML=["🌸","🌺","🌼","💮"][Math.floor(Math.random()*4)]
-
-f.style.left=Math.random()*100+"vw"
-f.style.fontSize=(24+Math.random()*30)+"px"
-f.style.animationDuration=(8+Math.random()*8)+"s"
-
-document.body.appendChild(f)
-
-setTimeout(()=>f.remove(),15000)
-
-},700)
-
-/* сердца */
-
-document.addEventListener("click",e=>{
-
-let h=document.createElement("div")
-
-h.className="heart"
-h.innerHTML="❤️"
-
-h.style.left=e.clientX+"px"
-h.style.top=e.clientY+"px"
-
-document.body.appendChild(h)
-
-setTimeout(()=>h.remove(),2000)
-
-})
-
-/* фейерверк */
-
-function fireworks(){
-
-for(let i=0;i<120;i++){
-
-let p=document.createElement("div")
-p.className="particle"
-p.innerHTML="💖"
-
-p.style.left="50vw"
-p.style.top="50vh"
-
-p.style.setProperty("--x",(Math.random()-0.5)*600+"px")
-p.style.setProperty("--y",(Math.random()-0.5)*600+"px")
-
-document.body.appendChild(p)
-
-setTimeout(()=>p.remove(),1600)
-
-}
-
-}
-
-/* лабиринт */
-
-let maze=[
-[0,0,0,0,0,0,0,0],
-[0,1,1,1,1,1,1,0],
-[0,1,0,0,0,0,1,0],
-[0,1,1,1,1,0,1,0],
-[0,0,0,0,1,0,1,0],
-[0,1,1,1,1,1,1,2]
 ]
 
 let px=1
 let py=1
 
-let mazeDiv=document.getElementById("maze")
+const maze=document.getElementById("maze")
 
-function draw(){
+function drawMaze(){
 
-mazeDiv.innerHTML=""
+maze.innerHTML=""
 
-maze.forEach((row,y)=>{
-row.forEach((cell,x)=>{
+mazeMap.forEach((row,y)=>{
 
-let d=document.createElement("div")
-d.className="cell"
+[...row].forEach((c,x)=>{
 
-if(cell==0)d.classList.add("wall")
-if(cell==2)d.classList.add("exit")
+const d=document.createElement("div")
 
-if(x==px && y==py)d.classList.add("player")
+d.classList.add("cell")
 
-mazeDiv.appendChild(d)
+if(c=="#") d.classList.add("wall")
+else if(c=="E") d.classList.add("exit")
+else d.classList.add("path")
+
+if(x==px && y==py){
+d.className="cell player"
+}
+
+maze.appendChild(d)
 
 })
+
 })
 
 }
 
-draw()
+drawMaze()
 
 function move(dx,dy){
 
-let nx=px+dx
-let ny=py+dy
+const nx=px+dx
+const ny=py+dy
 
-if(maze[ny][nx]==0)return
+if(mazeMap[ny][nx]!="#"){
 
 px=nx
 py=ny
 
-draw()
+drawMaze()
 
-if(maze[ny][nx]==2){
+if(mazeMap[ny][nx]=="E"){
 
-fireworks()
+document.getElementById("mazeScreen").classList.add("hidden")
+document.getElementById("finalScreen").classList.remove("hidden")
 
-setTimeout(()=>{
-document.getElementById("pages")
-.scrollTo({top:window.innerHeight*4,behavior:"smooth"})
-},500)
+document.getElementById("finalText").innerText=
+"Мамочка, ты прошла лабиринт 💖 Мы тебя очень любим!"
+
+}
 
 }
 
 }
 
-/* призрак */
+function openMaze(){
 
-function finish(){
+document.getElementById("mazeScreen").classList.remove("hidden")
 
-let name=document.getElementById("name").value
-let age=document.getElementById("age").value
-
-let text="Привет "+name+"! Спасибо что прошла лабиринт. Мы очень тебя любим и поздравляем с 8 марта! Пусть у тебя всегда будет радость, здоровье и счастье."
-
-type(text)
-
-}
-
-/* печать */
-
-function type(text){
-
-let i=0
-let el=document.getElementById("ghostText")
-
-let t=setInterval(()=>{
-
-el.innerHTML+=text[i]
-
-i++
-
-if(i>=text.length)clearInterval(t)
-
-},40)
+document.querySelector(".pages").scrollTo({
+top:window.innerHeight2,
+behavior:"smooth"
+})
 
 }
 
 </script>
 
 </body>
-</html>
+</ht
