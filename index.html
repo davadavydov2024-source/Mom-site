@@ -2,166 +2,160 @@
 <html lang="ru">
 <head>
 <meta charset="UTF-8">
-
 <meta name="viewport"
 content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-
 <title>Для мамы 💖</title>
 
 <style>
-
-{
-margin:0;
-padding:0;
-box-sizing:border-box;
-}
-
+*{margin:0;padding:0;box-sizing:border-box}
 html,body{
-height:100%;
-font-family:-apple-system,BlinkMacSystemFont,"SF Pro Display",sans-serif;
-overflow-x:hidden;
-touch-action:manipulation;
+  height:100%;
+  overflow-x:hidden;
+  touch-action:manipulation;
+  font-family:-apple-system,BlinkMacSystemFont,"SF Pro Display",sans-serif;
 }
-
-/ ФОН /
 
 body{
-background:linear-gradient(180deg,#ff6aa9,#ff9fcf,#ffe4f2);
+  background:linear-gradient(180deg,#ff5fa2,#ff9fcf,#ffe3f1);
+  transition:.6s;
+}
+body.night{
+  background:linear-gradient(180deg,#1c1027,#2c163c,#3b1f52);
 }
 
-/ СТРАНИЦЫ /
-
+/* СКРОЛЛ */
 .pages{
-height:100vh;
-overflow-y:auto;
-scroll-snap-type:y mandatory;
+  height:100vh;
+  overflow-y:auto;
+  scroll-snap-type:y mandatory;
 }
-
 .page{
-height:100vh;
-scroll-snap-align:start;
-display:flex;
-flex-direction:column;
-justify-content:center;
-align-items:center;
-text-align:center;
-padding:30px 20px;
+  height:100vh;
+  scroll-snap-align:start;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  align-items:center;
+  text-align:center;
+  padding:30px 22px;
+  position:relative;
 }
 
-/ ТЕКСТ /
-
+/* ТЕКСТ */
 h1{
-font-size:36px;
-color:white;
-margin-bottom:14px;
+  font-size:36px;
+  color:#fff;
+  margin-bottom:16px;
 }
-
 p{
-font-size:18px;
-line-height:1.7;
-color:white;
-max-width:340px;
+  font-size:18px;
+  line-height:1.7;
+  color:#fff;
+  max-width:380px;
 }
 
-/ БЕЛАЯ КАРТОЧКА /
-
+/* БЕЛЫЙ БЛОК */
 .card{
-background:white;
-padding:26px;
-border-radius:24px;
-box-shadow:0 20px 50px rgba(0,0,0,.2);
+  background:rgba(255,255,255,.92);
+  color:#5a1d3b;
+  padding:26px 22px;
+  border-radius:26px;
+  box-shadow:0 25px 60px rgba(0,0,0,.25);
+}
+.card p{color:#5a1d3b}
+
+/* АВАТАР 8 */
+.avatar8{
+  width:150px;height:150px;
+  border-radius:50%;
+  background:radial-gradient(circle at top,#fff,#ffd6ea 50%,#ff7ab8);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-size:76px;
+  font-weight:900;
+  color:#ff3f8b;
+  box-shadow:0 30px 60px rgba(255,63,139,.4);
+  margin-bottom:22px;
 }
 
-.card p{
-color:#6a1d45;
+/* СЕРДЦА */
+.heart{
+  position:fixed;
+  font-size:18px;
+  opacity:.25;
+  animation:float 12s linear infinite;
+  pointer-events:none;
+}
+@keyframes float{
+  from{transform:translateY(120vh)}
+  to{transform:translateY(-140vh)}
 }
 
-/ КРУГ С 8 /
-
-.avatar{
-width:140px;
-height:140px;
-border-radius:50%;
-background:white;
-display:flex;
-align-items:center;
-justify-content:center;
-font-size:70px;
-font-weight:900;
-color:#ff4fa3;
-margin-bottom:20px;
-}
-
-/ КНОПКИ /
-
+/* КНОПКИ */
 button{
-margin-top:20px;
-padding:14px 34px;
-border:none;
-border-radius:999px;
-background:white;
-color:#ff4fa3;
-font-size:16px;
-box-shadow:0 10px 30px rgba(0,0,0,.2);
+  margin-top:22px;
+  padding:14px 38px;
+  border:none;
+  border-radius:999px;
+  background:#fff;
+  color:#ff4f9a;
+  font-size:16px;
+  box-shadow:0 14px 30px rgba(0,0,0,.25);
 }
 
-/ СКРЫТО /
-
-.hidden{
-display:none;
+/* НОЧЬ */
+.nightBtn{
+  position:fixed;
+  right:14px;
+  bottom:14px;
+  background:rgba(0,0,0,.35);
+  color:#fff;
+  padding:10px 18px;
+  border-radius:999px;
+  font-size:14px;
 }
 
-/ ЛАБИРИНТ /
+/* СЕКРЕТ */
+.hidden{display:none}
 
+/* ЛАБИРИНТ */
 .maze{
-display:grid;
-grid-template-columns:repeat(11,26px);
-grid-template-rows:repeat(11,26px);
-gap:4px;
-margin:20px auto;
+  display:grid;
+  grid-template-columns:repeat(12,26px);
+  grid-template-rows:repeat(12,26px);
+  gap:4px;
+  margin:18px auto;
 }
-
 .cell{
-width:26px;
-height:26px;
-border-radius:6px;
+  width:26px;height:26px;border-radius:6px;
 }
+.wall{background:#ff9fc9}
+.path{background:#fff}
+.player{background:#ff4fa3}
+.exit{background:#7cffc3}
 
-.wall{
-background:#5b2d7a;
-}
-
-.path{
-background:white;
-}
-
-.player{
-background:#ff4fa3;
-}
-
-.exit{
-background:#6cffb2;
-}
-
-/ УПРАВЛЕНИЕ /
-
+/* УПРАВЛЕНИЕ */
 .controls{
-display:grid;
-grid-template-columns:60px 60px 60px;
-gap:10px;
-margin-top:20px;
+  display:grid;
+  grid-template-columns:60px 60px 60px;
+  gap:10px;
 }
-
 .controls button{
-width:60px;
-height:60px;
-font-size:22px;
+  width:60px;height:60px;font-size:22px;
 }
+.controls .empty{visibility:hidden}
 
-.controls .empty{
-visibility:hidden;
+/* ВЗРЫВ */
+.boom{
+  position:fixed;
+  font-size:26px;
+  animation:boom 1.6s forwards;
 }
-
+@keyframes boom{
+  from{transform:scale(.3);opacity:1}
+  to{transform:translateY(-200px) scale(1.8);opacity:0}
+}
 </style>
 </head>
 
@@ -169,200 +163,176 @@ visibility:hidden;
 
 <div class="pages">
 
-<!-- СТАРТ -->
-
+<!-- 1 -->
 <section class="page">
-
-<div class="avatar">8</div>
-
-<h1>Для мамы 💖</h1>
-
-<p>Листай вниз</p>
-
+  <div class="avatar8">8</div>
+  <h1>Для самой лучшей мамы 💖</h1>
+  <p>Листай вниз ✨</p>
 </section>
 
-<!-- ПОЗДРАВЛЕНИЕ -->
-
+<!-- 2 ПОЗДРАВЛЕНИЕ -->
 <section class="page">
-
-<div class="card">
-
-<p>
-
-Мамочка 🌸
-
-<br><br>
-
-Поздравляем тебя с 8 Марта 💐
-
-<br><br>
-
-Ты самый добрый,  
-самый заботливый  
-и самый любимый человек  
-в нашей жизни.
-
-<br><br>
-
-Спасибо тебе за тепло,  
-за поддержку  
-и за любовь,  
-которую ты даришь нам  
-каждый день.
-
-<br><br>
-
-Мы тебя очень любим 💖
-
-</p>
-
-</div>
-
+  <div class="card">
+    <p>
+      Мамочка 🌸  
+      <br><br>
+      С 8 Марта тебя, наша родная 💐  
+      Ты — самый тёплый,  
+      самый добрый человек  
+      в нашей жизни.  
+      <br><br>
+      Спасибо тебе за заботу,  
+      за терпение,  
+      за любовь,  
+      которой ты нас окружаешь  
+      каждый день 🤍  
+      <br><br>
+      Мы тебя очень-очень любим 💖
+    </p>
+  </div>
 </section>
 
-<!-- СЕКРЕТ -->
-
+<!-- 3 -->
 <section class="page">
-
-<h1>Секрет 🌷</h1>
-
-<p>Пройди небольшой лабиринт</p>
-
-<button onclick="openMaze()">Начать</button>
-
+  <p>
+    Мы сделали этот сайт  
+    специально для тебя ✨  
+    <br><br>
+    И здесь есть  
+    маленький секрет…
+  </p>
 </section>
 
-<!-- ЛАБИРИНТ -->
+<!-- 4 -->
+<section class="page">
+  <h1>Секрет 🌷</h1>
+  <p>Готова пройти мини-квест?</p>
+  <button onclick="openMaze()">Начать</button>
+</section>
 
+<!-- 5 ЛАБИРИНТ -->
 <section class="page hidden" id="mazeScreen">
-
-<h1>Лабиринт 🧩</h1>
-
-<div class="maze" id="maze"></div>
-
-<div class="controls">
-
-<div class="empty"></div>
-<button onclick="move(0,-1)">⬆️</button>
-<div class="empty"></div>
-
-<button onclick="move(-1,0)">⬅️</button>
-<div class="empty"></div>
-<button onclick="move(1,0)">➡️</button>
-
-<div class="empty"></div>
-<button onclick="move(0,1)">⬇️</button>
-<div class="empty"></div>
-
-</div>
-
+  <h1>Лабиринт 🧩</h1>
+  <div class="maze" id="maze"></div>
+  <div class="controls">
+    <div class="empty"></div>
+    <button onclick="move(0,-1)">⬆️</button>
+    <div class="empty"></div>
+    <button onclick="move(-1,0)">⬅️</button>
+    <div class="empty"></div>
+    <button onclick="move(1,0)">➡️</button>
+    <div class="empty"></div>
+    <button onclick="move(0,1)">⬇️</button>
+    <div class="empty"></div>
+  </div>
 </section>
 
-<!-- ФИНАЛ -->
+<!-- 6 -->
+<section class="page hidden" id="formScreen">
+  <h1>Ты справилась 💖</h1>
+  <input id="name" placeholder="Имя"><br><br>
+  <input id="age" placeholder="Возраст"><br>
+  <button onclick="finish()">Готово</button>
+</section>
 
+<!-- 7 -->
 <section class="page hidden" id="finalScreen">
-
-<h1>🎉</h1>
-
-<p id="finalText"></p>
-
+  <div style="font-size:72px">👻</div>
+  <p id="finalText"></p>
 </section>
 
 </div>
+
+<div class="nightBtn" onclick="toggleNight()">🌙 Ночь</div>
 
 <script>
+/* СЕРДЦА ФОН */
+for(let i=0;i<32;i++){
+  const h=document.createElement("div");
+  h.className="heart";
+  h.innerText="♡";
+  h.style.left=Math.random()*100+"vw";
+  h.style.animationDuration=8+Math.random()*12+"s";
+  document.body.appendChild(h);
+}
 
-/ КАРТА ЛАБИРИНТА /
+/* НОЧЬ */
+function toggleNight(){
+  document.body.classList.toggle("night");
+}
 
+/* ЛАБИРИНТ */
 const mazeMap=[
+"############",
+"#P   #     #",
+"# ## # ### #",
+"#    #   # #",
+"#### ### # #",
+"#      #   #",
+"# #### #### ",
+"#      #    ",
+"###### # ####",
+"#      #    E",
+"# ##########",
+"############"
+];
 
-"###########",
-"#P   #    #",
-"# ### ### #",
-"# #     # #",
-"# # ### # #",
-"#   #   # #",
-"### # ### #",
-"#   #     #",
-"# ### ### #",
-"#     #  E#",
-"###########"
-
-]
-
-let px=1
-let py=1
-
-const maze=document.getElementById("maze")
+let px=1,py=1;
+const mazeEl=document.getElementById("maze");
 
 function drawMaze(){
-
-maze.innerHTML=""
-
-mazeMap.forEach((row,y)=>{
-
-[...row].forEach((c,x)=>{
-
-const d=document.createElement("div")
-
-d.classList.add("cell")
-
-if(c=="#") d.classList.add("wall")
-else if(c=="E") d.classList.add("exit")
-else d.classList.add("path")
-
-if(x==px && y==py){
-d.className="cell player"
+  mazeEl.innerHTML="";
+  mazeMap.forEach((row,y)=>{
+    [...row].forEach((c,x)=>{
+      const d=document.createElement("div");
+      d.className="cell "+
+      (c=="#"? "wall": c=="E"? "exit":"path");
+      if(x==px&&y==py) d.className="cell player";
+      mazeEl.appendChild(d);
+    });
+  });
 }
-
-maze.appendChild(d)
-
-})
-
-})
-
-}
-
-drawMaze()
+drawMaze();
 
 function move(dx,dy){
-
-const nx=px+dx
-const ny=py+dy
-
-if(mazeMap[ny][nx]!="#"){
-
-px=nx
-py=ny
-
-drawMaze()
-
-if(mazeMap[ny][nx]=="E"){
-
-document.getElementById("mazeScreen").classList.add("hidden")
-document.getElementById("finalScreen").classList.remove("hidden")
-
-document.getElementById("finalText").innerText=
-"Мамочка, ты прошла лабиринт 💖 Мы тебя очень любим!"
-
-}
-
-}
-
+  const nx=px+dx, ny=py+dy;
+  if(mazeMap[ny][nx]!="#"){
+    px=nx; py=ny;
+    drawMaze();
+    if(mazeMap[ny][nx]=="E"){
+      mazeScreen.classList.add("hidden");
+      formScreen.classList.remove("hidden");
+    }
+  }
 }
 
 function openMaze(){
-
-document.getElementById("mazeScreen").classList.remove("hidden")
-
-document.querySelector(".pages").scrollTo({
-top:window.innerHeight2,
-behavior:"smooth"
-})
-
+  mazeScreen.classList.remove("hidden");
+  document.querySelector(".pages").scrollTo({
+    top:innerHeight*4,behavior:"smooth"
+  });
 }
 
+function finish(){
+  const n=name.value||"мамочка";
+  finalText.innerText=
+   `Молодец, ${n}! 💖  
+   Ты прошла мой лабиринт.  
+   Я тебя не съем :(`;
+  formScreen.classList.add("hidden");
+  finalScreen.classList.remove("hidden");
+
+  for(let i=0;i<40;i++){
+    const b=document.createElement("div");
+    b.className="boom";
+    b.innerText="💖";
+    b.style.left=Math.random()*100+"vw";
+    b.style.top="60vh";
+    document.body.appendChild(b);
+    setTimeout(()=>b.remove(),1600);
+  }
+}
 </script>
 
 </body>
-</ht
+</html>
